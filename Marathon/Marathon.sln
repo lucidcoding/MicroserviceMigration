@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marathon.UI", "Marathon.UI\Marathon.UI.csproj", "{7F145E2A-D471-42C0-8CA1-87C11383234F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marathon.Domain", "Marathon.Domain\Marathon.Domain.csproj", "{DD7142B6-4F33-4E1B-AC43-BDDEE64EE769}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marathon.Data", "Marathon.Data\Marathon.Data.csproj", "{EF7685F4-4976-45EF-B71F-053C8771613B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F145E2A-D471-42C0-8CA1-87C11383234F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F145E2A-D471-42C0-8CA1-87C11383234F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F145E2A-D471-42C0-8CA1-87C11383234F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F145E2A-D471-42C0-8CA1-87C11383234F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD7142B6-4F33-4E1B-AC43-BDDEE64EE769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD7142B6-4F33-4E1B-AC43-BDDEE64EE769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD7142B6-4F33-4E1B-AC43-BDDEE64EE769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD7142B6-4F33-4E1B-AC43-BDDEE64EE769}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF7685F4-4976-45EF-B71F-053C8771613B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF7685F4-4976-45EF-B71F-053C8771613B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF7685F4-4976-45EF-B71F-053C8771613B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF7685F4-4976-45EF-B71F-053C8771613B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
