@@ -1,0 +1,13 @@
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\Marathon.IntegrationTest.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\Marathon.IntegrationTest.pdb
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\Marathon.Data.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\Marathon.Domain.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\Ninject.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\EntityFramework.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\Marathon.Data.pdb
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\Marathon.Domain.pdb
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\Ninject.xml
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\EntityFramework.xml
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\obj\Debug\Marathon.IntegrationTest.csprojResolveAssemblyReference.cache
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\obj\Debug\Marathon.IntegrationTest.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\obj\Debug\Marathon.IntegrationTest.pdb

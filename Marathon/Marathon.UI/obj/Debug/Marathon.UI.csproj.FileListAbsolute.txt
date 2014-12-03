@@ -50,3 +50,10 @@ C:\Code\MicroserviceMigration\Marathon\Marathon.UI\bin\System.Web.WebPages.Razor
 C:\Code\MicroserviceMigration\Marathon\Marathon.UI\obj\Debug\Marathon.UI.csprojResolveAssemblyReference.cache
 C:\Code\MicroserviceMigration\Marathon\Marathon.UI\obj\Debug\Marathon.UI.dll
 C:\Code\MicroserviceMigration\Marathon\Marathon.UI\obj\Debug\Marathon.UI.pdb
+C:\Code\MicroserviceMigration\Marathon\Marathon.UI\bin\Ninject.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.UI\bin\Ninject.Web.Common.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.UI\bin\Ninject.Web.Mvc.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.UI\bin\WebActivatorEx.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.UI\bin\Ninject.xml
+C:\Code\MicroserviceMigration\Marathon\Marathon.UI\bin\Ninject.Web.Common.xml
+C:\Code\MicroserviceMigration\Marathon\Marathon.UI\bin\Ninject.Web.Mvc.xml

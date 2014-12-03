@@ -7,7 +7,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marathon.Domain", "Marathon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marathon.Data", "Marathon.Data\Marathon.Data.csproj", "{EF7685F4-4976-45EF-B71F-053C8771613B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marathon.IntegrationTest", "Marathon.IntegrationTest\Marathon.IntegrationTest.csproj", "{0E8928CC-AE44-4EAC-8731-090BED80F46A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E41AFDB5-F088-44E2-B42E-57021AEED927}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		Marathon.vsmdi = Marathon.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Marathon.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -25,6 +37,10 @@ Global
 		{EF7685F4-4976-45EF-B71F-053C8771613B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF7685F4-4976-45EF-B71F-053C8771613B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF7685F4-4976-45EF-B71F-053C8771613B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E8928CC-AE44-4EAC-8731-090BED80F46A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E8928CC-AE44-4EAC-8731-090BED80F46A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E8928CC-AE44-4EAC-8731-090BED80F46A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E8928CC-AE44-4EAC-8731-090BED80F46A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

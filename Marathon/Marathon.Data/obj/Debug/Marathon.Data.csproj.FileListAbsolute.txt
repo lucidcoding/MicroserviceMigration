@@ -14,3 +14,5 @@ C:\Code\MicroserviceMigration\Marathon\Marathon.Data\bin\Debug\Marathon.Domain.d
 C:\Code\MicroserviceMigration\Marathon\Marathon.Data\bin\Debug\Marathon.Domain.pdb
 C:\Code\MicroserviceMigration\Marathon\Marathon.Data\bin\Debug\EntityFramework.xml
 C:\Code\MicroserviceMigration\Marathon\Marathon.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Code\MicroserviceMigration\Marathon\Marathon.Data\bin\Debug\Ninject.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.Data\bin\Debug\Ninject.xml

@@ -50,6 +50,12 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryContracts\IVehicleRepository.cs" />
+    <Compile Include="RepositoryContracts\IDepotRepository.cs" />
+    <Compile Include="RepositoryContracts\ICustomerRepository.cs" />
+    <Compile Include="RepositoryContracts\IBookingRepository.cs" />
+    <Compile Include="RepositoryContracts\IRoleRepository.cs" />
+    <Compile Include="RepositoryContracts\IUserRepository.cs" />
     <Compile Include="Requests\RegisterCustomer.cs" />
   </ItemGroup>
   <ItemGroup />
