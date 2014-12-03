@@ -33,36 +33,78 @@ namespace Marathon.Data.Core
             modelBuilder.Entity<User>().ToTable("User");
             modelBuilder.Entity<Customer>().ToTable("Customer");
             
-            //modelBuilder.Entity<Bus>()
-            //    .HasRequired<User>(bus => bus.CreatedBy);
+            modelBuilder.Entity<User>()
+                .HasOptional<User>(user => user.CreatedBy)
+                .WithMany()
+                .HasForeignKey(user => user.CreatedById);
             
-            //modelBuilder.Entity<Bus>()
-            //    .HasMany<Booking>(bus => bus.Bookings)
-            //    .WithRequired(booking => booking.Bus)
-            //    .HasForeignKey(booking => booking.BusId);
+            modelBuilder.Entity<User>()
+                .HasOptional<User>(user => user.LastModifiedBy)
+                .WithMany()
+                .HasForeignKey(user => user.CreatedById); ;
 
-            //modelBuilder.Entity<Booking>()
-            //    .HasRequired<User>(booking => booking.CreatedBy);
+            modelBuilder.Entity<User>()
+                .HasRequired<Role>(user => user.Role);
 
-            //modelBuilder.Entity<Booking>()
-            //    .HasRequired<Customer>(booking => booking.Customer);
+            modelBuilder.Entity<Role>()
+                .HasOptional<User>(role => role.CreatedBy);
 
-            //modelBuilder.Entity<User>()
-            //    .HasRequired<User>(user => user.CreatedBy)
-            //    .WithMany()
-            //    .HasForeignKey(user => user.CreatedById);
+            modelBuilder.Entity<Role>()
+                .HasOptional<User>(role => role.LastModifiedBy);
 
-            //modelBuilder.Entity<Role>()
-            //    .HasRequired<User>(role => role.CreatedBy);
+            modelBuilder.Entity<Role>()
+                .HasMany<PermissionRole>(role => role.PermissionRoles);
 
-            //modelBuilder.Entity<Bus>()
-            //    .HasRequired<User>(bus => bus.CreatedBy);
+            modelBuilder.Entity<Permission>()
+                .HasOptional<User>(permission => permission.CreatedBy);
 
-            //modelBuilder.Entity<Enquiry>()
-            //    .HasOptional<Booking>(enquiry => enquiry.ResultingBooking);
+            modelBuilder.Entity<Permission>()
+                .HasOptional<User>(permission => permission.LastModifiedBy);
+            
+            modelBuilder.Entity<PermissionRole>()
+                .HasOptional<User>(permissionRole => permissionRole.CreatedBy);
 
-            //modelBuilder.Entity<Enquiry>()
-            //    .HasRequired<User>(enquiry => enquiry.CreatedBy);
+            modelBuilder.Entity<PermissionRole>()
+                .HasOptional<User>(permissionRole => permissionRole.LastModifiedBy);
+            
+            modelBuilder.Entity<PermissionRole>()
+                .HasRequired<Permission>(permissionRole => permissionRole.Permission);
+
+            modelBuilder.Entity<Booking>()
+                .HasOptional<User>(booking => booking.CreatedBy);
+
+            modelBuilder.Entity<Booking>()
+                .HasOptional<User>(booking => booking.LastModifiedBy);
+
+            modelBuilder.Entity<Booking>()
+                .HasOptional<Vehicle>(booking => booking.Vehicle);
+
+            modelBuilder.Entity<Booking>()
+                .HasOptional<Customer>(booking => booking.Customer);
+            
+            modelBuilder.Entity<Customer>()
+                .HasOptional<User>(customer => customer.CreatedBy);
+            
+            modelBuilder.Entity<Customer>()
+                .HasOptional<User>(customer => customer.User);
+
+            modelBuilder.Entity<Customer>()
+                .HasOptional<User>(customer => customer.LastModifiedBy);
+            
+            modelBuilder.Entity<Depot>()
+                .HasOptional<User>(depot => depot.CreatedBy);
+            
+            modelBuilder.Entity<Depot>()
+                .HasOptional<User>(depot => depot.LastModifiedBy);
+            
+            modelBuilder.Entity<Vehicle>()
+                .HasOptional<User>(vehicle => vehicle.CreatedBy);
+            
+            modelBuilder.Entity<Vehicle>()
+                .HasOptional<User>(vehicle => vehicle.LastModifiedBy);
+            
+            modelBuilder.Entity<Vehicle>()
+                .HasOptional<Depot>(vehicle => vehicle.HomeDepot);
 
             base.OnModelCreating(modelBuilder);
         }

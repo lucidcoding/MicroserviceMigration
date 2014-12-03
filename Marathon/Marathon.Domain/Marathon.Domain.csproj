@@ -41,6 +41,8 @@
     <Compile Include="Common\ValidationMessage.cs" />
     <Compile Include="Common\ValidationMessageCollection.cs" />
     <Compile Include="Common\ValidationMessageType.cs" />
+    <Compile Include="Constants\UserIds.cs" />
+    <Compile Include="Constants\VehicleIds.cs" />
     <Compile Include="Entities\Booking.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Depot.cs" />
@@ -56,7 +58,8 @@
     <Compile Include="RepositoryContracts\IBookingRepository.cs" />
     <Compile Include="RepositoryContracts\IRoleRepository.cs" />
     <Compile Include="RepositoryContracts\IUserRepository.cs" />
-    <Compile Include="Requests\RegisterCustomer.cs" />
+    <Compile Include="Requests\MakeBookingRequest.cs" />
+    <Compile Include="Requests\RegisterCustomerRequest.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

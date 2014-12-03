@@ -1,38 +1,38 @@
-USE [master]
+--USE [master]
 
-IF EXISTS (SELECT * FROM sysdatabases WHERE name='Marathon') 
-BEGIN 
-	EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'Marathon'
-	ALTER DATABASE [Marathon] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
-	DROP DATABASE [Marathon]
-END
-GO
+--IF EXISTS (SELECT * FROM sysdatabases WHERE name='Marathon') 
+--BEGIN 
+--	EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'Marathon'
+--	ALTER DATABASE [Marathon] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+--	DROP DATABASE [Marathon]
+--END
+--GO
 
-CREATE DATABASE [Marathon] 
-GO
+--CREATE DATABASE [Marathon] 
+--GO
 
 USE [Marathon]
 
-IF NOT EXISTS(SELECT name FROM [master].[dbo].syslogins WHERE name = 'MarathonUser')
-BEGIN
-	CREATE LOGIN [MarathonUser] WITH PASSWORD = 'MarathonUser123' 
-END
-GO
+--IF NOT EXISTS(SELECT name FROM [master].[dbo].syslogins WHERE name = 'MarathonUser')
+--BEGIN
+--	CREATE LOGIN [MarathonUser] WITH PASSWORD = 'MarathonUser123' 
+--END
+--GO
 
-IF NOT EXISTS (SELECT * FROM sys.sysusers WHERE name = N'MarathonUser')
-BEGIN
-	CREATE USER [MarathonUser] FOR LOGIN [MarathonUser] WITH DEFAULT_SCHEMA=[dbo]	
-END
-GO
+--IF NOT EXISTS (SELECT * FROM sys.sysusers WHERE name = N'MarathonUser')
+--BEGIN
+--	CREATE USER [MarathonUser] FOR LOGIN [MarathonUser] WITH DEFAULT_SCHEMA=[dbo]	
+--END
+--GO
 
-IF DATABASE_PRINCIPAL_ID('AllowSelectInsertUpdate') IS NULL
-BEGIN
-	CREATE ROLE [AllowSelectInsertUpdate] 	
-END
-GO
+--IF DATABASE_PRINCIPAL_ID('AllowSelectInsertUpdate') IS NULL
+--BEGIN
+--	CREATE ROLE [AllowSelectInsertUpdate] 	
+--END
+--GO
 
-EXEC sp_addrolemember 'AllowSelectInsertUpdate', 'MarathonUser'
-GO
+--EXEC sp_addrolemember 'AllowSelectInsertUpdate', 'MarathonUser'
+--GO
 
 IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES
 	WHERE TABLE_NAME = 'Role')
@@ -97,8 +97,8 @@ BEGIN
 		[Id] [uniqueidentifier] NOT NULL,
 		[RoleName] [nvarchar](20) NULL,
 		[Description] [nvarchar](50) NULL,
-		[CreatedById] [uniqueidentifier] NOT NULL,
-		[CreatedOn] [datetime] NOT NULL,
+		[CreatedById] [uniqueidentifier] NULL,
+		[CreatedOn] [datetime] NULL,
 		[LastModifiedById] [uniqueidentifier] NULL,
 		[LastModifiedOn] [datetime] NULL,
 		[Deleted] [bit]	NOT NULL,
@@ -124,8 +124,8 @@ BEGIN
 	CREATE TABLE [dbo].[Permission](
 		[Id] [uniqueidentifier] NOT NULL,
 		[Description] [nvarchar](50) NULL,
-		[CreatedById] [uniqueidentifier] NOT NULL,
-		[CreatedOn] [datetime] NOT NULL,
+		[CreatedById] [uniqueidentifier] NULL,
+		[CreatedOn] [datetime] NULL,
 		[LastModifiedById] [uniqueidentifier] NULL,
 		[LastModifiedOn] [datetime] NULL,
 		[Deleted] [bit]	NOT NULL,
@@ -151,8 +151,8 @@ BEGIN
 		[Id] [uniqueidentifier] NOT NULL,
 		[PermissionId] [uniqueidentifier] NULL,
 		[RoleId] [uniqueidentifier] NULL,
-		[CreatedById] [uniqueidentifier] NOT NULL,
-		[CreatedOn] [datetime] NOT NULL,
+		[CreatedById] [uniqueidentifier] NULL,
+		[CreatedOn] [datetime] NULL,
 		[LastModifiedById] [uniqueidentifier] NULL,
 		[LastModifiedOn] [datetime] NULL,
 		[Deleted] [bit]	NOT NULL,
@@ -188,8 +188,8 @@ BEGIN
 		[PostCode] [nvarchar](10) NULL,
 		[Email] [nvarchar](50) NULL,
 		[TelephoneNumber] [nvarchar](50) NULL,
-		[CreatedById] [uniqueidentifier] NOT NULL,
-		[CreatedOn] [datetime] NOT NULL,
+		[CreatedById] [uniqueidentifier] NULL,
+		[CreatedOn] [datetime] NULL,
 		[LastModifiedById] [uniqueidentifier] NULL,
 		[LastModifiedOn] [datetime] NULL,
 		[Deleted] [bit]	NOT NULL,
@@ -206,7 +206,7 @@ BEGIN
 
 	INSERT INTO [User] ([Id], [Username], [RoleId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('188403fb-3c5e-45a3-aa39-5908e86ea372', 'Sql Initialise', '8dc59a62-a077-41cc-bac7-f8be505ae4a8', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
 	INSERT INTO [User] ([Id], [Username], [RoleId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('c8238876-47fc-42af-8a32-926061097f1c', 'Application', '8dc59a62-a077-41cc-bac7-f8be505ae4a8', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
-	INSERT INTO [User] ([Id], [Username], [RoleId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('3b50e7c8-c6ce-4446-9d51-6cc7a7877343', 'Customer', '8dc59a62-a077-41cc-bac7-f8be505ae4a8', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
+	INSERT INTO [User] ([Id], [Username], [RoleId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('3b50e7c8-c6ce-4446-9d51-6cc7a7877343', 'Test', '8dc59a62-a077-41cc-bac7-f8be505ae4a8', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
 END 
 GO
 
@@ -222,8 +222,8 @@ CREATE TABLE [dbo].[Depot](
 		[Address3] [nvarchar](50) NULL,
 		[Address4] [nvarchar](50) NULL,
 		[PostCode] [nvarchar](10) NULL,
-		[CreatedById] [uniqueidentifier] NOT NULL,
-		[CreatedOn] [datetime] NOT NULL,
+		[CreatedById] [uniqueidentifier] NULL,
+		[CreatedOn] [datetime] NULL,
 		[LastModifiedById] [uniqueidentifier] NULL,
 		[LastModifiedOn] [datetime] NULL,
 		[Deleted] [bit]	NOT NULL,
@@ -254,8 +254,8 @@ CREATE TABLE [dbo].[Vehicle](
 		[Model] [nvarchar](50) NULL,
 		[PricePerMile] [money] NOT NULL,
 		[HomeDepotId] [uniqueidentifier] NULL,
-		[CreatedById] [uniqueidentifier] NOT NULL,
-		[CreatedOn] [datetime] NOT NULL,
+		[CreatedById] [uniqueidentifier] NULL,
+		[CreatedOn] [datetime] NULL,
 		[LastModifiedById] [uniqueidentifier] NULL,
 		[LastModifiedOn] [datetime] NULL,
 		[Deleted] [bit]	NOT NULL,
@@ -288,13 +288,13 @@ BEGIN
 		[UserId] [uniqueidentifier] NULL,
 		[FamilyName] [nvarchar](50) NULL,
 		[GivenName] [nvarchar](50) NULL,
-		[AddressLine1] [nvarchar](50) NULL,
-		[AddressLine2] [nvarchar](50) NULL,
-		[AddressLine3] [nvarchar](50) NULL,
-		[AddressLine4] [nvarchar](50) NULL,
+		[Address1] [nvarchar](50) NULL,
+		[Address2] [nvarchar](50) NULL,
+		[Address3] [nvarchar](50) NULL,
+		[Address4] [nvarchar](50) NULL,
 		[PostCode] [nvarchar](10) NULL,
-		[CreatedById] [uniqueidentifier] NOT NULL,
-		[CreatedOn] [datetime] NOT NULL,
+		[CreatedById] [uniqueidentifier] NULL,
+		[CreatedOn] [datetime] NULL,
 		[LastModifiedById] [uniqueidentifier] NULL,
 		[LastModifiedOn] [datetime] NULL,
 		[Deleted] [bit]	NOT NULL,
@@ -323,8 +323,8 @@ CREATE TABLE [dbo].[Booking](
 		[EndMileage] [decimal](8,2) NULL,
 		[VehicleId] [uniqueidentifier] NULL,
 		[CustomerId] [uniqueidentifier] NULL,
-		[CreatedById] [uniqueidentifier] NOT NULL,
-		[CreatedOn] [datetime] NOT NULL,
+		[CreatedById] [uniqueidentifier] NULL,
+		[CreatedOn] [datetime] NULL,
 		[LastModifiedById] [uniqueidentifier] NULL,
 		[LastModifiedOn] [datetime] NULL,
 		[Deleted] [bit]	NOT NULL,

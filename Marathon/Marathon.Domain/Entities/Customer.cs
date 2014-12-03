@@ -11,7 +11,6 @@ namespace Marathon.Domain.Entities
     {
         public virtual Guid? UserId { get; set; }
         public virtual User User { get; set; }
-        public virtual string Password { get; set; }
         public virtual string FamilyName { get; set; }
         public virtual string GivenName { get; set; }
         public virtual string Address1 { get; set; }
@@ -20,11 +19,11 @@ namespace Marathon.Domain.Entities
         public virtual string Address4 { get; set; }
         public virtual string PostCode { get; set; }
 
-        public static Customer Register(RegisterCustomer request)
+        public static Customer Register(RegisterCustomerRequest request)
         {
             var customer = new Customer();
+            customer.Id = Guid.NewGuid();
             customer.User = request.User;
-            customer.Password = request.Password;
             customer.FamilyName = request.FamilyName;
             customer.GivenName = request.GivenName;
             customer.Address1 = request.Address1;
@@ -32,6 +31,9 @@ namespace Marathon.Domain.Entities
             customer.Address3 = request.Address3;
             customer.Address4 = request.Address4;
             customer.PostCode = request.PostCode;
+            customer.CreatedBy = request.User;
+            customer.CreatedOn = DateTime.Now;
+            customer.Deleted = false;
             return customer;
         }
     }

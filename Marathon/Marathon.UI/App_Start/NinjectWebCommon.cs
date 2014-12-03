@@ -10,6 +10,7 @@ namespace Marathon.UI.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using Marathon.Data.Common;
 
     public static class NinjectWebCommon 
     {
@@ -61,6 +62,7 @@ namespace Marathon.UI.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IContextProvider>().To<GenericContextProvider>().InRequestScope();
         }        
     }
 }

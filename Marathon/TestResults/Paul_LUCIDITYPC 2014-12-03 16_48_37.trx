@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="b9366994-ac48-4b8e-916a-a14b2c62b185" name="Paul@LUCIDITYPC 2014-12-03 16:48:37" runUser="LucidityPc\Paul" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="454fff11-78e4-46b1-93ba-f0be7b533939">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Paul_LUCIDITYPC 2014-12-03 16_48_37">
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.SqlServer.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\Marathon.Data\bin\Debug\Marathon.Data.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.Smo.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.SqlEnum.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.ConnectionInfo.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.SqlClrProvider.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Ninject.3.2.2.0\lib\net40\Ninject.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.SmoExtended.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\Marathon.Domain\bin\Debug\Marathon.Domain.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.ConnectionInfoExtended.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.Management.Sdk.Sfc.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-12-03T16:48:37.7400521+00:00" queuing="2014-12-03T16:48:37.8521246+00:00" start="2014-12-03T16:48:37.8651351+00:00" finish="2014-12-03T16:48:44.6025586+00:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="CanAddBooking" storage="c:\code\microservicemigration\marathon\marathon.integrationtest\bin\debug\marathon.integrationtest.dll" id="da894f7e-216d-e624-97f5-6c38d1c19a37">
+      <Execution id="4bdc2247-bcb9-40db-818a-f6743118d8ca" />
+      <TestMethod codeBase="C:/Code/MicroserviceMigration/Marathon/Marathon.IntegrationTest/bin/Debug/Marathon.IntegrationTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Marathon.IntegrationTest.Repositories.BookingRepositoryTest, Marathon.IntegrationTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CanAddBooking" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="da894f7e-216d-e624-97f5-6c38d1c19a37" executionId="4bdc2247-bcb9-40db-818a-f6743118d8ca" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="4bdc2247-bcb9-40db-818a-f6743118d8ca" testId="da894f7e-216d-e624-97f5-6c38d1c19a37" testName="CanAddBooking" computerName="LUCIDITYPC" duration="00:00:05.8969415" startTime="2014-12-03T16:48:37.9361850+00:00" endTime="2014-12-03T16:48:44.5225074+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4bdc2247-bcb9-40db-818a-f6743118d8ca">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Marathon.IntegrationTest.Repositories.BookingRepositoryTest.CanAddBooking threw exception: 
+System.InvalidOperationException: Unable to determine the principal end of an association between the types 'Marathon.Domain.Entities.User' and 'Marathon.Domain.Entities.User'. The principal end of this association must be explicitly configured using either the relationship fluent API or data annotations.</Message>
+          <StackTrace>    at System.Data.Entity.ModelConfiguration.Edm.Services.AssociationTypeMappingGenerator.GenerateIndependentAssociationType(AssociationType associationType, DbDatabaseMapping databaseMapping)
+   at System.Data.Entity.ModelConfiguration.Edm.Services.DatabaseMappingGenerator.GenerateAssociationTypes(DbDatabaseMapping databaseMapping)
+   at System.Data.Entity.ModelConfiguration.Edm.Services.DatabaseMappingGenerator.Generate(EdmModel conceptualModel)
+   at System.Data.Entity.DbModelBuilder.Build(DbProviderManifest providerManifest, DbProviderInfo providerInfo)
+   at System.Data.Entity.DbModelBuilder.Build(DbConnection providerConnection)
+   at System.Data.Entity.Internal.LazyInternalContext.CreateModel(LazyInternalContext internalContext)
+   at System.Data.Entity.Internal.RetryLazy`2.GetValue(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   at System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   at Marathon.Data.Common.Repository`2.GetById(TId id) in C:\Code\MicroserviceMigration\Marathon\Marathon.Data\Common\Repository.cs:line 48
+   at Marathon.IntegrationTest.Repositories.BookingRepositoryTest.CanAddBooking() in C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\Repositories\BookingRepositoryTest.cs:line 52
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

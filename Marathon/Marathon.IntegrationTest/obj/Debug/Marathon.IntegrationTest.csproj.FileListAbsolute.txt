@@ -11,3 +11,13 @@ C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\Entity
 C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\obj\Debug\Marathon.IntegrationTest.csprojResolveAssemblyReference.cache
 C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\obj\Debug\Marathon.IntegrationTest.dll
 C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\obj\Debug\Marathon.IntegrationTest.pdb
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\Microsoft.SqlServer.ConnectionInfoExtended.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\Microsoft.SqlServer.Smo.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\Microsoft.SqlServer.SmoExtended.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\Microsoft.SqlServer.SqlClrProvider.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\Marathon.IntegrationTest.dll.config
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\EntityFramework.SqlServer.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\bin\Debug\EntityFramework.SqlServer.xml

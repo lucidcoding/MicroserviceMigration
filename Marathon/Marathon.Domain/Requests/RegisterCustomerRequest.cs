@@ -6,10 +6,9 @@ using Marathon.Domain.Entities;
 
 namespace Marathon.Domain.Requests
 {
-    public class RegisterCustomer
+    public class RegisterCustomerRequest
     {
         public virtual User User { get; set; }
-        public virtual string Password { get; set; }
         public virtual string FamilyName { get; set; }
         public virtual string GivenName { get; set; }
         public virtual string Address1 { get; set; }

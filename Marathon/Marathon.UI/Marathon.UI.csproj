@@ -150,6 +150,16 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Marathon.Data\Marathon.Data.csproj">
+      <Project>{EF7685F4-4976-45EF-B71F-053C8771613B}</Project>
+      <Name>Marathon.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Marathon.Domain\Marathon.Domain.csproj">
+      <Project>{DD7142B6-4F33-4E1B-AC43-BDDEE64EE769}</Project>
+      <Name>Marathon.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

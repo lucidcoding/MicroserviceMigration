@@ -8,6 +8,6 @@ namespace Marathon.Domain.Entities
     {
         public virtual string Description { get; set; }
         public virtual string RoleName { get; set; }
-        public virtual IList<PermissionRole> PermissionRoles { get; set; }
+        public virtual ICollection<PermissionRole> PermissionRoles { get; set; }
     }
 }

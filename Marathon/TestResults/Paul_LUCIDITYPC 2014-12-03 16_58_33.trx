@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="d6ccfa6d-caf7-4d6c-ba9f-a9c636f2d8b4" name="Paul@LUCIDITYPC 2014-12-03 16:58:33" runUser="LucidityPc\Paul" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="454fff11-78e4-46b1-93ba-f0be7b533939">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Paul_LUCIDITYPC 2014-12-03 16_58_33">
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.SqlServer.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\Marathon.Data\bin\Debug\Marathon.Data.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.Smo.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.SqlEnum.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.ConnectionInfo.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.SqlClrProvider.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Ninject.3.2.2.0\lib\net40\Ninject.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.SmoExtended.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\Marathon.Domain\bin\Debug\Marathon.Domain.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.ConnectionInfoExtended.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.Management.Sdk.Sfc.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-12-03T16:58:33.7648397+00:00" queuing="2014-12-03T16:58:34.4763435+00:00" start="2014-12-03T16:58:34.5704110+00:00" finish="2014-12-03T16:58:42.0516154+00:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="CanAddBooking" storage="c:\code\microservicemigration\marathon\marathon.integrationtest\bin\debug\marathon.integrationtest.dll" id="da894f7e-216d-e624-97f5-6c38d1c19a37">
+      <Execution id="273d4ae6-04f6-49ef-a85e-ebcb0a370b67" />
+      <TestMethod codeBase="C:/Code/MicroserviceMigration/Marathon/Marathon.IntegrationTest/bin/Debug/Marathon.IntegrationTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Marathon.IntegrationTest.Repositories.BookingRepositoryTest, Marathon.IntegrationTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CanAddBooking" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="da894f7e-216d-e624-97f5-6c38d1c19a37" executionId="273d4ae6-04f6-49ef-a85e-ebcb0a370b67" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="273d4ae6-04f6-49ef-a85e-ebcb0a370b67" testId="da894f7e-216d-e624-97f5-6c38d1c19a37" testName="CanAddBooking" computerName="LUCIDITYPC" duration="00:00:04.6558717" startTime="2014-12-03T16:58:34.5974297+00:00" endTime="2014-12-03T16:58:40.4154748+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="273d4ae6-04f6-49ef-a85e-ebcb0a370b67">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Marathon.IntegrationTest.Repositories.BookingRepositoryTest.CanAddBooking threw exception: 
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---&gt; System.Data.SqlClient.SqlException: Cannot open database "BusConductor" requested by the login. The login failed.
+Login failed for user 'MarathonUser'.</Message>
+          <StackTrace>    at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.&lt;Open&gt;b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.&lt;Open&gt;b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.&lt;&gt;c__DisplayClass1.&lt;Execute&gt;b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+ --- End of inner exception stack trace ---
+    at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.&lt;&gt;c__DisplayClass3.&lt;GetResults&gt;b__1()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.&lt;System.Collections.Generic.IEnumerable&lt;T&gt;.GetEnumerator&gt;b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.&lt;GetElementFunction&gt;b__2[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.FindInStore(WrappedEntityKey key, String keyValuesParamName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   at System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   at Marathon.Data.Common.Repository`2.GetById(TId id) in C:\Code\MicroserviceMigration\Marathon\Marathon.Data\Common\Repository.cs:line 48
+   at Marathon.IntegrationTest.Repositories.BookingRepositoryTest.CanAddBooking() in C:\Code\MicroserviceMigration\Marathon\Marathon.IntegrationTest\Repositories\BookingRepositoryTest.cs:line 52
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
