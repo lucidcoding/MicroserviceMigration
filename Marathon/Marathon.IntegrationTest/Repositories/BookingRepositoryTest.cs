@@ -26,6 +26,7 @@ namespace Marathon.IntegrationTest.Repositories
         [TestInitialize]
         public void SetUp()
         {
+            _contextProvider = TestRegistry.Kernel.Get<IContextProvider>();
             _bookingRepository = TestRegistry.Kernel.Get<IBookingRepository>();
             _userRepository = TestRegistry.Kernel.Get<IUserRepository>();
             _vehicleRepository = TestRegistry.Kernel.Get<IVehicleRepository>();
@@ -56,7 +57,7 @@ namespace Marathon.IntegrationTest.Repositories
                     Address2 = "Greenton",
                     Address3 = "Greenshire",
                     PostCode = "GN1 1AA",
-                    User = user
+                    ApplicationUser = user
                 });
 
                 var booking = Booking.Make(makeBookingRequest);
@@ -73,7 +74,7 @@ namespace Marathon.IntegrationTest.Repositories
                 Assert.IsNotNull(storedBooking.BookingNumber);
                 Assert.AreEqual(makeBookingRequest.EndDate, storedBooking.EndDate.Value);
                 Assert.AreEqual(makeBookingRequest.EndDate, storedBooking.EndDate.Value);
-                Assert.AreEqual(UserIds.Test, storedBooking.CreatedBy.Id.Value);
+                Assert.AreEqual(makeBookingRequest.Customer.User.Id.Value, storedBooking.CreatedBy.Id.Value);
                 Assert.AreEqual("Green", storedBooking.Customer.FamilyName);
                 Assert.AreEqual("Gary", storedBooking.Customer.GivenName);
                 Assert.AreEqual("Ford", storedBooking.Vehicle.Make);

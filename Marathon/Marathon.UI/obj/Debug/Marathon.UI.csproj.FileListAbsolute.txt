@@ -57,3 +57,7 @@ C:\Code\MicroserviceMigration\Marathon\Marathon.UI\bin\WebActivatorEx.dll
 C:\Code\MicroserviceMigration\Marathon\Marathon.UI\bin\Ninject.xml
 C:\Code\MicroserviceMigration\Marathon\Marathon.UI\bin\Ninject.Web.Common.xml
 C:\Code\MicroserviceMigration\Marathon\Marathon.UI\bin\Ninject.Web.Mvc.xml
+C:\Code\MicroserviceMigration\Marathon\Marathon.UI\bin\Marathon.Data.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.UI\bin\Marathon.Domain.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.UI\bin\Marathon.Data.pdb
+C:\Code\MicroserviceMigration\Marathon\Marathon.UI\bin\Marathon.Domain.pdb

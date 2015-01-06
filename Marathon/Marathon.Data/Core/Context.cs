@@ -19,6 +19,7 @@ namespace Marathon.Data.Core
         public DbSet<PermissionRole> PermissionRoles { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<MaintenanceCheck> MaintenanceChecks { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -77,9 +78,6 @@ namespace Marathon.Data.Core
                 .HasOptional<User>(booking => booking.LastModifiedBy);
 
             modelBuilder.Entity<Booking>()
-                .HasOptional<Vehicle>(booking => booking.Vehicle);
-
-            modelBuilder.Entity<Booking>()
                 .HasOptional<Customer>(booking => booking.Customer);
             
             modelBuilder.Entity<Customer>()
@@ -105,6 +103,16 @@ namespace Marathon.Data.Core
             
             modelBuilder.Entity<Vehicle>()
                 .HasOptional<Depot>(vehicle => vehicle.HomeDepot);
+
+            modelBuilder.Entity<Vehicle>()
+                .HasMany<Booking>(bus => bus.Bookings)
+                .WithRequired(booking => booking.Vehicle)
+                .HasForeignKey(booking => booking.VehicleId);
+
+            modelBuilder.Entity<Vehicle>()
+                .HasMany<MaintenanceCheck>(bus => bus.MaintenanceChecks)
+                .WithRequired(maintenanceCheck => maintenanceCheck.Vehicle)
+                .HasForeignKey(maintenanceCheck => maintenanceCheck.VehicleId);
 
             base.OnModelCreating(modelBuilder);
         }

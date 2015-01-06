@@ -1,0 +1,9 @@
+C:\Code\MicroserviceMigration\Marathon\Marathon.Domain.UnitTests\bin\Debug\Marathon.Domain.UnitTests.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.Domain.UnitTests\bin\Debug\Marathon.Domain.UnitTests.pdb
+C:\Code\MicroserviceMigration\Marathon\Marathon.Domain.UnitTests\bin\Debug\Marathon.Domain.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.Domain.UnitTests\bin\Debug\Marathon.Domain.pdb
+C:\Code\MicroserviceMigration\Marathon\Marathon.Domain.UnitTests\obj\Debug\Marathon.Domain.UnitTests.csprojResolveAssemblyReference.cache
+C:\Code\MicroserviceMigration\Marathon\Marathon.Domain.UnitTests\obj\Debug\Marathon.Domain.UnitTests.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.Domain.UnitTests\obj\Debug\Marathon.Domain.UnitTests.pdb
+C:\Code\MicroserviceMigration\Marathon\Marathon.Domain.UnitTests\bin\Debug\Moq.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.Domain.UnitTests\bin\Debug\Moq.xml

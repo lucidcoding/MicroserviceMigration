@@ -41,16 +41,20 @@
     <Compile Include="Common\ValidationMessage.cs" />
     <Compile Include="Common\ValidationMessageCollection.cs" />
     <Compile Include="Common\ValidationMessageType.cs" />
+    <Compile Include="Constants\MaintenanceConstants.cs" />
+    <Compile Include="Constants\RoleIds.cs" />
     <Compile Include="Constants\UserIds.cs" />
     <Compile Include="Constants\VehicleIds.cs" />
     <Compile Include="Entities\Booking.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Depot.cs" />
+    <Compile Include="Entities\MaintenanceCheck.cs" />
     <Compile Include="Entities\Permission.cs" />
     <Compile Include="Entities\PermissionRole.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Vehicle.cs" />
+    <Compile Include="InfrastructureContracts\IEmailer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryContracts\IVehicleRepository.cs" />
     <Compile Include="RepositoryContracts\IDepotRepository.cs" />
@@ -58,8 +62,10 @@
     <Compile Include="RepositoryContracts\IBookingRepository.cs" />
     <Compile Include="RepositoryContracts\IRoleRepository.cs" />
     <Compile Include="RepositoryContracts\IUserRepository.cs" />
+    <Compile Include="Requests\CollectBookingRequest.cs" />
     <Compile Include="Requests\MakeBookingRequest.cs" />
     <Compile Include="Requests\RegisterCustomerRequest.cs" />
+    <Compile Include="Requests\ReturnBookingRequest.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

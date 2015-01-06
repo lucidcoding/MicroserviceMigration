@@ -115,6 +115,7 @@ BEGIN
 
 	INSERT INTO [Role] ([Id], [RoleName], [Description], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('80fc2a10-d07e-4e06-9b91-4ba936e335ba', 'Guest', 'Guest', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
 	INSERT INTO [Role] ([Id], [RoleName], [Description], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('8dc59a62-a077-41cc-bac7-f8be505ae4a8', 'Admin', 'Admin User', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
+	INSERT INTO [Role] ([Id], [RoleName], [Description], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('2C6E33B8-BD7C-492C-807D-B4B1BCAE5F4F', 'Customer', 'Admin User', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
 END
 GO
 
@@ -323,6 +324,8 @@ CREATE TABLE [dbo].[Booking](
 		[EndMileage] [decimal](8,2) NULL,
 		[VehicleId] [uniqueidentifier] NULL,
 		[CustomerId] [uniqueidentifier] NULL,
+		[CollectedOn] [datetime] NULL,
+		[ReturnedOn] [datetime] NULL,
 		[CreatedById] [uniqueidentifier] NULL,
 		[CreatedOn] [datetime] NULL,
 		[LastModifiedById] [uniqueidentifier] NULL,
@@ -335,6 +338,29 @@ CREATE TABLE [dbo].[Booking](
 	) ON [PRIMARY]
 
 	GRANT SELECT, INSERT, UPDATE ON [Booking] TO [AllowSelectInsertUpdate]
+END 
+GO
+
+IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES
+	WHERE TABLE_NAME = 'MaintenanceCheck')
+BEGIN
+CREATE TABLE [dbo].[MaintenanceCheck](
+		[Id] [uniqueidentifier] NOT NULL,
+		[VehicleId] [uniqueidentifier] NULL,
+		[CheckedOn] [datetime] NULL,
+		[Mileage] [decimal](8,2) NULL,
+		[CreatedById] [uniqueidentifier] NULL,
+		[CreatedOn] [datetime] NULL,
+		[LastModifiedById] [uniqueidentifier] NULL,
+		[LastModifiedOn] [datetime] NULL,
+		[Deleted] [bit]	NOT NULL,
+		CONSTRAINT [PK_MaintenanceCheck] PRIMARY KEY CLUSTERED 
+		(
+			[Id] ASC
+		)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+
+	GRANT SELECT, INSERT, UPDATE ON [MaintenanceCheck] TO [AllowSelectInsertUpdate]
 END 
 GO
 
