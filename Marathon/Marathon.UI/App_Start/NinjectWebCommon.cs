@@ -11,6 +11,8 @@ namespace Marathon.UI.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Marathon.Data.Common;
+    using Marathon.Data.Core;
+    using Marathon.UI.ViewModelMappers.Customer;
 
     public static class NinjectWebCommon 
     {
@@ -63,6 +65,8 @@ namespace Marathon.UI.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IContextProvider>().To<GenericContextProvider>().InRequestScope();
+            kernel.Bind<IRegisterViewModelMapper>().To<RegisterViewModelMapper>();
+            new DataRegistry().RegisterServices(kernel);
         }        
     }
 }

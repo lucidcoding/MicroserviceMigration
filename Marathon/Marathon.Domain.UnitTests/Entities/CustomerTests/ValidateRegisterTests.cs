@@ -24,10 +24,11 @@ namespace Marathon.Domain.UnitTests.Entities.CustomerTests
         {
             var request = new RegisterCustomerRequest();
             var validationMessages = Customer.ValidateRegister(request);
-            Assert.AreEqual(3, validationMessages.Count);
+            Assert.AreEqual(4, validationMessages.Count);
             Assert.IsTrue(validationMessages.Any(x => x.Text.Equals("ApplicationUser not supplied")));
             Assert.IsTrue(validationMessages.Any(x => x.Text.Equals("CustomerRole not supplied")));
-            Assert.IsTrue(validationMessages.Any(x => x.Text.Equals("EmailAddress not supplied")));
+            Assert.IsTrue(validationMessages.Any(x => x.Text.Equals("Email not supplied")));
+            Assert.IsTrue(validationMessages.Any(x => x.Text.Equals("Post code not supplied")));
         }
     }
 }

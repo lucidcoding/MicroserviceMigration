@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Marathon.Domain.Common;
 using Marathon.Domain.Requests;
+using System.Text.RegularExpressions;
 
 namespace Marathon.Domain.Entities
 {
@@ -25,6 +26,33 @@ namespace Marathon.Domain.Entities
 
             //Only a selection of fields validated for demo purposes.
 
+            var rxPostCode =
+                new Regex(
+                    @"^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$");
+
+            if (string.IsNullOrEmpty(request.PostCode))
+            {
+                validationMessages.AddError("PostCode", "Post code not supplied");
+            }
+            else
+            {
+                if (!rxPostCode.IsMatch(request.PostCode)) validationMessages.AddError("PostCode", "Post code is not valid.");
+            }
+
+            if (string.IsNullOrEmpty(request.EmailAddress))
+            {
+                validationMessages.AddError("EmailAddress", "Email not supplied");
+            }
+            else if (request.EmailAddress.Length > 50)
+            {
+                validationMessages.AddError("EmailAddress", "Email must be 50 characters or less.");
+            }
+            else
+            {
+                var rxNonStrictEmail = new Regex(@"[A-Za-z0-9\.-_\+]+@[A-Za-z0-9\.-_\+]+");
+                if (!rxNonStrictEmail.IsMatch(request.EmailAddress)) validationMessages.AddError("EmailAddress", "Email is not valid.");
+            }
+
             if (request.ApplicationUser == null)
             {
                 validationMessages.AddError("ApplicationUser", "ApplicationUser not supplied");
@@ -33,11 +61,6 @@ namespace Marathon.Domain.Entities
             if (request.CustomerRole == null)
             {
                 validationMessages.AddError("CustomerRole", "CustomerRole not supplied");
-            }
-
-            if (string.IsNullOrEmpty(request.EmailAddress))
-            {
-                validationMessages.AddError("EmailAddress", "EmailAddress not supplied");
             }
 
             return validationMessages;
