@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Marathon.UI.ViewModels.Booking.GetPendingForVehicleViewModel>
+
+<h3>Existing Bookings</h3>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+    </tr>
+}
+
+</table>
+<br />

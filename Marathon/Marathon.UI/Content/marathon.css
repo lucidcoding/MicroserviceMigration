@@ -36,3 +36,27 @@
 {
 	display: none;
 }
+
+table, th, td {
+   border: 1px solid black;
+}
+
+th, td 
+{
+    padding: 5px;
+}
+
+th 
+{
+    color: Black;
+}
+
+td 
+{
+    color: Black;
+}
+
+table
+{
+    width: 100%;
+}

@@ -6,6 +6,7 @@ namespace Marathon.Domain.Entities
     public class User : Entity<Guid>
     {
         public virtual string Username { get; set; }
+        public virtual string Password { get; set; }
         public virtual Guid RoleId { get; set; }
         public virtual Role Role { get; set; }
 

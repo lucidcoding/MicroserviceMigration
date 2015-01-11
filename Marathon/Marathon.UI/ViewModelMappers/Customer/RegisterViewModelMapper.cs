@@ -28,13 +28,14 @@ namespace Marathon.UI.ViewModelMappers.Customer
             request.ApplicationUser = _userRepository.GetById(UserIds.Application);
             request.CustomerRole = _roleRepository.GetById(RoleIds.Customer);
             request.EmailAddress = viewModel.EmailAddress;
+            request.Password = viewModel.Password;
             request.FamilyName = viewModel.FamilyName;
             request.GivenName = viewModel.GivenName;
             request.Address1 = viewModel.Address1;
             request.Address2 = viewModel.Address2;
             request.Address3 = viewModel.Address3;
             request.Address4 = viewModel.Address4;
-            request.PostCode = request.PostCode;
+            request.PostCode = viewModel.PostCode;
             return request;
         }
     }

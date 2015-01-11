@@ -20,5 +20,6 @@ namespace Marathon.UI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
+
     }
 }

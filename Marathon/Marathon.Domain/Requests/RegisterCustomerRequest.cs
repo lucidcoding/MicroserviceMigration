@@ -10,6 +10,7 @@ namespace Marathon.Domain.Requests
     {
         public virtual User ApplicationUser { get; set; }
         public virtual string EmailAddress { get; set; }
+        public virtual string Password { get; set; }
         public virtual Role CustomerRole { get; set; }
         public virtual string FamilyName { get; set; }
         public virtual string GivenName { get; set; }

@@ -5,24 +5,71 @@ using System.Web;
 using System.Web.Mvc;
 using Marathon.Domain.RepositoryContracts;
 using Marathon.UI.ActionFilters;
+using Marathon.UI.Security;
+using Marathon.UI.ViewModelMappers.Booking;
+using Marathon.UI.ViewModels.Booking;
+using Marathon.Domain.Entities;
 
 namespace Marathon.UI.Controllers
 {
+    [Authorize]
     public class BookingController : Controller
     {
-        private IVehicleRepository _vehicleRepository;
+        private IMakeViewModelMapper _makeViewModelMapper;
+        private IGetPendingForVehicleViewModelMapper _getPendingForVehicleViewModelMapper;
+        private IBookingRepository _bookingRepository;
 
         public BookingController(
-            IVehicleRepository vehicleRepository)
+            IMakeViewModelMapper makeViewModelMapper,
+            IGetPendingForVehicleViewModelMapper getPendingForVehicleViewModelMapper,
+            IBookingRepository bookingRepository)
         {
-            _vehicleRepository = vehicleRepository;
+            _makeViewModelMapper = makeViewModelMapper;
+            _getPendingForVehicleViewModelMapper = getPendingForVehicleViewModelMapper;
+            _bookingRepository = bookingRepository;
         }
 
         [EntityFrameworkReadContext]
+        [CustomAuthorize("MakeBooking")]
         public ActionResult Make()
+        {
+            var viewModel = _makeViewModelMapper.New();
+            return View(viewModel);
+        }
+
+        [EntityFrameworkReadContext]
+        [CustomAuthorize("MakeBooking")]
+        public PartialViewResult GetPendingForVehicle(Guid vehicleId)
+        {
+            var viewModel = _getPendingForVehicleViewModelMapper.Map(vehicleId);
+            return PartialView("_PendingForVehicle", viewModel);
+        }
+
+        [HttpPost]
+        [TransactionScope]
+        [EntityFrameworkWriteContext]
+        [CustomAuthorize("MakeBooking")]
+        public ActionResult Make(MakeViewModel viewModel)
+        {
+            var request = _makeViewModelMapper.Map(viewModel);
+            var validationMessages = Booking.ValidateMake(request);
+            validationMessages.ForEach(validationMessage => ModelState.AddModelError(validationMessage.Field, validationMessage.Text));
+
+            if (!ModelState.IsValid)
+            {
+                _makeViewModelMapper.Hydrate(viewModel);
+                return View("Make", viewModel);
+            }
+
+            var booking = Booking.Make(request);
+            _bookingRepository.Save(booking);
+            return RedirectToAction("MakeSuccess");
+        }
+                
+        [CustomAuthorize("MakeBooking")]
+        public ActionResult MakeSuccess()
         {
             return View();
         }
-
     }
 }

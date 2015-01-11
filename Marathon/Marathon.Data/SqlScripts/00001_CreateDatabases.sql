@@ -141,7 +141,7 @@ BEGIN
 	DECLARE @now AS DATETIME
 	SET @now = GETDATE()
 	
-	INSERT INTO [Permission] ([Id], [Description], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('f76e6b28-993f-410b-82b1-d1ce2baf34a6', 'Complete another user''s task', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
+	INSERT INTO [Permission] ([Id], [Description], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('f76e6b28-993f-410b-82b1-d1ce2baf34a6', 'MakeBooking', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
 END
 GO
 
@@ -168,7 +168,7 @@ BEGIN
 	DECLARE @now AS DATETIME
 	SET @now = GETDATE()
 
-	INSERT INTO [PermissionRole] ([Id], [PermissionId], [RoleId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('8dc59a62-a077-41cc-bac7-f8be505ae4a8', 'f76e6b28-993f-410b-82b1-d1ce2baf34a6', '80fc2a10-d07e-4e06-9b91-4ba936e335ba', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
+	INSERT INTO [PermissionRole] ([Id], [PermissionId], [RoleId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('8dc59a62-a077-41cc-bac7-f8be505ae4a8', 'f76e6b28-993f-410b-82b1-d1ce2baf34a6', '2C6E33B8-BD7C-492C-807D-B4B1BCAE5F4F', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
 END 
 GO
 
@@ -178,6 +178,7 @@ BEGIN
 	CREATE TABLE [dbo].[User](
 		[Id] [uniqueidentifier] NOT NULL,
 		[Username] [nvarchar](50) NULL,
+		[Password] [nvarchar](50) NULL,
 		[RoleId] [uniqueidentifier] NULL,
 		[Forename] [nvarchar](50) NULL,
 		[Surname] [nvarchar](50) NULL,

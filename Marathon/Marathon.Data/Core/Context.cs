@@ -42,7 +42,7 @@ namespace Marathon.Data.Core
             modelBuilder.Entity<User>()
                 .HasOptional<User>(user => user.LastModifiedBy)
                 .WithMany()
-                .HasForeignKey(user => user.CreatedById); ;
+                .HasForeignKey(user => user.CreatedById); 
 
             modelBuilder.Entity<User>()
                 .HasRequired<Role>(user => user.Role);
@@ -54,7 +54,9 @@ namespace Marathon.Data.Core
                 .HasOptional<User>(role => role.LastModifiedBy);
 
             modelBuilder.Entity<Role>()
-                .HasMany<PermissionRole>(role => role.PermissionRoles);
+                .HasMany<PermissionRole>(role => role.PermissionRoles)
+                .WithRequired(permissionRole => permissionRole.Role)
+                .HasForeignKey(permissionRole => permissionRole.RoleId);
 
             modelBuilder.Entity<Permission>()
                 .HasOptional<User>(permission => permission.CreatedBy);
@@ -70,6 +72,11 @@ namespace Marathon.Data.Core
             
             modelBuilder.Entity<PermissionRole>()
                 .HasRequired<Permission>(permissionRole => permissionRole.Permission);
+
+            //modelBuilder.Entity<PermissionRole>()
+            //    .HasRequired<Role>(permissionRole => permissionRole.Role)
+            //    .WithMany(x => x.PermissionRoles)
+            //    .HasForeignKey(permissionRole => permissionRole.RoleId); 
 
             modelBuilder.Entity<Booking>()
                 .HasOptional<User>(booking => booking.CreatedBy);

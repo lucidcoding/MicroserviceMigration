@@ -12,5 +12,13 @@ namespace Marathon.Data.Repositories
             base(contextProvider)
         {
         }
+
+        public Customer GetByUsername(string username)
+        {
+            return Context
+                .Customers
+                .Where(customer => customer.User.Username.Equals(username))
+                .Single();
+        }
     }
 }

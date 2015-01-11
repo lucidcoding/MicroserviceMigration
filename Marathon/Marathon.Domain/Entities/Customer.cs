@@ -73,6 +73,7 @@ namespace Marathon.Domain.Entities
             customer.User = new User();
             customer.User.Id = Guid.NewGuid();
             customer.User.Username = request.EmailAddress;
+            customer.User.Password = request.Password;
             customer.User.Role = request.CustomerRole;
             customer.User.CreatedBy = request.ApplicationUser;
             customer.User.CreatedOn = DateTime.Now;

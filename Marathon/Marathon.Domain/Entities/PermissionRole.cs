@@ -7,5 +7,7 @@ namespace Marathon.Domain.Entities
     {
         public virtual Guid PermissionId { get; set; }
         public virtual Permission Permission { get; set; }
+        public virtual Guid RoleId { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

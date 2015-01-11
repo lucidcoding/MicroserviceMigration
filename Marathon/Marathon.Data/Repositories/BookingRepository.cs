@@ -3,6 +3,7 @@ using System.Linq;
 using Marathon.Data.Common;
 using Marathon.Domain.Entities;
 using Marathon.Domain.RepositoryContracts;
+using System.Collections.Generic;
 
 namespace Marathon.Data.Repositories
 {
@@ -11,6 +12,15 @@ namespace Marathon.Data.Repositories
         public BookingRepository(IContextProvider contextProvider) :
             base(contextProvider)
         {
+        }
+
+        public IList<Booking> GetPendingForVehicle(Guid vehicleId)
+        {
+            return Context
+                .Bookings
+                .Where(booking => booking.StartDate > DateTime.Now && booking.Vehicle.Id == vehicleId)
+                .OrderByDescending(booking => booking.StartDate)
+                .ToList();
         }
     }
 }

@@ -6,6 +6,7 @@ namespace Marathon.Domain.RepositoryContracts
 {
     public interface ICustomerRepository : IRepository<Customer, Guid>
     {
+        Customer GetByUsername(string username);
     }
 }
 

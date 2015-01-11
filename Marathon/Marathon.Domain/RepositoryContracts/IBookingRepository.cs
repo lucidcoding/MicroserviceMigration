@@ -7,5 +7,6 @@ namespace Marathon.Domain.RepositoryContracts
 {
     public interface IBookingRepository : IRepository<Booking, Guid>
     {
+        IList<Booking> GetPendingForVehicle(Guid vehicleId);
     }
 }
