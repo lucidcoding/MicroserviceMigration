@@ -23,6 +23,8 @@ namespace Marathon.UI.ViewModelMappers.Booking
             var viewModel = bookings.Select(booking => new GetPendingForVehicleViewModel()
                 {
                     VehicleId = vehicleId,
+                    BookingNumber = booking.BookingNumber,
+                    CustomerName = booking.Customer.FamilyName + ", " + booking.Customer.GivenName,
                     StartDate = booking.StartDate.Value,
                     EndDate = booking.EndDate.Value
                 }).ToList();

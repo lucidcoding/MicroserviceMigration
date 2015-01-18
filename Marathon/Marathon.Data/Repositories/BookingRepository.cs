@@ -22,5 +22,13 @@ namespace Marathon.Data.Repositories
                 .OrderByDescending(booking => booking.StartDate)
                 .ToList();
         }
+
+        public Booking GetByBookingNumber(string bookingNumber)
+        {
+            return Context
+                .Bookings
+                .Where(booking => booking.BookingNumber == bookingNumber)
+                .SingleOrDefault();
+        }
     }
 }

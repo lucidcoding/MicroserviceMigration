@@ -6,20 +6,17 @@ using System.ComponentModel;
 
 namespace Marathon.UI.ViewModels.Booking
 {
-    public class GetPendingForVehicleViewModel
+    public class CollectDetailsViewModel
     {
-        public Guid VehicleId { get; set; }
+        public Guid BookingId { get; set; }
 
-        [DisplayName("Booking Number")]
-        public string BookingNumber { get; set; }
-
-        [DisplayName("Customer")]
+        [DisplayName("Customer Name:")]
         public string CustomerName { get; set; }
 
-        [DisplayName("Start Date")]
+        [DisplayName("Start Date:")]
         public DateTime StartDate { get; set; }
 
-        [DisplayName("End Date")]
+        [DisplayName("End Date:")]
         public DateTime EndDate { get; set; }
     }
 }

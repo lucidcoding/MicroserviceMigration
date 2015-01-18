@@ -142,16 +142,22 @@
     <Compile Include="Security\CustomAuthorizeAttribute.cs" />
     <Compile Include="Security\IUserProvider.cs" />
     <Compile Include="Security\UserProvider.cs" />
+    <Compile Include="ViewModelMappers\Booking\CollectDetailsViewModelMapper.cs" />
+    <Compile Include="ViewModelMappers\Booking\CollectViewModelMapper.cs" />
+    <Compile Include="ViewModelMappers\Booking\ICollectDetailsViewModelMapper.cs" />
+    <Compile Include="ViewModelMappers\Booking\ICollectViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Booking\IMakeViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Booking\MakeViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Customer\IRegisterViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Customer\RegisterViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Booking\GetPendingForVehicleViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Booking\IGetPendingForVehicleViewModelMapper.cs" />
+    <Compile Include="ViewModels\Booking\CollectViewModel.cs" />
     <Compile Include="ViewModels\Booking\MakeViewModel.cs" />
     <Compile Include="ViewModels\Customer\RegisterViewModel.cs" />
     <Compile Include="ViewModels\Customer\SignInViewModel.cs" />
     <Compile Include="ViewModels\Booking\GetPendingForVehicleViewModel.cs" />
+    <Compile Include="ViewModels\Booking\CollectDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -166,6 +172,7 @@
     <Content Include="Content\marathon.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\Booking\Collect.js" />
     <Content Include="Scripts\Booking\Make.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -284,6 +291,8 @@
     <Content Include="Views\Customer\RegisterSuccess.cshtml" />
     <Content Include="Views\Booking\MakeSuccess.cshtml" />
     <Content Include="Views\Booking\_PendingForVehicle.cshtml" />
+    <Content Include="Views\Booking\Collect.cshtml" />
+    <Content Include="Views\Booking\_GetCollectDetails.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

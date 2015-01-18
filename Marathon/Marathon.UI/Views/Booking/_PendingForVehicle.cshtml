@@ -4,6 +4,12 @@
 <table>
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.BookingNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.StartDate)
         </th>
         <th>
@@ -13,6 +19,12 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.StartDate)
         </td>

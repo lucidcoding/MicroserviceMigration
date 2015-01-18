@@ -17,15 +17,21 @@ namespace Marathon.UI.Controllers
     {
         private IMakeViewModelMapper _makeViewModelMapper;
         private IGetPendingForVehicleViewModelMapper _getPendingForVehicleViewModelMapper;
+        private ICollectViewModelMapper _collectViewModelMapper;
+        private ICollectDetailsViewModelMapper _collectDetailsViewModelMapper;
         private IBookingRepository _bookingRepository;
 
         public BookingController(
             IMakeViewModelMapper makeViewModelMapper,
             IGetPendingForVehicleViewModelMapper getPendingForVehicleViewModelMapper,
+            ICollectViewModelMapper collectViewModelMapper,
+            ICollectDetailsViewModelMapper collectDetailsViewModelMapper,
             IBookingRepository bookingRepository)
         {
             _makeViewModelMapper = makeViewModelMapper;
             _getPendingForVehicleViewModelMapper = getPendingForVehicleViewModelMapper;
+            _collectViewModelMapper = collectViewModelMapper;
+            _collectDetailsViewModelMapper = collectDetailsViewModelMapper;
             _bookingRepository = bookingRepository;
         }
 
@@ -70,6 +76,22 @@ namespace Marathon.UI.Controllers
         public ActionResult MakeSuccess()
         {
             return View();
+        }
+
+        [EntityFrameworkReadContext]
+        //[CustomAuthorize("CollectBooking")]
+        public ActionResult Collect()
+        {
+            var viewModel = _collectViewModelMapper.New();
+            return View(viewModel);
+        }
+
+        [EntityFrameworkReadContext]
+        //[CustomAuthorize("CollectBooking")]
+        public ActionResult GetCollectDetails(string bookinNumber)
+        {
+            var viewModel = _collectDetailsViewModelMapper.Map(bookinNumber);
+            return View("_GetCollectDetails", viewModel);
         }
     }
 }
