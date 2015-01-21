@@ -88,10 +88,10 @@ namespace Marathon.UI.Controllers
 
         [EntityFrameworkReadContext]
         //[CustomAuthorize("CollectBooking")]
-        public ActionResult GetCollectDetails(string bookinNumber)
+        public PartialViewResult GetCollectDetails(string bookingNumber)
         {
-            var viewModel = _collectDetailsViewModelMapper.Map(bookinNumber);
-            return View("_GetCollectDetails", viewModel);
+            var viewModel = _collectDetailsViewModelMapper.Map(bookingNumber);
+            return PartialView("_GetCollectDetails", viewModel);
         }
     }
 }

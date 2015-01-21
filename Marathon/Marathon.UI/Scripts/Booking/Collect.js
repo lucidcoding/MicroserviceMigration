@@ -3,7 +3,7 @@
     var initialize = function () {
         $('#getCollectDetailsLink').click(function (event) {
             event.preventDefault();
-            var bookingNumber = $("BookingNumber").val();
+            var bookingNumber = $("#BookingNumber").val();
 
             $.ajax({
                 url: "GetCollectDetails",
@@ -11,7 +11,7 @@
                 type: "GET",
                 success: function (result) {
                     $("#collectDetailsDiv").html(result);
-                    initialize();
+                    //initialize();
                 },
                 error: function (jqXhr, textStatus, errorThrown) {
                     alert('error: ' + jqXhr + ', ' + textStatus + ', ' + errorThrown);

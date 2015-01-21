@@ -20,8 +20,9 @@ namespace Marathon.UI.ViewModelMappers.Booking
         {
             var booking = _bookingRepository.GetByBookingNumber(bookingNumber);
             var viewModel = new CollectDetailsViewModel();
-
-
+            viewModel.CustomerName = booking.Customer.GivenName + " " + booking.Customer.FamilyName;
+            viewModel.StartDate = booking.StartDate.Value;
+            viewModel.EndDate = booking.EndDate.Value;
             return viewModel;
         }
     }
