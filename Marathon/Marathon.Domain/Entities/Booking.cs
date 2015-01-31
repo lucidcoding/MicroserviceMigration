@@ -76,6 +76,15 @@ namespace Marathon.Domain.Entities
             return booking;
         }
 
+        public virtual ValidationMessageCollection ValidateCollect(CollectBookingRequest request)
+        {
+            var validationMessages = new ValidationMessageCollection();
+
+#warning Check it's on the same day?
+
+            return validationMessages;
+        }
+
         public virtual void Collect(CollectBookingRequest request)
         {
             var now = DateTime.Now;
@@ -83,6 +92,15 @@ namespace Marathon.Domain.Entities
             StartMileage = request.Mileage.Value;
             LastModifiedOn = now;
             LastModifiedBy = request.LoggedBy;
+        }
+
+        public virtual ValidationMessageCollection ValidateReturn(ReturnBookingRequest request)
+        {
+            var validationMessages = new ValidationMessageCollection();
+
+#warning Check it's actually out?
+
+            return validationMessages;
         }
 
         public virtual void Return(ReturnBookingRequest request)

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marathon.UI", "Marathon.UI\Marathon.UI.csproj", "{7F145E2A-D471-42C0-8CA1-87C11383234F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marathon.External.UI", "Marathon.External.UI\Marathon.External.UI.csproj", "{7F145E2A-D471-42C0-8CA1-87C11383234F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marathon.Domain", "Marathon.Domain\Marathon.Domain.csproj", "{DD7142B6-4F33-4E1B-AC43-BDDEE64EE769}"
 EndProject
@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marathon.Domain.UnitTests", "Marathon.Domain.UnitTests\Marathon.Domain.UnitTests.csproj", "{DDA7901B-FE32-4368-94D3-A302056322FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marathon.Internal.UI", "Marathon.Internal.UI\Marathon.Internal.UI.csproj", "{116BBC29-B8B3-4D7D-BA93-C032ADA3D91D}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -47,6 +49,10 @@ Global
 		{DDA7901B-FE32-4368-94D3-A302056322FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDA7901B-FE32-4368-94D3-A302056322FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDA7901B-FE32-4368-94D3-A302056322FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{116BBC29-B8B3-4D7D-BA93-C032ADA3D91D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{116BBC29-B8B3-4D7D-BA93-C032ADA3D91D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{116BBC29-B8B3-4D7D-BA93-C032ADA3D91D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{116BBC29-B8B3-4D7D-BA93-C032ADA3D91D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
