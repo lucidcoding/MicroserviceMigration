@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel;
 
-namespace Marathon.External.UI.ViewModels.Booking
+namespace Marathon.Internal.UI.ViewModels.Booking
 {
     public class GetSummaryViewModel
     {

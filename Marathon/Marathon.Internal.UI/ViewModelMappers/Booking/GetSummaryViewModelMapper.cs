@@ -1,7 +1,7 @@
 ﻿using Marathon.Domain.RepositoryContracts;
-using Marathon.External.UI.ViewModels.Booking;
+using Marathon.Internal.UI.ViewModels.Booking;
 
-namespace Marathon.External.UI.ViewModelMappers.Booking
+namespace Marathon.Internal.UI.ViewModelMappers.Booking
 {
     public class GetSummaryViewModelMapper : IGetSummaryViewModelMapper
     {

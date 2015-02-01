@@ -5,7 +5,7 @@ using System.Web;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Marathon.External.UI.ViewModels.Booking
+namespace Marathon.Internal.UI.ViewModels.Booking
 {
     public class CollectViewModel
     {

@@ -70,9 +70,6 @@ namespace Marathon.External.UI.App_Start
             kernel.Bind<IRegisterViewModelMapper>().To<RegisterViewModelMapper>();
             kernel.Bind<IMakeViewModelMapper>().To<MakeViewModelMapper>();
             kernel.Bind<IGetPendingForVehicleViewModelMapper>().To<GetPendingForVehicleViewModelMapper>();
-            kernel.Bind<ICollectViewModelMapper>().To<CollectViewModelMapper>();
-            kernel.Bind<IReturnViewModelMapper>().To<IReturnViewModelMapper>();
-            kernel.Bind<IGetSummaryViewModelMapper>().To<GetSummaryViewModelMapper>();
             kernel.Bind<IUserProvider>().To<UserProvider>();
             new DataRegistry().RegisterServices(kernel);
         }        

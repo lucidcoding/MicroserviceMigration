@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Marathon.External.UI.ViewModels.Booking;
+using Marathon.Internal.UI.ViewModels.Booking;
 using Marathon.Domain.Requests;
-using Marathon.External.UI.Security;
+using Marathon.Internal.UI.Security;
 using Marathon.Domain.RepositoryContracts;
 
-namespace Marathon.External.UI.ViewModelMappers.Booking
+namespace Marathon.Internal.UI.ViewModelMappers.Booking
 {
     public class ReturnViewModelMapper : IReturnViewModelMapper
     {
