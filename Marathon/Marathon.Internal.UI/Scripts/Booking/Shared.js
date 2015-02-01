@@ -1,4 +1,4 @@
-﻿Marathon.Booking.Collect = function () {
+﻿Marathon.Booking.Shared = function () {
 
     var initialize = function () {
         $('#getSummaryLink').click(function (event) {
@@ -25,5 +25,5 @@
 
 
 $(document).ready(function () {
-    Marathon.Booking.Collect.initialize();
+    Marathon.Booking.Shared.initialize();
 });

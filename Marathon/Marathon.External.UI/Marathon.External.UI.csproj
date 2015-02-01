@@ -166,7 +166,6 @@
     <Content Include="Content\marathon.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\Booking\Collect.js" />
     <Content Include="Scripts\Booking\Make.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />

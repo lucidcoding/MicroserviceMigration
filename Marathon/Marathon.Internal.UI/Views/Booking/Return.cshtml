@@ -1,12 +1,12 @@
-﻿@model Marathon.Internal.UI.ViewModels.Booking.CollectViewModel
+﻿@model Marathon.Internal.UI.ViewModels.Booking.ReturnViewModel
 
 @{
-    ViewBag.Title = "Collect";
+    ViewBag.Title = "Return";
 }
 
-<h2>Collect</h2>
+<h2>Return</h2>
 
-@using (Html.BeginForm("Collect", "Booking", FormMethod.Post, new { role = "form" }))
+@using (Html.BeginForm("Return", "Booking", FormMethod.Post, new { role = "form" }))
 {
     @Html.ValidationSummary(false, "There were some problems with the information you entered, please correct and resubmit.")
     <div class="form-group">

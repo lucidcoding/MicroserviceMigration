@@ -1,0 +1,2 @@
+﻿Marathon = {};
+Marathon.Booking = {};

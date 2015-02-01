@@ -128,6 +128,7 @@
     <Compile Include="ActionFilters\TransactionScopeAttribute.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -144,6 +145,7 @@
     <Compile Include="ViewModels\Booking\CollectViewModel.cs" />
     <Compile Include="ViewModels\Booking\GetSummaryViewModel.cs" />
     <Compile Include="ViewModels\Booking\ReturnViewModel.cs" />
+    <Compile Include="ViewModels\User\SignInViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -158,6 +160,7 @@
     <Content Include="Content\marathon.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\Booking\Shared.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -228,6 +231,7 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.vi.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.js" />
+    <Content Include="Scripts\marathon.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -257,6 +261,9 @@
     <Content Include="Views\Booking\Collect.cshtml" />
     <Content Include="Views\Booking\CollectSuccess.cshtml" />
     <Content Include="Views\Booking\_GetSummary.cshtml" />
+    <Content Include="Views\Booking\Return.cshtml" />
+    <Content Include="Views\Booking\ReturnSuccess.cshtml" />
+    <Content Include="Views\User\SignIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Marathon.Data\Marathon.Data.csproj">

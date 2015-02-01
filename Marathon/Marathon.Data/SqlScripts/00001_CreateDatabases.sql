@@ -142,6 +142,8 @@ BEGIN
 	SET @now = GETDATE()
 	
 	INSERT INTO [Permission] ([Id], [Description], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('f76e6b28-993f-410b-82b1-d1ce2baf34a6', 'MakeBooking', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
+	INSERT INTO [Permission] ([Id], [Description], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('1B444704-AD92-4837-9DB7-71F99C20753C', 'CollectBooking', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
+	INSERT INTO [Permission] ([Id], [Description], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('0FC4BE24-596C-4E53-AE9A-964F603818F4', 'ReturnBooking', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
 END
 GO
 
@@ -169,6 +171,9 @@ BEGIN
 	SET @now = GETDATE()
 
 	INSERT INTO [PermissionRole] ([Id], [PermissionId], [RoleId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('8dc59a62-a077-41cc-bac7-f8be505ae4a8', 'f76e6b28-993f-410b-82b1-d1ce2baf34a6', '2C6E33B8-BD7C-492C-807D-B4B1BCAE5F4F', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
+	INSERT INTO [PermissionRole] ([Id], [PermissionId], [RoleId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('DF3965C6-C94B-4B00-B06D-28C5313B33D9', 'f76e6b28-993f-410b-82b1-d1ce2baf34a6', '8dc59a62-a077-41cc-bac7-f8be505ae4a8', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
+	INSERT INTO [PermissionRole] ([Id], [PermissionId], [RoleId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('8D0AE6FB-848B-4592-96F7-EDC3520BE390', '1B444704-AD92-4837-9DB7-71F99C20753C', '8dc59a62-a077-41cc-bac7-f8be505ae4a8', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
+	INSERT INTO [PermissionRole] ([Id], [PermissionId], [RoleId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) VALUES ('CF47EA3F-2A28-4F9C-BDD3-568A8A553727', '0FC4BE24-596C-4E53-AE9A-964F603818F4', '8dc59a62-a077-41cc-bac7-f8be505ae4a8', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
 END 
 GO
 

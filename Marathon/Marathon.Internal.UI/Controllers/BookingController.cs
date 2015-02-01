@@ -16,15 +16,18 @@ namespace Marathon.Internal.UI.Controllers
     public class BookingController : Controller
     {
         private ICollectViewModelMapper _collectViewModelMapper;
+        private IReturnViewModelMapper _returnViewModelMapper;
         private IGetSummaryViewModelMapper _summaryViewModelMapper;
         private IBookingRepository _bookingRepository;
 
         public BookingController(
             ICollectViewModelMapper collectViewModelMapper,
+            IReturnViewModelMapper returnViewModelMapper,
             IGetSummaryViewModelMapper summaryViewModelMapper,
             IBookingRepository bookingRepository)
         {
             _collectViewModelMapper = collectViewModelMapper;
+            _returnViewModelMapper = returnViewModelMapper;
             _summaryViewModelMapper = summaryViewModelMapper;
             _bookingRepository = bookingRepository;
         }
@@ -36,7 +39,7 @@ namespace Marathon.Internal.UI.Controllers
         }
 
         [EntityFrameworkReadContext]
-        //[CustomAuthorize("CollectBooking")]
+        [CustomAuthorize("CollectBooking")]
         public PartialViewResult GetSummary(string bookingNumber)
         {
             var viewModel = _summaryViewModelMapper.Map(bookingNumber);
@@ -44,7 +47,7 @@ namespace Marathon.Internal.UI.Controllers
         }
 
         [EntityFrameworkReadContext]
-        //[CustomAuthorize("CollectBooking")]
+        [CustomAuthorize("CollectBooking")]
         public ActionResult Collect()
         {
             var viewModel = _collectViewModelMapper.New();
@@ -54,7 +57,7 @@ namespace Marathon.Internal.UI.Controllers
         [HttpPost]
         [TransactionScope]
         [EntityFrameworkWriteContext]
-        //[CustomAuthorize("CollectBooking")]
+        [CustomAuthorize("CollectBooking")]
         public ActionResult Collect(CollectViewModel viewModel)
         {
             var booking = _bookingRepository.GetByBookingNumber(viewModel.BookingNumber);
@@ -82,18 +85,48 @@ namespace Marathon.Internal.UI.Controllers
         }
 
         [EntityFrameworkReadContext]
-        //[CustomAuthorize("CollectBooking")]
-        public ActionResult CollectSuccess()
+        [CustomAuthorize("ReturnBooking")]
+        public ActionResult Return()
         {
-            return View();
+            var viewModel = _returnViewModelMapper.New();
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [TransactionScope]
+        [EntityFrameworkWriteContext]
+        [CustomAuthorize("ReturnBooking")]
+        public ActionResult Return(ReturnViewModel viewModel)
+        {
+            var booking = _bookingRepository.GetByBookingNumber(viewModel.BookingNumber);
+            var request = _returnViewModelMapper.Map(viewModel);
+
+            if (booking == null)
+            {
+                ModelState.AddModelError("BookingNumber", "No booking could be found matching the specified booking number.");
+            }
+            else
+            {
+                var validationMessages = booking.ValidateReturn(request);
+                validationMessages.ForEach(validationMessage => ModelState.AddModelError(validationMessage.Field, validationMessage.Text));
+            }
+
+            if (!ModelState.IsValid)
+            {
+                //_makeViewModelMapper.Hydrate(viewModel);
+                return View("Collect", viewModel);
+            }
+
+            booking.Return(request);
+            _bookingRepository.Update(booking);
+            return RedirectToAction("ReturnSuccess");
         }
 
         [EntityFrameworkReadContext]
-        //[CustomAuthorize("ReturnBooking")]
-        public ActionResult Return()
+        [CustomAuthorize("ReturnBooking")]
+        public ActionResult ReturnSuccess()
         {
-            var viewModel = _collectViewModelMapper.New();
-            return View(viewModel);
+            return View();
         }
     }
 }
