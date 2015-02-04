@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewBag.Title</title>
-    @RenderSection("Canonical", required:false)
+    @RenderSection("Canonical", required: false)
     <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/bootstrap-theme.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/marathon.css")" rel="stylesheet" type="text/css" />
-@*    <link href="@Url.Content("~/Content/themes/base/jquery.ui.base.css")" rel="stylesheet" type="text/css" />
+    @*    <link href="@Url.Content("~/Content/themes/base/jquery.ui.base.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/themes/base/jquery.ui.core.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" rel="stylesheet" type="text/css" />*@
     @RenderSection("CSS", required: false)
@@ -37,21 +37,31 @@
           <div class="container-fluid">
               <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
-                    <li><a href="@Url.Action("Register", "Customer")">Register</a></li>
-                    <li><a href="@Url.Action("SignIn", "Customer")">Sign In</a></li>
-                    <li>
-                       @* @using (Html.BeginForm("SignOut", "Customer", FormMethod.Post, new { id = "logoutForm" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <a href="javascript:document.getElementById('logoutForm').submit()">Sign Out</a>
-                        }*@
-                        <a href="@Url.Action("SignOut", "Customer")">Sign Out</a>
+                    <li class="dropdown-open" >
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Customer</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="@Url.Action("Collect", "Booking")">Register Collection</a></li>
+                            <li><a href="@Url.Action("Return", "Booking")">Register Return</a></li>
+                        </ul>
                     </li>
-                    <li><a href="@Url.Action("Make", "Booking")">Book Vehicle</a></li>
-                    <li><a href="@Url.Action("Collect", "Booking")">Collect</a></li>
-                    <li><a href="#">Return</a></li>
                     <li><a href="#">Invoice</a></li>
                     <li><a href="#">Maintenance</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li class="dropdown-open" >
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, User<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("Sign Out", "SignOut", "User", routeValues: null, htmlAttributes: null)</li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Sign In", "SignIn", "User", routeValues: null, htmlAttributes: null)</li>
+                        <li>@Html.ActionLink("Register", "Register", "User", routeValues: null, htmlAttributes: null)</li>
+                    }
               </ul>
           </div>
         </nav>
