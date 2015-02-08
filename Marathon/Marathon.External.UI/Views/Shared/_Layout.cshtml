@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewBag.Title</title>
-    @RenderSection("Canonical", required:false)
+    @RenderSection("Canonical", required: false)
     <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/bootstrap-theme.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/marathon.css")" rel="stylesheet" type="text/css" />
-@*    <link href="@Url.Content("~/Content/themes/base/jquery.ui.base.css")" rel="stylesheet" type="text/css" />
+    @*    <link href="@Url.Content("~/Content/themes/base/jquery.ui.base.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/themes/base/jquery.ui.core.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" rel="stylesheet" type="text/css" />*@
     @RenderSection("CSS", required: false)
@@ -22,38 +22,44 @@
 </head>
 <body>
     <header role="banner">
-        <div class="container-fluid">
-            <div class="navbar-header">
-              <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a href="../" class="navbar-brand">Marathon</a>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="../" class="navbar-brand">Marathon</a>
+                </div>
             </div>
-        </div>
-        <nav class="navbar-default collapse navbar-collapse bs-navbar-collapse" role="navigation">
-          <div class="container-fluid">
+            <div id="navbar"  class="navbar-collapse collapse container-fluid" >
               <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
-                    <li><a href="@Url.Action("Register", "Customer")">Register</a></li>
-                    <li><a href="@Url.Action("SignIn", "Customer")">Sign In</a></li>
-                    <li>
-                       @* @using (Html.BeginForm("SignOut", "Customer", FormMethod.Post, new { id = "logoutForm" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <a href="javascript:document.getElementById('logoutForm').submit()">Sign Out</a>
-                        }*@
-                        <a href="@Url.Action("SignOut", "Customer")">Sign Out</a>
-                    </li>
-                    <li><a href="@Url.Action("Make", "Booking")">Book Vehicle</a></li>
-                    <li><a href="@Url.Action("Collect", "Booking")">Collect</a></li>
-                    <li><a href="#">Return</a></li>
-                    <li><a href="#">Invoice</a></li>
-                    <li><a href="#">Maintenance</a></li>
+                    <li><a href="@Url.Action("Index", "Vehicle")">Our Vehicles</a></li>
+                    <li><a href="@Url.Action("Make", "Booking")">Make a Booking</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Location & Contact</a></li>
               </ul>
-          </div>
+              <ul class="nav navbar-nav navbar-right">
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li class="dropdown-open" >
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, User<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Sign Out", "SignOut", "Customer", routeValues: null, htmlAttributes: null)</li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Sign In", "SignIn", "Customer", routeValues: null, htmlAttributes: null)</li>
+                            <li>@Html.ActionLink("Register", "Register", "Customer", routeValues: null, htmlAttributes: null)</li>
+                        }
+               </ul>
+            </div>
         </nav>
     </header>
     <main role="main" class="container-fluid">

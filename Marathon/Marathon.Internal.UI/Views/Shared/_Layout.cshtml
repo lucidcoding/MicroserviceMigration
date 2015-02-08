@@ -22,48 +22,48 @@
 </head>
 <body>
     <header role="banner">
-        <div class="container-fluid">
-            <div class="navbar-header">
-              <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a href="../" class="navbar-brand">Marathon</a>
-            </div>
-        </div>
-        <nav class="navbar-default collapse navbar-collapse bs-navbar-collapse" role="navigation">
-          <div class="container-fluid">
-              <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li class="dropdown-open" >
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Customer</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="@Url.Action("Collect", "Booking")">Register Collection</a></li>
-                            <li><a href="@Url.Action("Return", "Booking")">Register Return</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Invoice</a></li>
-                    <li><a href="#">Maintenance</a></li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-                    @if (Request.IsAuthenticated)
-                    {
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="../" class="navbar-brand">Marathon</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse" >
+                    <ul class="nav navbar-nav>
+                        <li class="active"><a href="#">Home</a></li>
                         <li class="dropdown-open" >
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, User<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Customer</a>
                             <ul class="dropdown-menu" role="menu">
-                                <li>@Html.ActionLink("Sign Out", "SignOut", "User", routeValues: null, htmlAttributes: null)</li>
+                                <li><a href="@Url.Action("Collect", "Booking")">Register Collection</a></li>
+                                <li><a href="@Url.Action("Return", "Booking")">Register Return</a></li>
                             </ul>
                         </li>
-                    }
-                    else
-                    {
-                        <li>@Html.ActionLink("Sign In", "SignIn", "User", routeValues: null, htmlAttributes: null)</li>
-                        <li>@Html.ActionLink("Register", "Register", "User", routeValues: null, htmlAttributes: null)</li>
-                    }
-              </ul>
-          </div>
+                        <li><a href="#">Invoice</a></li>
+                        <li><a href="#">Maintenance</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li class="dropdown-open" >
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, User<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Sign Out", "SignOut", "User", routeValues: null, htmlAttributes: null)</li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Sign In", "SignIn", "User", routeValues: null, htmlAttributes: null)</li>
+                            <li>@Html.ActionLink("Register", "Register", "User", routeValues: null, htmlAttributes: null)</li>
+                        }
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
     <main role="main" class="container-fluid">
