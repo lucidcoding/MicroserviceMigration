@@ -20,7 +20,7 @@
     <script src="@Url.Content("~/Scripts/Marathon.js")" type="text/javascript"></script>
     @RenderSection("JavaScript", required: false)
 </head>
-<body>
+<body class="marathon">
     <header role="banner">
         <nav class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
@@ -34,7 +34,7 @@
                     <a href="../" class="navbar-brand">Marathon</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse" >
-                    <ul class="nav navbar-nav>
+                    <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
                         <li class="dropdown-open" >
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Customer</a>
@@ -43,7 +43,13 @@
                                 <li><a href="@Url.Action("Return", "Booking")">Register Return</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Invoice</a></li>
+                        <li class="dropdown-open" >
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Invoice</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="@Url.Action("Generate", "Invoice")">Generate Invoice</a></li>
+                                <li><a href="@Url.Action("MarkAsPaid", "Invoice")">Mark as Paid</a></li>
+                            </ul>
+                        </li>
                         <li><a href="#">Maintenance</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

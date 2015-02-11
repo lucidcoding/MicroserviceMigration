@@ -128,7 +128,10 @@
     <Compile Include="ActionFilters\TransactionScopeAttribute.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\SelectListExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -142,9 +145,12 @@
     <Compile Include="ViewModelMappers\Booking\IGetSummaryViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Booking\IReturnViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Booking\ReturnViewModelMapper.cs" />
+    <Compile Include="ViewModelMappers\Invoice\GenerateViewModelMapper.cs" />
+    <Compile Include="ViewModelMappers\Invoice\IGenerateViewModelMapper.cs" />
     <Compile Include="ViewModels\Booking\CollectViewModel.cs" />
     <Compile Include="ViewModels\Booking\GetSummaryViewModel.cs" />
     <Compile Include="ViewModels\Booking\ReturnViewModel.cs" />
+    <Compile Include="ViewModels\Invoice\GenerateViewModel.cs" />
     <Compile Include="ViewModels\User\SignInViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +270,7 @@
     <Content Include="Views\Booking\Return.cshtml" />
     <Content Include="Views\Booking\ReturnSuccess.cshtml" />
     <Content Include="Views\User\SignIn.cshtml" />
+    <Content Include="Views\Invoice\Generate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Marathon.Data\Marathon.Data.csproj">

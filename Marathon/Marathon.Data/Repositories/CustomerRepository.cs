@@ -3,6 +3,7 @@ using System.Linq;
 using Marathon.Data.Common;
 using Marathon.Domain.Entities;
 using Marathon.Domain.RepositoryContracts;
+using System.Collections.Generic;
 
 namespace Marathon.Data.Repositories
 {
@@ -19,6 +20,14 @@ namespace Marathon.Data.Repositories
                 .Customers
                 .Where(customer => customer.User.Username.Equals(username))
                 .Single();
+        }
+
+        public IList<Customer> GetAllOrderedByFamilyName()
+        {
+            return Context
+                .Customers
+                .OrderBy(customer => customer.FamilyName)
+                .ToList();
         }
     }
 }

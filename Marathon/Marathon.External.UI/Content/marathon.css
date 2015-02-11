@@ -4,6 +4,28 @@
     }
 }
 
+.navbar-marathon
+{
+    border: 0px;
+}
+
+.navbar-marathon-header
+{
+    background: #FF6314;
+}
+
+.navbar-marathon-nav
+{
+    background: black;
+}
+
+.navbar-marathon-nav .navbar-nav > li > a
+{
+    text-shadow: none;
+    color: White;
+    text-transform: uppercase;
+}
+
 .navbar-toggle .icon-bar {
     background-color: black;
 }

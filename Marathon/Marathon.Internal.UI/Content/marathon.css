@@ -1,6 +1,6 @@
-﻿@media (min-width: 970px) {
+﻿@media (min-width: 780px) {
   .container-fluid {
-    width: 970px;
+    width: 780px;
     }
 }
 
@@ -60,4 +60,22 @@ table.standard td
 table.standard
 {
     width: 100%;
+}
+
+.marathon .form-horizontal .control-label
+{
+    text-align: left;
+}
+
+body 
+{
+    font-family:  Optima, Arial;
+}
+
+h1
+{
+    padding-bottom: 15px;
+    border-bottom: 1px solid #FF6314;
+    margin-bottom: 30px;
+    font-weight: bold;
 }

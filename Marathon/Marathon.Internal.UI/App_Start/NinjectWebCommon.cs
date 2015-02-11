@@ -14,6 +14,7 @@ namespace Marathon.Internal.UI.App_Start
     using Marathon.Internal.UI.ViewModelMappers.Booking;
     using Marathon.Internal.UI.Security;
     using Marathon.Data.Core;
+    using Marathon.Internal.UI.ViewModelMappers.Invoice;
 
     public static class NinjectWebCommon 
     {
@@ -69,6 +70,7 @@ namespace Marathon.Internal.UI.App_Start
             kernel.Bind<ICollectViewModelMapper>().To<CollectViewModelMapper>();
             kernel.Bind<IReturnViewModelMapper>().To<ReturnViewModelMapper>();
             kernel.Bind<IGetSummaryViewModelMapper>().To<GetSummaryViewModelMapper>();
+            kernel.Bind<IGenerateViewModelMapper>().To<GenerateViewModelMapper>();
             kernel.Bind<IUserProvider>().To<UserProvider>();
             new DataRegistry().RegisterServices(kernel);
         }        

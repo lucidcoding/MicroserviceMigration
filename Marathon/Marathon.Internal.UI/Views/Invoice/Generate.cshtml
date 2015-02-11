@@ -1,0 +1,51 @@
+﻿@model Marathon.External.UI.ViewModels.Invoice.GenerateViewModel
+
+@{
+    ViewBag.Title = "Generate";
+}
+
+<h2>Generate</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>GenerateViewModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PeriodFrom)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PeriodFrom)
+            @Html.ValidationMessageFor(model => model.PeriodFrom)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PeriodTo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PeriodTo)
+            @Html.ValidationMessageFor(model => model.PeriodTo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CustomerId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CustomerId)
+            @Html.ValidationMessageFor(model => model.CustomerId)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@*@section JavaScript {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@
