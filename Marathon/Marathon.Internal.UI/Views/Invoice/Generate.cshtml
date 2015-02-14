@@ -1,50 +1,58 @@
 ﻿@model Marathon.External.UI.ViewModels.Invoice.GenerateViewModel
 
+@section JavaScript
+{
+    <script src="@Url.Content("~/Scripts/Invoice/Generate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")" type="text/javascript"></script>
+}
+@section CSS
+{
+    <link href="@Url.Content("~/Content/datepicker.css")" rel="stylesheet" type="text/css" />
+}
 @{
     ViewBag.Title = "Generate";
 }
 
-<h2>Generate</h2>
+<h1>Generate Invoice</h1>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Generate", "Invoice", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
+{
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>GenerateViewModel</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.PeriodFrom)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.PeriodFrom)
+    <div class="form-group">
+        @Html.LabelFor(model => model.PeriodFrom, new { @class = "control-label col-sm-3" })
+        <div class="col-sm-6">
+            <div class="input-group date">
+                @Html.TextBoxFor(model => model.PeriodFrom, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            </div> 
             @Html.ValidationMessageFor(model => model.PeriodFrom)
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.PeriodTo)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.PeriodTo)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.PeriodTo, new { @class = "control-label col-sm-3" })
+        <div class="col-sm-6"> 
+            <div class="input-group date">
+                @Html.TextBoxFor(model => model.PeriodTo, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            </div>
             @Html.ValidationMessageFor(model => model.PeriodTo)
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.CustomerId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.CustomerId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.CustomerId, new { @class = "control-label col-sm-3" })
+        <div class="col-sm-6"> 
+            @Html.DropDownListFor(model => model.CustomerId, Model.CustomerOptions, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.CustomerId)
         </div>
-
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
+    </div>
+    <div class="form-group">        
+        <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-success">Submit</button>
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @*@section JavaScript {
     @Scripts.Render("~/bundles/jqueryval")

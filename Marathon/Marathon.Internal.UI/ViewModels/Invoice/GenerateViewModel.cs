@@ -13,12 +13,14 @@ namespace Marathon.External.UI.ViewModels.Invoice
         [DataType(DataType.Date)]
         [DisplayName("Period From")]
         [Required]
-        public DateTime PeriodFrom { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime? PeriodFrom { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayName("Period To")]
         [Required]
-        public DateTime PeriodTo { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime? PeriodTo { get; set; }
 
         [DisplayName("Customer")]
         [Required]

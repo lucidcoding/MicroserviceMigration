@@ -5,6 +5,7 @@ using System.Web;
 using Marathon.Domain.RepositoryContracts;
 using Marathon.External.UI.ViewModels.Invoice;
 using System.Web.Mvc;
+using Marathon.Internal.UI.Extensions;
 
 namespace Marathon.Internal.UI.ViewModelMappers.Invoice
 {
@@ -20,8 +21,8 @@ namespace Marathon.Internal.UI.ViewModelMappers.Invoice
         public GenerateViewModel Map()
         {
             var viewModel = new GenerateViewModel();
-            viewModel.PeriodFrom = DateTime.Now.AddMonths(-1);
-            viewModel.PeriodTo = DateTime.Now;
+            viewModel.PeriodFrom = DateTime.Now.AddMonths(-1).Date;
+            viewModel.PeriodTo = DateTime.Now.Date;
             Hydrate(viewModel);
             return viewModel;
         }
@@ -31,7 +32,8 @@ namespace Marathon.Internal.UI.ViewModelMappers.Invoice
             var customers = _customerRepository.GetAllOrderedByFamilyName();
 
             viewModel.CustomerOptions = new SelectList(customers.Select(customer => 
-                new SelectListItem{ Text = customer.FamilyName  + ", " + customer.GivenName, Value = customer.Id.Value.ToString() }), "Value", "Text");
+                new SelectListItem{ Text = customer.FamilyName  + ", " + customer.GivenName, Value = customer.Id.Value.ToString() }), "Value", "Text")
+                .AddDefaultOption();
         }
     }
 }

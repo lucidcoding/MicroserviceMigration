@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Marathon.Internal.UI.ViewModelMappers.Invoice;
 using Marathon.Internal.UI.ActionFilters;
+using Marathon.External.UI.ViewModels.Invoice;
 
 namespace Marathon.Internal.UI.Controllers
 {
@@ -25,7 +26,7 @@ namespace Marathon.Internal.UI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Generate(GenerateViewModelMapper viewModel)
+        public ActionResult Generate(GenerateViewModel viewModel)
         {
             return View();
         }
