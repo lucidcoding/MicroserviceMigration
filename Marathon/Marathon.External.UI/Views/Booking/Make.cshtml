@@ -1,4 +1,5 @@
 ﻿@using System.Data.Entity.Core.Objects
+@using Marathon.External.UI.Extensions
 @model Marathon.External.UI.ViewModels.Booking.MakeViewModel
 
 @section JavaScript
@@ -11,18 +12,20 @@
     <link href="@Url.Content("~/Content/datepicker.css")" rel="stylesheet" type="text/css" />
 }
 @{
-    ViewBag.Title = "Make";
+    ViewBag.Title = "Book a Vehicle";
 }
 
-<h2>Make</h2>
+<h1>Book a Vehicle</h1>
 
-@using (Html.BeginForm("Make", "Booking", FormMethod.Post, new { role = "form" }))
+@using (Html.BeginForm("Make", "Booking", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
 {
     @Html.ValidationSummary(false, "There were some problems with the information you entered, please correct and resubmit.")
     <div class="form-group">
-        @Html.LabelFor(model => model.VehicleId)
-        @Html.DropDownListFor(model => model.VehicleId, Model.VehicleOptions, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.VehicleId)
+        @Html.LabelFor(model => model.VehicleId, new { @class = "control-label col-sm-3" })
+        <div class="col-sm-6">
+            @Html.DropDownListFor(model => model.VehicleId, Model.VehicleOptions, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.VehicleId)
+        </div>
     </div>
     <div id="pendingBookingsForVehicleDiv">
         @if (Model.PendingBookings.Any())
@@ -31,21 +34,26 @@
         }
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.StartDate)
-        <div class="input-group date">
-            @Html.TextBoxFor(model => model.StartDate, new { @class = "form-control", data_date_format="dd/mm/yyyy" })
-            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        @Html.LabelFor(model => model.StartDate, new { @class = "control-label col-sm-3" })
+        <div class="col-sm-6">
+            @Html.BootstrapDatePickerFor(model => model.StartDate)
+            @*@Html.TextBoxFor(model => model.StartDate, new { @class = "form-control", data_date_format="dd/mm/yyyy" })*@
+            @Html.ValidationMessageFor(model => model.StartDate)
         </div>
-        @Html.ValidationMessageFor(model => model.StartDate)
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.EndDate)
-        <div class="input-group date">
-            @Html.TextBoxFor(model => model.EndDate, new { @class = "form-control", data_date_format = "dd/mm/yyyy" })
-            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        @Html.LabelFor(model => model.EndDate, new { @class = "control-label col-sm-3" })
+        <div class="col-sm-6">
+            @Html.BootstrapDatePickerFor(model => model.StartDate)
+            @*@Html.TextBoxFor(model => model.EndDate, new { @class = "form-control", data_date_format = "dd/mm/yyyy" })*@
+            @Html.ValidationMessageFor(model => model.EndDate)
         </div>
-        @Html.ValidationMessageFor(model => model.EndDate)
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <div class="form-group">        
+        <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-success">Submit</button>
+            @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    </div>
 }
 

@@ -33,6 +33,8 @@ namespace Marathon.External.UI.ViewModelMappers.Booking
         public MakeViewModel New()
         {
             var viewModel = new MakeViewModel();
+            viewModel.StartDate = DateTime.Now;
+            viewModel.EndDate = DateTime.Now;
             Hydrate(viewModel);
             return viewModel;
         }

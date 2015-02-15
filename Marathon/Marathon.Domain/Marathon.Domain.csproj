@@ -48,6 +48,7 @@
     <Compile Include="Entities\Booking.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Depot.cs" />
+    <Compile Include="Entities\Invoice.cs" />
     <Compile Include="Entities\MaintenanceCheck.cs" />
     <Compile Include="Entities\Permission.cs" />
     <Compile Include="Entities\PermissionRole.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="RepositoryContracts\IRoleRepository.cs" />
     <Compile Include="RepositoryContracts\IUserRepository.cs" />
     <Compile Include="Requests\CollectBookingRequest.cs" />
+    <Compile Include="Requests\GenerateInvoiceRequest.cs" />
     <Compile Include="Requests\MakeBookingRequest.cs" />
     <Compile Include="Requests\RegisterCustomerRequest.cs" />
     <Compile Include="Requests\ReturnBookingRequest.cs" />

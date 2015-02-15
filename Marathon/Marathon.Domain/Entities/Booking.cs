@@ -21,7 +21,7 @@ namespace Marathon.Domain.Entities
         public virtual Customer Customer { get; set; }
         public virtual DateTime? CollectedOn { get; set; }
         public virtual DateTime? ReturnedOn { get; set; }
-
+#warning save total?
         public static ValidationMessageCollection ValidateMake(MakeBookingRequest request)
         {
             var validationMessages = new ValidationMessageCollection();
