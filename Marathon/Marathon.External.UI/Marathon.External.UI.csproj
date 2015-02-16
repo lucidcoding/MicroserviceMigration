@@ -143,6 +143,7 @@
     <Compile Include="Security\CustomAuthorizeAttribute.cs" />
     <Compile Include="Security\IUserProvider.cs" />
     <Compile Include="Security\UserProvider.cs" />
+    <Compile Include="ValidationAttributes\FutureDateOnlyAttribute.cs" />
     <Compile Include="ViewModelMappers\Booking\IMakeViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Booking\MakeViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Customer\IRegisterViewModelMapper.cs" />

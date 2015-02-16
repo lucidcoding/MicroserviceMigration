@@ -83,3 +83,21 @@ table.standard
 {
     width: 100%;
 }
+
+.marathon .form-horizontal .control-label
+{
+    text-align: left;
+}
+
+body 
+{
+    font-family:  Roboto, Optima, Arial;
+}
+
+h1
+{
+    padding-bottom: 15px;
+    border-bottom: 1px solid #FF6314;
+    margin-bottom: 30px;
+    font-weight: bold;
+}

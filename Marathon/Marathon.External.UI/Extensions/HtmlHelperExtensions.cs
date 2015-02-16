@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc.Html;
 using System.Linq.Expressions;
 using System.Web.Mvc;
+using System.Globalization;
 
 namespace Marathon.External.UI.Extensions
 {
@@ -14,41 +15,79 @@ namespace Marathon.External.UI.Extensions
              this HtmlHelper<TModel> htmlHelper,
              Expression<Func<TModel, TProperty>> expression)
         {
-            //Compile the provided expressions into a DateTime object
+            var now = DateTime.Now;
             var dateCompilation = expression.Compile();
-            var date = dateCompilation(htmlHelper.ViewData.Model);
-            var dateObj = date as DateTime?;
-
-            //Get the individual values of the datetime by splitting the datetime by property
+            var date = dateCompilation(htmlHelper.ViewData.Model) as DateTime?;
             string fullPropertyName = htmlHelper.ViewData.TemplateInfo.GetFullHtmlFieldName(ExpressionHelper.GetExpressionText(expression));
-            string dayName = fullPropertyName.Split('.').Last() + ".Day";
-            //string monthName = !fullName ? fullPropertyName.Split('.').Last() + ".Month" : fullPropertyName + ".Month";
+            ModelMetadata metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
+            string htmlFieldName = ExpressionHelper.GetExpressionText(expression);
+            var labelText = metadata.DisplayName ?? metadata.PropertyName ?? htmlFieldName.Split('.').Last();
+            string dayName = fullPropertyName + ".Day";
+            string monthName = fullPropertyName + ".Month";
+            string yearName = fullPropertyName + ".Year";
             //string yearName = !fullName ? fullPropertyName.Split('.').Last() + ".Year" : fullPropertyName + ".Year";
 
             var dayOptionsList = new List<object>();
+            var monthOptionsList = new List<object>();
+            var yearOptionsList = new List<object>();
 
-            for (int i = 1; i <= 31; i++)
+            for (int dayIndex = 1; dayIndex <= 31; dayIndex++)
             {
-                dayOptionsList.Add(new { Text = i.ToString(), Value = i.ToString() });
+                dayOptionsList.Add(new { Text = dayIndex.ToString(), Value = dayIndex.ToString() });
             }
 
-            //var dayOptions = new SelectList(dayOptionsList, "Text", "Value", dateObj.Value.Day.ToString()).AddDefaultOption();
-            var dayOptions = new SelectList(dayOptionsList, "Text", "Value", null).AddDefaultOption();
+            for(int monthIndex = 1; monthIndex <= 12; monthIndex ++)
+            {
+                monthOptionsList.Add(new { Text = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(monthIndex), Value = monthIndex.ToString() });
+            }
+
+            for(int yearIndex = 0; yearIndex < 10; yearIndex ++)
+            {
+                yearOptionsList.Add(new { Text = now.AddYears(yearIndex).Year.ToString(), Value = now.AddYears(yearIndex).Year.ToString() });
+            }
+
+            SelectList dayOptions = null;
+            SelectList monthOptions = null;
+            SelectList yearOptions = null;
+
+            if (date.HasValue)
+            {
+                dayOptions = new SelectList(dayOptionsList, "Value", "Text", date.Value.Day.ToString()).AddDefaultOption();
+                monthOptions = new SelectList(monthOptionsList, "Value", "Text", date.Value.Month.ToString()).AddDefaultOption();
+                yearOptions = new SelectList(yearOptionsList, "Value", "Text", date.Value.Year.ToString()).AddDefaultOption();
+            }
+            else
+            {
+                dayOptions = new SelectList(dayOptionsList, "Value", "Text", null).AddDefaultOption();
+                monthOptions = new SelectList(monthOptionsList, "Value", "Text", null).AddDefaultOption();
+                yearOptions = new SelectList(yearOptionsList, "Value", "Text", null).AddDefaultOption();
+            }
 
             var rowDiv = new TagBuilder("div");
-            rowDiv.AddCssClass("row date-picker-container");
-
             var dayDiv = new TagBuilder("div");
+            var monthDiv = new TagBuilder("div");
+            var yearDiv = new TagBuilder("div");
+            rowDiv.AddCssClass("row date-picker-container");
             dayDiv.AddCssClass("col-sm-4");
-
+            monthDiv.AddCssClass("col-sm-4");
+            yearDiv.AddCssClass("col-sm-4");
             var dayAttributes = new Dictionary<string, object>();
+            var monthAttributes = new Dictionary<string, object>();
+            var yearAttributes = new Dictionary<string, object>();
             dayAttributes["class"] = "form-control ic-datepicker ic-datepicker-day";
-
+            monthAttributes["class"] = "form-control ic-datepicker ic-datepicker-month";
+            yearAttributes["class"] = "form-control ic-datepicker ic-datepicker-year";
             var dayDropDown = htmlHelper.DropDownList(dayName, dayOptions, null, dayAttributes);
-
+            var monthDropDown = htmlHelper.DropDownList(monthName, monthOptions, null, monthAttributes);
+            var yearDropDown = htmlHelper.DropDownList(yearName, yearOptions, null, yearAttributes);
             dayDiv.InnerHtml = dayDropDown.ToHtmlString();
-            rowDiv.InnerHtml = dayDiv.ToString();
-            
+            monthDiv.InnerHtml = monthDropDown.ToHtmlString();
+            yearDiv.InnerHtml = yearDropDown.ToHtmlString();
+            var validatorAttributes = new Dictionary<string, object>();
+            validatorAttributes.Add("data-val", "true");
+            validatorAttributes.Add("data-val-validdate", "The field " + labelText + " must be a valid date.");
+            var validator = htmlHelper.Hidden(fullPropertyName, date.HasValue ? date.GetValueOrDefault().ToString("MM/dd/yyyy") : null, validatorAttributes);
+            rowDiv.InnerHtml = dayDiv.ToString() + monthDiv.ToString() + yearDiv.ToString() + validator.ToHtmlString();
             var fullHtmlString = MvcHtmlString.Create(rowDiv.ToString());
             return fullHtmlString;
             ////Compile the provided expressions into a DateTime object
