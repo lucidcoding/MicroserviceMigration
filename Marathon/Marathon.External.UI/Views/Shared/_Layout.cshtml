@@ -22,7 +22,7 @@
 </head>
 <body class="marathon">
     <header role="banner">
-        <nav class="navbar navbar-primary" role="navigation">
+        <nav class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar">
@@ -33,39 +33,36 @@
                     </button>
                     <a href="../" class="navbar-brand">Marathon</a>
                 </div>
-            </div>
-            <div id="navbar"  class="navbar-collapse collapse container-fluid" >
-              <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="@Url.Action("Index", "Vehicle")">Our Vehicles</a></li>
-                    <li><a href="@Url.Action("Make", "Booking")">Make a Booking</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Location & Contact</a></li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-                        @if (Request.IsAuthenticated)
-                        {
-                            <li class="dropdown-open" >
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, User<span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>@Html.ActionLink("Sign Out", "SignOut", "Customer", routeValues: null, htmlAttributes: null)</li>
-                                </ul>
-                            </li>
-                        }
-                        else
-                        {
-                            <li>@Html.ActionLink("Sign In", "SignIn", "Customer", routeValues: null, htmlAttributes: null)</li>
-                            <li>@Html.ActionLink("Register", "Register", "Customer", routeValues: null, htmlAttributes: null)</li>
-                        }
-               </ul>
+                <div id="navbar" class="navbar-collapse collapse container-fluid" >
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="@Url.Action("Index", "Vehicle")">Our Vehicles</a></li>
+                        <li><a href="@Url.Action("Make", "Booking")">Make a Booking</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                            @if (Request.IsAuthenticated)
+                            {
+                                <li class="dropdown-open" >
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, User<span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>@Html.ActionLink("Sign Out", "SignOut", "Customer", routeValues: null, htmlAttributes: null)</li>
+                                    </ul>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>@Html.ActionLink("Sign In", "SignIn", "Customer", routeValues: null, htmlAttributes: null)</li>
+                                <li>@Html.ActionLink("Register", "Register", "Customer", routeValues: null, htmlAttributes: null)</li>
+                            }
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
     <main role="main" class="container-fluid">
-        <div class="row">      
-            @RenderBody()
-        </div>
+        @RenderBody()
     </main>
 </body>
 </html>

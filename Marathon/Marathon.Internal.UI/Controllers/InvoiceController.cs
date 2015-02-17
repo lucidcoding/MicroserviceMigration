@@ -28,6 +28,12 @@ namespace Marathon.Internal.UI.Controllers
         [HttpPost]
         public ActionResult Generate(GenerateViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                _generateViewModelMapper.Hydrate(viewModel);
+                return View(viewModel);
+            }
+
             return View();
         }
     }

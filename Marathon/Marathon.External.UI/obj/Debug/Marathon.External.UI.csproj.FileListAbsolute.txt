@@ -37,3 +37,8 @@ C:\Code\MicroserviceMigration\Marathon\Marathon.External.UI\bin\System.Web.WebPa
 C:\Code\MicroserviceMigration\Marathon\Marathon.External.UI\obj\Debug\Marathon.External.UI.csprojResolveAssemblyReference.cache
 C:\Code\MicroserviceMigration\Marathon\Marathon.External.UI\obj\Debug\Marathon.External.UI.dll
 C:\Code\MicroserviceMigration\Marathon\Marathon.External.UI\obj\Debug\Marathon.External.UI.pdb
+C:\Code\MicroserviceMigration\Marathon\Marathon.External.UI\bin\Antlr3.Runtime.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.External.UI\bin\System.Web.Optimization.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.External.UI\bin\WebGrease.dll
+C:\Code\MicroserviceMigration\Marathon\Marathon.External.UI\bin\Antlr3.Runtime.pdb
+C:\Code\MicroserviceMigration\Marathon\Marathon.External.UI\bin\System.Web.Optimization.xml

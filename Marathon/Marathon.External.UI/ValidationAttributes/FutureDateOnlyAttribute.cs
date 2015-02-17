@@ -16,6 +16,7 @@ namespace Marathon.External.UI.ValidationAttributes
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
+#warning server side validation here
             return ValidationResult.Success;
         }
 
