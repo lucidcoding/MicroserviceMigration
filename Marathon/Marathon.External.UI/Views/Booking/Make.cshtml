@@ -2,11 +2,6 @@
 @using Marathon.External.UI.Extensions
 @model Marathon.External.UI.ViewModels.Booking.MakeViewModel
 
-@section JavaScript
-{
-    <script src="@Url.Content("~/Scripts/Booking/Make.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")" type="text/javascript"></script>
-}
 @section CSS
 {
     <link href="@Url.Content("~/Content/datepicker.css")" rel="stylesheet" type="text/css" />
@@ -57,3 +52,7 @@
     </div>
 }
 
+@section Scripts
+{
+    @Scripts.Render("~/bundles/Booking/Make")
+}

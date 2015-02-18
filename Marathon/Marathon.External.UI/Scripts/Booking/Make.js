@@ -6,10 +6,6 @@
             dateFormat: 'dd/mm/yy'
         };
 
-        $('.input-group.date').datepicker({
-            format: 'dd/mm/yyyy'
-        });
-
         $('#VehicleId').change(function (event) {
             event.preventDefault();
 

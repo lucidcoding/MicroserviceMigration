@@ -139,6 +139,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
@@ -285,6 +286,7 @@
     <Content Include="Views\Booking\ReturnSuccess.cshtml" />
     <Content Include="Views\User\SignIn.cshtml" />
     <Content Include="Views\Invoice\Generate.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Marathon.Data\Marathon.Data.csproj">
