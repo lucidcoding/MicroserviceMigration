@@ -63,6 +63,7 @@ namespace Marathon.IntegrationTest.Repositories
                 var booking = Booking.Make(makeBookingRequest);
                 _bookingRepository.Save(booking);
                 bookingId = booking.Id.Value;
+                _contextProvider.SaveChanges();
             }
 
             using (_contextProvider)

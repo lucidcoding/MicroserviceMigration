@@ -33,93 +33,124 @@ namespace Marathon.Data.Core
             modelBuilder.Entity<Role>().ToTable("Role");
             modelBuilder.Entity<User>().ToTable("User");
             modelBuilder.Entity<Customer>().ToTable("Customer");
-            
+
             modelBuilder.Entity<User>()
                 .HasOptional<User>(user => user.CreatedBy)
                 .WithMany()
-                .HasForeignKey(user => user.CreatedById);
+                .Map(user => user.MapKey("CreatedById"));
             
             modelBuilder.Entity<User>()
                 .HasOptional<User>(user => user.LastModifiedBy)
                 .WithMany()
-                .HasForeignKey(user => user.CreatedById); 
+                .Map(user => user.MapKey("LastModifiedById")); 
 
             modelBuilder.Entity<User>()
                 .HasRequired<Role>(user => user.Role);
 
             modelBuilder.Entity<Role>()
-                .HasOptional<User>(role => role.CreatedBy);
+                .HasOptional<User>(role => role.CreatedBy)
+                .WithMany()
+                .Map(role => role.MapKey("CreatedById"));
 
             modelBuilder.Entity<Role>()
-                .HasOptional<User>(role => role.LastModifiedBy);
+                .HasOptional<User>(role => role.LastModifiedBy)
+                .WithMany()
+                .Map(role => role.MapKey("LastModifiedById")); 
 
             modelBuilder.Entity<Role>()
                 .HasMany<PermissionRole>(role => role.PermissionRoles)
                 .WithRequired(permissionRole => permissionRole.Role)
-                .HasForeignKey(permissionRole => permissionRole.RoleId);
+                .Map(permissionRole => permissionRole.MapKey("RoleId"));
 
             modelBuilder.Entity<Permission>()
-                .HasOptional<User>(permission => permission.CreatedBy);
+                .HasOptional<User>(permission => permission.CreatedBy)
+                .WithMany()
+                .Map(permission => permission.MapKey("CreatedById"));
 
             modelBuilder.Entity<Permission>()
-                .HasOptional<User>(permission => permission.LastModifiedBy);
+                .HasOptional<User>(permission => permission.LastModifiedBy)
+                .WithMany()
+                .Map(permission => permission.MapKey("LastModifiedById")); 
             
             modelBuilder.Entity<PermissionRole>()
-                .HasOptional<User>(permissionRole => permissionRole.CreatedBy);
+                .HasOptional<User>(permissionRole => permissionRole.CreatedBy)
+                .WithMany()
+                .Map(permissionRole => permissionRole.MapKey("CreatedById"));
 
             modelBuilder.Entity<PermissionRole>()
-                .HasOptional<User>(permissionRole => permissionRole.LastModifiedBy);
-            
+                .HasOptional<User>(permissionRole => permissionRole.LastModifiedBy)
+                .WithMany()
+                .Map(permissionRole => permissionRole.MapKey("LastModifiedById"));
+
             modelBuilder.Entity<PermissionRole>()
-                .HasRequired<Permission>(permissionRole => permissionRole.Permission);
-
-            //modelBuilder.Entity<PermissionRole>()
-            //    .HasRequired<Role>(permissionRole => permissionRole.Role)
-            //    .WithMany(x => x.PermissionRoles)
-            //    .HasForeignKey(permissionRole => permissionRole.RoleId); 
+                .HasRequired<Permission>(permissionRole => permissionRole.Permission)
+                .WithMany()
+                .Map(permissionRole => permissionRole.MapKey("PermissionId"));
 
             modelBuilder.Entity<Booking>()
-                .HasOptional<User>(booking => booking.CreatedBy);
+                .HasOptional<User>(booking => booking.CreatedBy)
+                .WithMany()
+                .Map(booking => booking.MapKey("CreatedById"));
 
             modelBuilder.Entity<Booking>()
-                .HasOptional<User>(booking => booking.LastModifiedBy);
+                .HasOptional<User>(booking => booking.LastModifiedBy)
+                .WithMany()
+                .Map(booking => booking.MapKey("LastModifiedById")); 
 
             modelBuilder.Entity<Booking>()
-                .HasOptional<Customer>(booking => booking.Customer);
+                .HasOptional<Customer>(booking => booking.Customer)
+                .WithMany()
+                .Map(m => m.MapKey("CustomerId"));
             
             modelBuilder.Entity<Customer>()
-                .HasOptional<User>(customer => customer.CreatedBy);
-            
-            modelBuilder.Entity<Customer>()
-                .HasOptional<User>(customer => customer.User);
+                .HasOptional<User>(customer => customer.CreatedBy)
+                .WithMany()
+                .Map(customer => customer.MapKey("CreatedById"));
 
             modelBuilder.Entity<Customer>()
-                .HasOptional<User>(customer => customer.LastModifiedBy);
+                .HasOptional<User>(customer => customer.LastModifiedBy)
+                .WithMany()
+                .Map(customer => customer.MapKey("LastModifiedById"));
+            
+            modelBuilder.Entity<Customer>()
+                .HasRequired<User>(customer => customer.User)
+                .WithOptional()
+                .Map(customer => customer.MapKey("UserId"));
+              
+            modelBuilder.Entity<Depot>()
+                .HasOptional<User>(depot => depot.CreatedBy)
+                .WithMany()
+                .Map(depot => depot.MapKey("CreatedById"));
             
             modelBuilder.Entity<Depot>()
-                .HasOptional<User>(depot => depot.CreatedBy);
-            
-            modelBuilder.Entity<Depot>()
-                .HasOptional<User>(depot => depot.LastModifiedBy);
-            
-            modelBuilder.Entity<Vehicle>()
-                .HasOptional<User>(vehicle => vehicle.CreatedBy);
+                .HasOptional<User>(depot => depot.LastModifiedBy)
+                .WithMany()
+                .Map(depot => depot.MapKey("LastModifiedById")); 
             
             modelBuilder.Entity<Vehicle>()
-                .HasOptional<User>(vehicle => vehicle.LastModifiedBy);
+                .HasOptional<User>(vehicle => vehicle.CreatedBy)
+                .WithMany()
+                .Map(vehicle => vehicle.MapKey("CreatedById"));
             
             modelBuilder.Entity<Vehicle>()
-                .HasOptional<Depot>(vehicle => vehicle.HomeDepot);
+                .HasOptional<User>(vehicle => vehicle.LastModifiedBy)
+                .WithMany()
+                .Map(vehicle => vehicle.MapKey("LastModifiedById"));
+
+            modelBuilder.Entity<Vehicle>()
+                .HasOptional<Depot>(vehicle => vehicle.HomeDepot)
+                .WithMany()
+                .Map(vehicle => vehicle.MapKey("HomeDepotId"));
 
             modelBuilder.Entity<Vehicle>()
                 .HasMany<Booking>(bus => bus.Bookings)
                 .WithRequired(booking => booking.Vehicle)
-                .HasForeignKey(booking => booking.VehicleId);
+                .Map(booking => booking.MapKey("VehicleId"));
 
             modelBuilder.Entity<Vehicle>()
-                .HasMany<MaintenanceCheck>(bus => bus.MaintenanceChecks)
+                .HasMany<MaintenanceCheck>(vehicle => vehicle.MaintenanceChecks)
                 .WithRequired(maintenanceCheck => maintenanceCheck.Vehicle)
-                .HasForeignKey(maintenanceCheck => maintenanceCheck.VehicleId);
+                .Map(maintenanceCheck => maintenanceCheck.MapKey("VehicleId"));
 
             base.OnModelCreating(modelBuilder);
         }

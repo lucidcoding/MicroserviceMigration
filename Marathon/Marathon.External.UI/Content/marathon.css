@@ -8,6 +8,16 @@
     background-color: black;
 }
 
+.date-picker-container 
+{
+    margin-bottom: -15px;
+}
+
+.date-picker-container > div 
+{
+    padding-bottom: 15px;
+}
+
 /* Validation Errors */
 
 .field-validation-error

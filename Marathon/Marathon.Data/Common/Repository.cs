@@ -33,14 +33,12 @@ namespace Marathon.Data.Common
         public virtual void Save(TEntity entity)
         {
             DbSet.Add(entity);
-            Context.SaveChanges();
         }
 
         public virtual void Update(TEntity entityToUpdate)
         {
             DbSet.Attach(entityToUpdate);
             Context.Entry(entityToUpdate).State = EntityState.Modified;
-            Context.SaveChanges();
         }
 
         public virtual TEntity GetById(TId id)

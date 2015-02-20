@@ -6,10 +6,8 @@ namespace Marathon.Domain.Common
     public class Entity<T> where T : struct
     {
         protected T? _id;
-        protected Guid? _createdById;
         protected User _createdBy;
         protected DateTime? _createdOn;
-        protected Guid? _lastModifiedById;
         protected User _lastModifiedBy;
         protected DateTime? _lastModifiedOn;
         protected bool _deleted;
@@ -19,12 +17,6 @@ namespace Marathon.Domain.Common
         {
             get { return _id; }
             set { _id = value; }
-        }
-
-        public virtual Guid? CreatedById
-        {
-            get { return _createdById; }
-            set { _createdById = value; }
         }
 
         public virtual User CreatedBy
@@ -37,12 +29,6 @@ namespace Marathon.Domain.Common
         {
             get { return _createdOn; }
             set { _createdOn = value; }
-        }
-
-        public virtual Guid? LastModifiedById
-        {
-            get { return _lastModifiedById; }
-            set { _lastModifiedById = value; }
         }
 
         public virtual User LastModifiedBy

@@ -10,7 +10,6 @@ namespace Marathon.Domain.Entities
 {
     public class Customer : Entity<Guid>
     {
-        public virtual Guid? UserId { get; set; }
         public virtual User User { get; set; }
         public virtual string FamilyName { get; set; }
         public virtual string GivenName { get; set; }

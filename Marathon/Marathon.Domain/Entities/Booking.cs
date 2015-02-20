@@ -15,9 +15,7 @@ namespace Marathon.Domain.Entities
         public virtual DateTime? EndDate { get; set; }
         public virtual decimal? StartMileage { get; set; }
         public virtual decimal? EndMileage { get; set; }
-        public virtual Guid? VehicleId { get; set; }
         public virtual Vehicle Vehicle { get; set; }
-        public virtual Guid? CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
         public virtual DateTime? CollectedOn { get; set; }
         public virtual DateTime? ReturnedOn { get; set; }
