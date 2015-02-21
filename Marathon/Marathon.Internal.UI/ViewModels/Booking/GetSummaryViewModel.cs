@@ -10,13 +10,13 @@ namespace Marathon.Internal.UI.ViewModels.Booking
     {
         public Guid BookingId { get; set; }
 
-        [DisplayName("Customer Name:")]
+        [DisplayName("Customer Name")]
         public string CustomerName { get; set; }
 
-        [DisplayName("Start Date:")]
+        [DisplayName("Start Date")]
         public DateTime StartDate { get; set; }
 
-        [DisplayName("End Date:")]
+        [DisplayName("End Date")]
         public DateTime EndDate { get; set; }
     }
 }

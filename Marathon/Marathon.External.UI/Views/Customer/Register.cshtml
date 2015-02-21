@@ -7,56 +7,85 @@
 
 <h2>Register/Sign in</h2>
 
-@using (Html.BeginForm("Register", "Customer", FormMethod.Post, new { role = "form" }))
+@using (Html.BeginForm("Register", "Customer", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
 {
     @Html.ValidationSummary(false, "There were some problems with the information you entered, please correct and resubmit.")
     <div class="form-group">
-        @Html.LabelFor(model => model.EmailAddress):
-        @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.EmailAddress)
+        @Html.LabelFor(model => model.EmailAddress, new { @class = "control-label col-sm-3" })
+        <div class="col-sm-6">
+            @Html.ValidationMessageFor(model => model.EmailAddress)
+            @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control" })
+        </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Password):
-        @Html.TextBoxFor(model => model.Password, new { @class = "form-control", type = "password" })
-        @Html.ValidationMessageFor(model => model.Password)
+        @Html.LabelFor(model => model.Password, new { @class = "control-label col-sm-3" })
+        <div class="col-sm-6">
+            @Html.ValidationMessageFor(model => model.Password)
+            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", type = "password" })
+        </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.ConfirmPassword):
-        @Html.TextBoxFor(model => model.ConfirmPassword, new { @class = "form-control", type = "password" })
-        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+        @Html.LabelFor(model => model.ConfirmPassword, new { @class = "control-label col-sm-3" })
+        <div class="col-sm-6">
+            @Html.ValidationMessageFor(model => model.ConfirmPassword)
+            @Html.TextBoxFor(model => model.ConfirmPassword, new { @class = "form-control", type = "password" })
+        </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.FamilyName):
-        @Html.TextBoxFor(model => model.FamilyName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.FamilyName)
+        @Html.LabelFor(model => model.FamilyName, new { @class = "control-label col-sm-3" })
+        <div class="col-sm-6">
+            @Html.ValidationMessageFor(model => model.FamilyName)
+            @Html.TextBoxFor(model => model.FamilyName, new { @class = "form-control" })
+        </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.GivenName):
-        @Html.TextBoxFor(model => model.GivenName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.GivenName)
+        @Html.LabelFor(model => model.GivenName, new { @class = "control-label col-sm-3" })
+        <div class="col-sm-6">
+            @Html.ValidationMessageFor(model => model.GivenName)   
+            @Html.TextBoxFor(model => model.GivenName, new { @class = "form-control" })
+        </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Address1):
-        @Html.TextBoxFor(model => model.Address1, new { @class = "form-control" })
+        @Html.LabelFor(model => model.Address1, new { @class = "control-label col-sm-3" })
+        <div class="col-sm-6">
+            @Html.ValidationMessageFor(model => model.Address1) 
+            @Html.TextBoxFor(model => model.Address1, new { @class = "form-control" })
+        </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Address2):
-        @Html.TextBoxFor(model => model.Address2, new { @class = "form-control" })
+        @Html.LabelFor(model => model.Address2, new { @class = "control-label col-sm-3" })
+        <div class="col-sm-6">
+            @Html.ValidationMessageFor(model => model.Address2) 
+            @Html.TextBoxFor(model => model.Address2, new { @class = "form-control" })
+        </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Address3):
-        @Html.TextBoxFor(model => model.Address3, new { @class = "form-control" })
+        @Html.LabelFor(model => model.Address3, new { @class = "control-label col-sm-3" })
+        <div class="col-sm-6">
+            @Html.ValidationMessageFor(model => model.Address3) 
+            @Html.TextBoxFor(model => model.Address3, new { @class = "form-control" })
+        </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Address4):
-        @Html.TextBoxFor(model => model.Address4, new { @class = "form-control" })
+        @Html.LabelFor(model => model.Address4, new { @class = "control-label col-sm-3" })
+        <div class="col-sm-6">
+            @Html.ValidationMessageFor(model => model.Address4) 
+            @Html.TextBoxFor(model => model.Address4, new { @class = "form-control" })
+        </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.PostCode):
-        @Html.TextBoxFor(model => model.PostCode, new { @class = "form-control" })
+        @Html.LabelFor(model => model.PostCode, new { @class = "control-label col-sm-3" })
+        <div class="col-sm-6">
+            @Html.ValidationMessageFor(model => model.PostCode) 
+            @Html.TextBoxFor(model => model.PostCode, new { @class = "form-control" })
+        </div>
     </div>
-    
-    <button type="submit" class="btn btn-default">Submit</button>
+    <div class="form-group">        
+        <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-success">Submit</button>
+            @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    </div>
 }
 
 @section Scripts

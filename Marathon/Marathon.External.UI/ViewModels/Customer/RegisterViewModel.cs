@@ -12,18 +12,18 @@ namespace Marathon.External.UI.ViewModels.Customer
     {
         [Required]
         [DataType(DataType.EmailAddress)]
-        [DisplayName("User Name (Email address):")]
+        [DisplayName("Email address")]
         public string EmailAddress { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [DisplayName("Enter Password:")]
+        [DisplayName("Enter Password")]
         public string Password { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
         [Compare("Password")]
-        [DisplayName("Confirm Password:")]
+        [DisplayName("Confirm Password")]
         public string ConfirmPassword { get; set; }
 
         [Required]
@@ -31,22 +31,22 @@ namespace Marathon.External.UI.ViewModels.Customer
         public string FamilyName { get; set; }
 
         [Required]
-        [DisplayName("Given Name:")]
+        [DisplayName("Given Name")]
         public string GivenName { get; set; }
 
-        [DisplayName("Address Line 1:")]
+        [DisplayName("Address Line 1")]
         public string Address1 { get; set; }
 
-        [DisplayName("Address Line 2:")]
+        [DisplayName("Address Line 2")]
         public string Address2 { get; set; }
 
-        [DisplayName("Address Line 3:")]
+        [DisplayName("Address Line 3")]
         public string Address3 { get; set; }
 
-        [DisplayName("Address Line 4:")]
+        [DisplayName("Address Line 4")]
         public string Address4 { get; set; }
 
-        [DisplayName("Postcode:")]
+        [DisplayName("Postcode")]
         public string PostCode { get; set; }
     }
 }

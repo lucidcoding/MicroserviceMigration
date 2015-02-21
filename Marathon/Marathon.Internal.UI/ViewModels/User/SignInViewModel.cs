@@ -10,12 +10,12 @@ namespace Marathon.Internal.UI.ViewModels.User
     public class SignInViewModel
     {
         [Required]
-        [DisplayName("User name:")]
+        [DisplayName("User name")]
         public string Username { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [DisplayName("Password:")]
+        [DisplayName("Password")]
         public string Password { get; set; }
     }
 }
