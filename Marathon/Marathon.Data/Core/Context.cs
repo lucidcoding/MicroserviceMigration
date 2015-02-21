@@ -95,13 +95,18 @@ namespace Marathon.Data.Core
             modelBuilder.Entity<Booking>()
                 .HasOptional<User>(booking => booking.LastModifiedBy)
                 .WithMany()
-                .Map(booking => booking.MapKey("LastModifiedById")); 
+                .Map(booking => booking.MapKey("LastModifiedById"));
 
-            modelBuilder.Entity<Booking>()
-                .HasOptional<Customer>(booking => booking.Customer)
-                .WithMany()
-                .Map(m => m.MapKey("CustomerId"));
+            //modelBuilder.Entity<Booking>()
+            //    .HasOptional<Customer>(booking => booking.Customer)
+            //    .WithMany(customer => customer.Booking)
+            //    .Map(m => m.MapKey("CustomerId"));
             
+            modelBuilder.Entity<Customer>()
+                .HasMany<Booking>(customer => customer.Bookings)
+                .WithOptional(booking => booking.Customer)
+                .Map(m => m.MapKey("CustomerId"));
+
             modelBuilder.Entity<Customer>()
                 .HasOptional<User>(customer => customer.CreatedBy)
                 .WithMany()
@@ -114,7 +119,7 @@ namespace Marathon.Data.Core
             
             modelBuilder.Entity<Customer>()
                 .HasRequired<User>(customer => customer.User)
-                .WithOptional()
+                .WithOptional(user => user.Customer)
                 .Map(customer => customer.MapKey("UserId"));
               
             modelBuilder.Entity<Depot>()

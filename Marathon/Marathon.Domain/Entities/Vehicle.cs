@@ -12,7 +12,7 @@ namespace Marathon.Domain.Entities
         public virtual string RegistrationNumber { get; set; }
         public virtual string Make { get; set; }
         public virtual string Model { get; set; }
-        public virtual decimal PricePerMile { get; set; }
+        public virtual decimal PricePerDay { get; set; }
         public virtual Depot HomeDepot { get; set; }
         public virtual ICollection<Booking> Bookings { get; set; }
         public virtual ICollection<MaintenanceCheck> MaintenanceChecks { get; set; }

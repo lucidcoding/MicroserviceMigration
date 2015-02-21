@@ -28,7 +28,16 @@ namespace Marathon.Domain.Entities
             invoice.PeriodFrom = request.PeriodFrom;
             invoice.PeriodTo = request.PeriodTo;
             invoice.InvoiceDate = now;
-#warning calculate total
+
+            var relevantBookings = request
+                .Customer
+                .Bookings
+                .Where(booking =>
+                    booking.EndDate >= request.PeriodFrom
+                    && booking.EndDate <= request.PeriodTo)
+                .ToList();
+
+            //invoice.Total = relevantBookings.Select(booking => booking.
             return invoice;
         }
     }

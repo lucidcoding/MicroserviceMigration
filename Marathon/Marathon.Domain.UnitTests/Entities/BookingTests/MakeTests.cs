@@ -21,7 +21,12 @@ namespace Marathon.Domain.UnitTests.Entities.BookingTests
                 FamilyName = "Blue"
             };
 
-            var vehicle = new Vehicle() { Id = Guid.NewGuid() };
+            var vehicle = new Vehicle() 
+            {   
+                Id = Guid.NewGuid(),
+                PricePerDay = 100m
+            };
+
             request.Customer = customer;
             request.StartDate = new DateTime(2050, 10, 1);
             request.EndDate = new DateTime(2050, 10, 3);
@@ -36,6 +41,7 @@ namespace Marathon.Domain.UnitTests.Entities.BookingTests
             Assert.AreEqual(request.EndDate, booking.EndDate);
             Assert.AreSame(customer, booking.Customer);
             Assert.AreSame(vehicle, booking.Vehicle);
+            Assert.AreEqual(300m, booking.Total);
         }
     }
 }

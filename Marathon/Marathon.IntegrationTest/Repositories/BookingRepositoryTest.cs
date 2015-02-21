@@ -73,8 +73,8 @@ namespace Marathon.IntegrationTest.Repositories
                 Assert.AreEqual(1, allBookings.Count);
                 Assert.IsNotNull(storedBooking.Id);
                 Assert.IsNotNull(storedBooking.BookingNumber);
-                Assert.AreEqual(makeBookingRequest.EndDate, storedBooking.EndDate.Value);
-                Assert.AreEqual(makeBookingRequest.EndDate, storedBooking.EndDate.Value);
+                Assert.AreEqual(makeBookingRequest.EndDate, storedBooking.EndDate);
+                Assert.AreEqual(makeBookingRequest.EndDate, storedBooking.EndDate);
                 Assert.AreEqual(makeBookingRequest.Customer.User.Id.Value, storedBooking.CreatedBy.Id.Value);
                 Assert.AreEqual("Green", storedBooking.Customer.FamilyName);
                 Assert.AreEqual("Gary", storedBooking.Customer.GivenName);

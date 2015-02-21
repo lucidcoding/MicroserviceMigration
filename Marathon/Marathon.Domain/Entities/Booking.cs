@@ -11,15 +11,16 @@ namespace Marathon.Domain.Entities
     public class Booking : Entity<Guid>
     {
         public virtual string BookingNumber { get; set; }
-        public virtual DateTime? StartDate { get; set; }
-        public virtual DateTime? EndDate { get; set; }
+        public virtual DateTime StartDate { get; set; }
+        public virtual DateTime EndDate { get; set; }
         public virtual decimal? StartMileage { get; set; }
         public virtual decimal? EndMileage { get; set; }
         public virtual Vehicle Vehicle { get; set; }
         public virtual Customer Customer { get; set; }
         public virtual DateTime? CollectedOn { get; set; }
         public virtual DateTime? ReturnedOn { get; set; }
-#warning save total?
+        public virtual decimal Total { get; set; }
+
         public static ValidationMessageCollection ValidateMake(MakeBookingRequest request)
         {
             var validationMessages = new ValidationMessageCollection();
@@ -66,11 +67,13 @@ namespace Marathon.Domain.Entities
             var booking = new Booking();
             booking.Id = Guid.NewGuid();
             booking.BookingNumber = request.Customer.FamilyName.ToUpper() + DateTime.Now.ToString("yyMMddHHmmss");
-            booking.StartDate = request.StartDate;
-            booking.EndDate = request.EndDate;
+            booking.StartDate = request.StartDate.Value;
+            booking.EndDate = request.EndDate.Value;
             booking.Customer = request.Customer;
             booking.CreatedBy = request.Customer.User;
             booking.Vehicle = request.Vehicle;
+            var totalDays = (request.EndDate.Value - request.StartDate.Value).Days + 1;
+            booking.Total = totalDays * request.Vehicle.PricePerDay;
             return booking;
         }
 
@@ -110,28 +113,13 @@ namespace Marathon.Domain.Entities
             LastModifiedBy = request.LoggedBy;
         }
 
-        public virtual decimal? TotalCost
-        {
-            get
-            {
-                if (!StartMileage.HasValue || !EndMileage.HasValue)
-                {
-                    return null;
-                }
-                else
-                {
-                    return (EndMileage.Value - StartMileage.Value) * Vehicle.PricePerMile;
-                }
-            }
-        }
-
         public virtual void Invoice(IEmailer emailer)
         {
             var subject = "Invoice for Booking " + BookingNumber;
             var body = new StringBuilder();
             body.AppendLine(string.Format("Dear {0},", Customer.GivenName));
             body.AppendLine();
-            body.AppendLine(string.Format("Please pay the outstanding amount of £{0:#.00}", TotalCost));
+            body.AppendLine(string.Format("Please pay the outstanding amount of £{0:#.00}", Total));
             body.AppendLine();
             body.AppendLine("Regards,");
             body.AppendLine("The Marathon Team");

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="79fc9c3d-e3f1-4305-8794-046d856e99e6" name="Paul@LUCIDITYPC 2015-02-21 14:43:56" runUser="LucidityPc\Paul" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="454fff11-78e4-46b1-93ba-f0be7b533939">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Paul_LUCIDITYPC 2015-02-21 14_43_56">
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Moq.4.2.1409.1722\lib\net40\Moq.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\Marathon.Domain\bin\Debug\Marathon.Domain.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2015-02-21T14:43:56.5355095+00:00" queuing="2015-02-21T14:43:56.9187527+00:00" start="2015-02-21T14:43:56.9357639+00:00" finish="2015-02-21T14:43:58.3037305+00:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="CanSendInvoice" storage="c:\code\microservicemigration\marathon\marathon.domain.unittests\bin\debug\marathon.domain.unittests.dll" id="b6d2dd10-a93d-30ba-de5e-996bce155f68">
+      <Execution id="446eeef7-ea12-4129-8a1b-d296be0a8731" />
+      <TestMethod codeBase="C:/Code/MicroserviceMigration/Marathon/Marathon.Domain.UnitTests/bin/Debug/Marathon.Domain.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Marathon.Domain.UnitTests.Entities.BookingTests.InvoiceTests, Marathon.Domain.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CanSendInvoice" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="b6d2dd10-a93d-30ba-de5e-996bce155f68" executionId="446eeef7-ea12-4129-8a1b-d296be0a8731" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="446eeef7-ea12-4129-8a1b-d296be0a8731" testId="b6d2dd10-a93d-30ba-de5e-996bce155f68" testName="CanSendInvoice" computerName="LUCIDITYPC" duration="00:00:00.5351316" startTime="2015-02-21T14:43:56.9517756+00:00" endTime="2015-02-21T14:43:58.2546959+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="446eeef7-ea12-4129-8a1b-d296be0a8731">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;Dear Tom,
+
+Please pay the outstanding amount of £75.00
+
+Regards,
+The Marathon Team
+&gt;. Actual:&lt;Dear Tom,
+
+Please pay the outstanding amount of £.00
+
+Regards,
+The Marathon Team
+&gt;. </Message>
+          <StackTrace>   at Marathon.Domain.UnitTests.Entities.BookingTests.InvoiceTests.CanSendInvoice() in C:\Code\MicroserviceMigration\Marathon\Marathon.Domain.UnitTests\Entities\BookingTests\InvoiceTests.cs:line 73
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

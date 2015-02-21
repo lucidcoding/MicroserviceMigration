@@ -34,13 +34,12 @@ namespace Marathon.Domain.UnitTests.Entities.BookingTests
             var booking = new Booking()
             {
                 Id = Guid.NewGuid(),
-                StartMileage = 10000,
-                EndMileage = 10100,
+                Total = 75m,
                 BookingNumber = "Booking001",
                 Vehicle = new Vehicle()
                 {
                     Id = Guid.NewGuid(),
-                    PricePerMile = 0.75m
+                    PricePerDay = 75m
                 },
                 Customer = new Customer() 
                 {

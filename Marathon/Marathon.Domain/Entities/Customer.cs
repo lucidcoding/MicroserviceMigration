@@ -18,6 +18,7 @@ namespace Marathon.Domain.Entities
         public virtual string Address3 { get; set; }
         public virtual string Address4 { get; set; }
         public virtual string PostCode { get; set; }
+        public virtual ICollection<Booking> Bookings { get; set; }
 
         public static ValidationMessageCollection ValidateRegister(RegisterCustomerRequest request)
         {

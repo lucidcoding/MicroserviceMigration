@@ -259,7 +259,7 @@ CREATE TABLE [dbo].[Vehicle](
 		[RegistrationNumber] [nvarchar](20) NULL,
 		[Make] [nvarchar](50) NULL,
 		[Model] [nvarchar](50) NULL,
-		[PricePerMile] [money] NOT NULL,
+		[PricePerDay] [money] NOT NULL,
 		[HomeDepotId] [uniqueidentifier] NULL,
 		[CreatedById] [uniqueidentifier] NULL,
 		[CreatedOn] [datetime] NULL,
@@ -277,12 +277,12 @@ CREATE TABLE [dbo].[Vehicle](
 	DECLARE @now AS DATETIME
 	SET @now = GETDATE()
 
-	INSERT INTO [Vehicle] ([Id], [RegistrationNumber], [Make], [Model], [PricePerMile], [HomeDepotId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) 
-	VALUES ('911762e0-31ba-4c6c-83f8-3f2288904975', 'SF59 QRT', 'Ford', 'Transit', 0.90, '6a9857a6-d0b0-4e1a-84cb-ee9ade159560', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
-	INSERT INTO [Vehicle] ([Id], [RegistrationNumber], [Make], [Model], [PricePerMile], [HomeDepotId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) 
-	VALUES ('a50c62cd-b24a-4d0a-aada-9744fce7022c', 'RJ08 FAE', 'Volkswagen', 'Transporter', 1.00, '6a9857a6-d0b0-4e1a-84cb-ee9ade159560', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
-	INSERT INTO [Vehicle] ([Id], [RegistrationNumber], [Make], [Model], [PricePerMile], [HomeDepotId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) 
-	VALUES ('6850BF08-14D2-49A0-BC28-9285A69094BC', 'DG59 USG', 'Volkswagen', 'Transporter', 1.00, 'ba325fad-9a65-4732-872c-da2069bb37e8', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
+	INSERT INTO [Vehicle] ([Id], [RegistrationNumber], [Make], [Model], [PricePerDay], [HomeDepotId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) 
+	VALUES ('911762e0-31ba-4c6c-83f8-3f2288904975', 'SF59 QRT', 'Ford', 'Transit', 90, '6a9857a6-d0b0-4e1a-84cb-ee9ade159560', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
+	INSERT INTO [Vehicle] ([Id], [RegistrationNumber], [Make], [Model], [PricePerDay], [HomeDepotId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) 
+	VALUES ('a50c62cd-b24a-4d0a-aada-9744fce7022c', 'RJ08 FAE', 'Volkswagen', 'Transporter', 100, '6a9857a6-d0b0-4e1a-84cb-ee9ade159560', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
+	INSERT INTO [Vehicle] ([Id], [RegistrationNumber], [Make], [Model], [PricePerDay], [HomeDepotId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) 
+	VALUES ('6850BF08-14D2-49A0-BC28-9285A69094BC', 'DG59 USG', 'Volkswagen', 'Transporter', 100, 'ba325fad-9a65-4732-872c-da2069bb37e8', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
 END 
 GO
 
@@ -324,14 +324,15 @@ BEGIN
 CREATE TABLE [dbo].[Booking](
 		[Id] [uniqueidentifier] NOT NULL,
 		[BookingNumber] [nvarchar](25) NULL,
-		[StartDate] [datetime] NULL,
-		[EndDate] [datetime] NULL,
+		[StartDate] [datetime] NOT NULL,
+		[EndDate] [datetime] NOT NULL,
 		[StartMileage] [decimal](8,2) NULL,
 		[EndMileage] [decimal](8,2) NULL,
 		[VehicleId] [uniqueidentifier] NULL,
 		[CustomerId] [uniqueidentifier] NULL,
 		[CollectedOn] [datetime] NULL,
 		[ReturnedOn] [datetime] NULL,
+		[Total] [decimal](5,2) NULL,
 		[CreatedById] [uniqueidentifier] NULL,
 		[CreatedOn] [datetime] NULL,
 		[LastModifiedById] [uniqueidentifier] NULL,
