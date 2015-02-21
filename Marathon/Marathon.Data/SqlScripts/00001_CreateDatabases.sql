@@ -90,6 +90,20 @@ BEGIN
 END
 GO
 
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES
+	WHERE TABLE_NAME = 'MaintenanceCheck')
+BEGIN
+	DROP TABLE [dbo].[MaintenanceCheck]
+END
+GO
+
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES
+	WHERE TABLE_NAME = 'Invoice')
+BEGIN
+	DROP TABLE [dbo].[Invoice]
+END
+GO
+
 IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES
 	WHERE TABLE_NAME = 'Role')
 BEGIN
@@ -368,6 +382,32 @@ CREATE TABLE [dbo].[MaintenanceCheck](
 	) ON [PRIMARY]
 
 	GRANT SELECT, INSERT, UPDATE ON [MaintenanceCheck] TO [AllowSelectInsertUpdate]
+END 
+GO
+
+IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES
+	WHERE TABLE_NAME = 'Invoice')
+BEGIN
+CREATE TABLE [dbo].[Invoice](
+		[Id] [uniqueidentifier] NOT NULL,
+		[InvoiceNumber] [varchar](25) NULL,
+		[CustomerId] [uniqueidentifier] NULL,
+		[PeriodFrom] [datetime] NOT NULL,
+		[PeriodTo] [datetime] NOT NULL,
+		[InvoiceDate] [datetime] NOT NULL,
+		[Total] [decimal](8,2) NOT NULL,
+		[CreatedById] [uniqueidentifier] NULL,
+		[CreatedOn] [datetime] NULL,
+		[LastModifiedById] [uniqueidentifier] NULL,
+		[LastModifiedOn] [datetime] NULL,
+		[Deleted] [bit]	NOT NULL,
+		CONSTRAINT [PK_Invoice] PRIMARY KEY CLUSTERED 
+		(
+			[Id] ASC
+		)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+
+	GRANT SELECT, INSERT, UPDATE ON [Invoice] TO [AllowSelectInsertUpdate]
 END 
 GO
 

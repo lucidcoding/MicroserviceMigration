@@ -16,6 +16,12 @@ namespace Marathon.Domain.Entities
         public virtual DateTime InvoiceDate { get; set; }
         public virtual decimal Total { get; set; }
 
+        public static ValidationMessageCollection ValidateGenerate(GenerateInvoiceRequest request)
+        {
+            var validationMessages = new ValidationMessageCollection();
+            return validationMessages;
+        }
+
         public static Invoice Generate(GenerateInvoiceRequest request)
         {
             var invoice = new Invoice();
@@ -25,8 +31,8 @@ namespace Marathon.Domain.Entities
             invoice.CreatedOn = now;
             invoice.InvoiceNumber = request.InvoiceNumber;
             invoice.Customer = request.Customer;
-            invoice.PeriodFrom = request.PeriodFrom;
-            invoice.PeriodTo = request.PeriodTo;
+            invoice.PeriodFrom = request.PeriodFrom.Value;
+            invoice.PeriodTo = request.PeriodTo.Value;
             invoice.InvoiceDate = now;
 
             var relevantBookings = request
@@ -37,7 +43,7 @@ namespace Marathon.Domain.Entities
                     && booking.EndDate <= request.PeriodTo)
                 .ToList();
 
-            //invoice.Total = relevantBookings.Select(booking => booking.
+            invoice.Total = relevantBookings.Sum(booking => booking.Total);
             return invoice;
         }
     }

@@ -14,6 +14,7 @@ namespace Marathon.Data.Core
              kernel.Bind<IVehicleRepository>().To<VehicleRepository>();
              kernel.Bind<IDepotRepository>().To<DepotRepository>();
              kernel.Bind<ICustomerRepository>().To<CustomerRepository>();
+             kernel.Bind<IInvoiceRepository>().To<InvoiceRepository>();
         }
     }
 }

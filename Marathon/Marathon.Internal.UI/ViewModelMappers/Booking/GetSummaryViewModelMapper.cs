@@ -17,8 +17,8 @@ namespace Marathon.Internal.UI.ViewModelMappers.Booking
             var booking = _bookingRepository.GetByBookingNumber(bookingNumber);
             var viewModel = new GetSummaryViewModel();
             viewModel.CustomerName = booking.Customer.GivenName + " " + booking.Customer.FamilyName;
-            viewModel.StartDate = booking.StartDate.Value;
-            viewModel.EndDate = booking.EndDate.Value;
+            viewModel.StartDate = booking.StartDate;
+            viewModel.EndDate = booking.EndDate;
             return viewModel;
         }
     }

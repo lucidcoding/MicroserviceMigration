@@ -25,8 +25,8 @@ namespace Marathon.External.UI.ViewModelMappers.Booking
                     VehicleId = vehicleId,
                     BookingNumber = booking.BookingNumber,
                     CustomerName = booking.Customer.FamilyName + ", " + booking.Customer.GivenName,
-                    StartDate = booking.StartDate.Value,
-                    EndDate = booking.EndDate.Value
+                    StartDate = booking.StartDate,
+                    EndDate = booking.EndDate
                 }).ToList();
 
             return viewModel;

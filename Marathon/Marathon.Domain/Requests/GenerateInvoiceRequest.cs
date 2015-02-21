@@ -10,8 +10,8 @@ namespace Marathon.Domain.Requests
     {
         public string InvoiceNumber { get; set; }
         public Customer Customer { get; set; }
-        public DateTime PeriodFrom { get; set; }
-        public DateTime PeriodTo { get; set; }
+        public DateTime? PeriodFrom { get; set; }
+        public DateTime? PeriodTo { get; set; }
         public User GeneratedBy { get; set; }
     }
 }

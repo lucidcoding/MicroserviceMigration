@@ -20,6 +20,7 @@ namespace Marathon.Data.Core
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<MaintenanceCheck> MaintenanceChecks { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -33,6 +34,7 @@ namespace Marathon.Data.Core
             modelBuilder.Entity<Role>().ToTable("Role");
             modelBuilder.Entity<User>().ToTable("User");
             modelBuilder.Entity<Customer>().ToTable("Customer");
+            modelBuilder.Entity<Invoice>().ToTable("Invoice");
 
             modelBuilder.Entity<User>()
                 .HasOptional<User>(user => user.CreatedBy)
@@ -96,11 +98,6 @@ namespace Marathon.Data.Core
                 .HasOptional<User>(booking => booking.LastModifiedBy)
                 .WithMany()
                 .Map(booking => booking.MapKey("LastModifiedById"));
-
-            //modelBuilder.Entity<Booking>()
-            //    .HasOptional<Customer>(booking => booking.Customer)
-            //    .WithMany(customer => customer.Booking)
-            //    .Map(m => m.MapKey("CustomerId"));
             
             modelBuilder.Entity<Customer>()
                 .HasMany<Booking>(customer => customer.Bookings)
@@ -156,6 +153,21 @@ namespace Marathon.Data.Core
                 .HasMany<MaintenanceCheck>(vehicle => vehicle.MaintenanceChecks)
                 .WithRequired(maintenanceCheck => maintenanceCheck.Vehicle)
                 .Map(maintenanceCheck => maintenanceCheck.MapKey("VehicleId"));
+
+            modelBuilder.Entity<Invoice>()
+                .HasOptional<User>(invoice => invoice.CreatedBy)
+                .WithMany()
+                .Map(invoice => invoice.MapKey("CreatedById"));
+
+            modelBuilder.Entity<Invoice>()
+                .HasOptional<User>(invoice => invoice.LastModifiedBy)
+                .WithMany()
+                .Map(invoice => invoice.MapKey("LastModifiedById"));
+
+            modelBuilder.Entity<Invoice>()
+                .HasOptional<Customer>(invoice => invoice.Customer)
+                .WithMany()
+                .Map(invoice => invoice.MapKey("CustomerId")); 
 
             base.OnModelCreating(modelBuilder);
         }

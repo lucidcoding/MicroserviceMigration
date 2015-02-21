@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="3b90853a-e173-4939-b5c5-c26db4e46647" name="Paul@LUCIDITYPC 2015-02-21 16:31:37" runUser="LucidityPc\Paul" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="454fff11-78e4-46b1-93ba-f0be7b533939">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Paul_LUCIDITYPC 2015-02-21 16_31_37">
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.SqlServer.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\Marathon.Data\bin\Debug\Marathon.Data.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.SmoExtended.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Ninject.3.2.3-unstable-012\lib\net40\Ninject.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.SqlEnum.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.SqlClrProvider.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.ConnectionInfoExtended.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.Smo.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Moq.4.2.1409.1722\lib\net40\Moq.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.ConnectionInfo.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\Unofficial.Microsoft.SQLServer.SMO.2014.12.0.2000.8\lib\Microsoft.SqlServer.Management.Sdk.Sfc.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\Marathon.Domain\bin\Debug\Marathon.Domain.dll" />
+      <DeploymentItem filename="C:\Code\MicroserviceMigration\Marathon\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2015-02-21T16:31:37.2340050+00:00" queuing="2015-02-21T16:31:37.7463946+00:00" start="2015-02-21T16:31:37.7673829+00:00" finish="2015-02-21T16:31:52.1236528+00:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="11" executed="11" passed="11" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="VehicleThatHasExceededDurationReturnsTrue" storage="c:\code\microservicemigration\marathon\marathon.domain.unittests\bin\debug\marathon.domain.unittests.dll" id="56075138-793d-d6f5-c460-fac03f7b9b93">
+      <Execution id="578c066a-224d-49d2-b6b7-f4c47a75032c" />
+      <TestMethod codeBase="C:/Code/MicroserviceMigration/Marathon/Marathon.Domain.UnitTests/bin/Debug/Marathon.Domain.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Marathon.Domain.UnitTests.Entities.VehicleTests.RequiresMaintenanceTests, Marathon.Domain.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="VehicleThatHasExceededDurationReturnsTrue" />
+    </UnitTest>
+    <UnitTest name="VehicleThatHasExceededMileageReturnsTrue" storage="c:\code\microservicemigration\marathon\marathon.domain.unittests\bin\debug\marathon.domain.unittests.dll" id="a5a31692-e710-07a4-6b52-d254201d0e0f">
+      <Execution id="d8fdfd16-4b2b-4ca7-9a73-8b8bfa53cabf" />
+      <TestMethod codeBase="C:/Code/MicroserviceMigration/Marathon/Marathon.Domain.UnitTests/bin/Debug/Marathon.Domain.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Marathon.Domain.UnitTests.Entities.VehicleTests.RequiresMaintenanceTests, Marathon.Domain.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="VehicleThatHasExceededMileageReturnsTrue" />
+    </UnitTest>
+    <UnitTest name="CanSendInvoice" storage="c:\code\microservicemigration\marathon\marathon.domain.unittests\bin\debug\marathon.domain.unittests.dll" id="b6d2dd10-a93d-30ba-de5e-996bce155f68">
+      <Execution id="cafa38db-0c5b-43e5-8d04-ed76292253c9" />
+      <TestMethod codeBase="C:/Code/MicroserviceMigration/Marathon/Marathon.Domain.UnitTests/bin/Debug/Marathon.Domain.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Marathon.Domain.UnitTests.Entities.BookingTests.InvoiceTests, Marathon.Domain.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CanSendInvoice" />
+    </UnitTest>
+    <UnitTest name="VehicleThatDoesntRequireMaintenanceReturnsFalse" storage="c:\code\microservicemigration\marathon\marathon.domain.unittests\bin\debug\marathon.domain.unittests.dll" id="5156cec0-4d7d-ec72-37cb-1e7f3d054528">
+      <Execution id="fc9a6bc1-a97e-4b36-a7ad-0889e6ccea77" />
+      <TestMethod codeBase="C:/Code/MicroserviceMigration/Marathon/Marathon.Domain.UnitTests/bin/Debug/Marathon.Domain.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Marathon.Domain.UnitTests.Entities.VehicleTests.RequiresMaintenanceTests, Marathon.Domain.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="VehicleThatDoesntRequireMaintenanceReturnsFalse" />
+    </UnitTest>
+    <UnitTest name="InvalidRequestFails" storage="c:\code\microservicemigration\marathon\marathon.domain.unittests\bin\debug\marathon.domain.unittests.dll" id="dfd22b97-7acf-0886-6555-1fd390fe7dfc">
+      <Execution id="420817d4-7d41-4e29-b2f8-42c217326e57" />
+      <TestMethod codeBase="C:/Code/MicroserviceMigration/Marathon/Marathon.Domain.UnitTests/bin/Debug/Marathon.Domain.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Marathon.Domain.UnitTests.Entities.BookingTests.ValidateMakeTests, Marathon.Domain.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="InvalidRequestFails" />
+    </UnitTest>
+    <UnitTest name="InvalidRequestFails" storage="c:\code\microservicemigration\marathon\marathon.domain.unittests\bin\debug\marathon.domain.unittests.dll" id="b126a3fd-6ec6-116d-9e39-e0b2fa8e0ae9">
+      <Execution id="624019fb-d570-401d-84c5-25bf5ace4eba" />
+      <TestMethod codeBase="C:/Code/MicroserviceMigration/Marathon/Marathon.Domain.UnitTests/bin/Debug/Marathon.Domain.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Marathon.Domain.UnitTests.Entities.CustomerTests.ValidateRegisterTests, Marathon.Domain.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="InvalidRequestFails" />
+    </UnitTest>
+    <UnitTest name="CanAddBooking" storage="c:\code\microservicemigration\marathon\marathon.integrationtest\bin\debug\marathon.integrationtest.dll" id="da894f7e-216d-e624-97f5-6c38d1c19a37">
+      <Execution id="bdb21ebd-4113-4ae0-853f-470ebb0e402d" />
+      <TestMethod codeBase="C:/Code/MicroserviceMigration/Marathon/Marathon.IntegrationTest/bin/Debug/Marathon.IntegrationTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Marathon.IntegrationTest.Repositories.BookingRepositoryTest, Marathon.IntegrationTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CanAddBooking" />
+    </UnitTest>
+    <UnitTest name="CanMakeBooking" storage="c:\code\microservicemigration\marathon\marathon.domain.unittests\bin\debug\marathon.domain.unittests.dll" id="055a6523-3e72-40d5-5831-d75a212692bc">
+      <Execution id="7f53f22c-3383-4834-aa27-18e424a0632e" />
+      <TestMethod codeBase="C:/Code/MicroserviceMigration/Marathon/Marathon.Domain.UnitTests/bin/Debug/Marathon.Domain.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Marathon.Domain.UnitTests.Entities.BookingTests.MakeTests, Marathon.Domain.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CanMakeBooking" />
+    </UnitTest>
+    <UnitTest name="ValidRequestPasses" storage="c:\code\microservicemigration\marathon\marathon.domain.unittests\bin\debug\marathon.domain.unittests.dll" id="bf957703-49f5-e898-0565-2d13a03cbeca">
+      <Execution id="cee3a2dc-aee9-4719-88f9-852dae453adf" />
+      <TestMethod codeBase="C:/Code/MicroserviceMigration/Marathon/Marathon.Domain.UnitTests/bin/Debug/Marathon.Domain.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Marathon.Domain.UnitTests.Entities.BookingTests.ValidateMakeTests, Marathon.Domain.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ValidRequestPasses" />
+    </UnitTest>
+    <UnitTest name="ValidRequestPasses" storage="c:\code\microservicemigration\marathon\marathon.domain.unittests\bin\debug\marathon.domain.unittests.dll" id="3d79f7f1-d3ab-d95c-125d-5129d98108fa">
+      <Execution id="d9127d38-a96e-43b3-9f35-75e6c51a8779" />
+      <TestMethod codeBase="C:/Code/MicroserviceMigration/Marathon/Marathon.Domain.UnitTests/bin/Debug/Marathon.Domain.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Marathon.Domain.UnitTests.Entities.CustomerTests.ValidateRegisterTests, Marathon.Domain.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ValidRequestPasses" />
+    </UnitTest>
+    <UnitTest name="CanRegisterCustomer" storage="c:\code\microservicemigration\marathon\marathon.domain.unittests\bin\debug\marathon.domain.unittests.dll" id="34c9a243-addd-237c-1006-a72dd5337413">
+      <Execution id="74e33b0e-efe3-4aea-a4d5-52d9787c06a4" />
+      <TestMethod codeBase="C:/Code/MicroserviceMigration/Marathon/Marathon.Domain.UnitTests/bin/Debug/Marathon.Domain.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Marathon.Domain.UnitTests.Entities.CustomerTests.RegisterTests, Marathon.Domain.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CanRegisterCustomer" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="055a6523-3e72-40d5-5831-d75a212692bc" executionId="7f53f22c-3383-4834-aa27-18e424a0632e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="34c9a243-addd-237c-1006-a72dd5337413" executionId="74e33b0e-efe3-4aea-a4d5-52d9787c06a4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3d79f7f1-d3ab-d95c-125d-5129d98108fa" executionId="d9127d38-a96e-43b3-9f35-75e6c51a8779" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5156cec0-4d7d-ec72-37cb-1e7f3d054528" executionId="fc9a6bc1-a97e-4b36-a7ad-0889e6ccea77" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="56075138-793d-d6f5-c460-fac03f7b9b93" executionId="578c066a-224d-49d2-b6b7-f4c47a75032c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a5a31692-e710-07a4-6b52-d254201d0e0f" executionId="d8fdfd16-4b2b-4ca7-9a73-8b8bfa53cabf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b126a3fd-6ec6-116d-9e39-e0b2fa8e0ae9" executionId="624019fb-d570-401d-84c5-25bf5ace4eba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b6d2dd10-a93d-30ba-de5e-996bce155f68" executionId="cafa38db-0c5b-43e5-8d04-ed76292253c9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bf957703-49f5-e898-0565-2d13a03cbeca" executionId="cee3a2dc-aee9-4719-88f9-852dae453adf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="da894f7e-216d-e624-97f5-6c38d1c19a37" executionId="bdb21ebd-4113-4ae0-853f-470ebb0e402d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dfd22b97-7acf-0886-6555-1fd390fe7dfc" executionId="420817d4-7d41-4e29-b2f8-42c217326e57" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="7f53f22c-3383-4834-aa27-18e424a0632e" testId="055a6523-3e72-40d5-5831-d75a212692bc" testName="CanMakeBooking" computerName="LUCIDITYPC" duration="00:00:00.0946659" startTime="2015-02-21T16:31:37.7833929+00:00" endTime="2015-02-21T16:31:38.4508654+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7f53f22c-3383-4834-aa27-18e424a0632e">
+    </UnitTestResult>
+    <UnitTestResult executionId="74e33b0e-efe3-4aea-a4d5-52d9787c06a4" testId="34c9a243-addd-237c-1006-a72dd5337413" testName="CanRegisterCustomer" computerName="LUCIDITYPC" duration="00:00:00.0104642" startTime="2015-02-21T16:31:38.4618723+00:00" endTime="2015-02-21T16:31:38.4808917+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="74e33b0e-efe3-4aea-a4d5-52d9787c06a4">
+    </UnitTestResult>
+    <UnitTestResult executionId="d9127d38-a96e-43b3-9f35-75e6c51a8779" testId="3d79f7f1-d3ab-d95c-125d-5129d98108fa" testName="ValidRequestPasses" computerName="LUCIDITYPC" duration="00:00:00.0037115" startTime="2015-02-21T16:31:38.4918931+00:00" endTime="2015-02-21T16:31:38.5029073+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d9127d38-a96e-43b3-9f35-75e6c51a8779">
+    </UnitTestResult>
+    <UnitTestResult executionId="fc9a6bc1-a97e-4b36-a7ad-0889e6ccea77" testId="5156cec0-4d7d-ec72-37cb-1e7f3d054528" testName="VehicleThatDoesntRequireMaintenanceReturnsFalse" computerName="LUCIDITYPC" duration="00:00:00.0129031" startTime="2015-02-21T16:31:38.5129084+00:00" endTime="2015-02-21T16:31:38.5329511+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fc9a6bc1-a97e-4b36-a7ad-0889e6ccea77">
+    </UnitTestResult>
+    <UnitTestResult executionId="578c066a-224d-49d2-b6b7-f4c47a75032c" testId="56075138-793d-d6f5-c460-fac03f7b9b93" testName="VehicleThatHasExceededDurationReturnsTrue" computerName="LUCIDITYPC" duration="00:00:00.0009788" startTime="2015-02-21T16:31:38.5419284+00:00" endTime="2015-02-21T16:31:38.5479605+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="578c066a-224d-49d2-b6b7-f4c47a75032c">
+    </UnitTestResult>
+    <UnitTestResult executionId="d8fdfd16-4b2b-4ca7-9a73-8b8bfa53cabf" testId="a5a31692-e710-07a4-6b52-d254201d0e0f" testName="VehicleThatHasExceededMileageReturnsTrue" computerName="LUCIDITYPC" duration="00:00:00.0011230" startTime="2015-02-21T16:31:38.5569403+00:00" endTime="2015-02-21T16:31:38.5639504+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d8fdfd16-4b2b-4ca7-9a73-8b8bfa53cabf">
+    </UnitTestResult>
+    <UnitTestResult executionId="624019fb-d570-401d-84c5-25bf5ace4eba" testId="b126a3fd-6ec6-116d-9e39-e0b2fa8e0ae9" testName="InvalidRequestFails" computerName="LUCIDITYPC" duration="00:00:00.0032835" startTime="2015-02-21T16:31:38.5729503+00:00" endTime="2015-02-21T16:31:38.5819571+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="624019fb-d570-401d-84c5-25bf5ace4eba">
+    </UnitTestResult>
+    <UnitTestResult executionId="cafa38db-0c5b-43e5-8d04-ed76292253c9" testId="b6d2dd10-a93d-30ba-de5e-996bce155f68" testName="CanSendInvoice" computerName="LUCIDITYPC" duration="00:00:00.4380032" startTime="2015-02-21T16:31:38.6338091+00:00" endTime="2015-02-21T16:31:39.0771293+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cafa38db-0c5b-43e5-8d04-ed76292253c9">
+    </UnitTestResult>
+    <UnitTestResult executionId="cee3a2dc-aee9-4719-88f9-852dae453adf" testId="bf957703-49f5-e898-0565-2d13a03cbeca" testName="ValidRequestPasses" computerName="LUCIDITYPC" duration="00:00:00.0057818" startTime="2015-02-21T16:31:39.0891314+00:00" endTime="2015-02-21T16:31:39.1011467+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cee3a2dc-aee9-4719-88f9-852dae453adf">
+    </UnitTestResult>
+    <UnitTestResult executionId="bdb21ebd-4113-4ae0-853f-470ebb0e402d" testId="da894f7e-216d-e624-97f5-6c38d1c19a37" testName="CanAddBooking" computerName="LUCIDITYPC" duration="00:00:11.6072637" startTime="2015-02-21T16:31:39.1131475+00:00" endTime="2015-02-21T16:31:51.8944966+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bdb21ebd-4113-4ae0-853f-470ebb0e402d">
+    </UnitTestResult>
+    <UnitTestResult executionId="420817d4-7d41-4e29-b2f8-42c217326e57" testId="dfd22b97-7acf-0886-6555-1fd390fe7dfc" testName="InvalidRequestFails" computerName="LUCIDITYPC" duration="00:00:00.0021510" startTime="2015-02-21T16:31:51.9034974+00:00" endTime="2015-02-21T16:31:51.9145120+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="420817d4-7d41-4e29-b2f8-42c217326e57">
+    </UnitTestResult>
+  </Results>
+</TestRun>

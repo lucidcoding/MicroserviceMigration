@@ -60,6 +60,7 @@
     <Compile Include="Core\DataRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BookingRepository.cs" />
+    <Compile Include="Repositories\InvoiceRepository.cs" />
     <Compile Include="Repositories\VehicleRepository.cs" />
     <Compile Include="Repositories\DepotRepository.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
