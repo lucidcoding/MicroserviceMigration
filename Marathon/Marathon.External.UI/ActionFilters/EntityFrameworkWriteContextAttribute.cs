@@ -8,18 +8,5 @@ namespace Marathon.External.UI.ActionFilters
 {
     public class EntityFrameworkWriteContextAttribute : ActionFilterAttribute
     {
-        [Inject]
-        public IContextProvider ContextProvider { get; set; }
-
-        public EntityFrameworkWriteContextAttribute()
-        {
-            Order = 1000;
-        }
-
-        public override void OnActionExecuted(ActionExecutedContext filterContext)
-        {
-            ContextProvider.SaveChanges();
-            ContextProvider.Dispose();
-        }
     }
 }

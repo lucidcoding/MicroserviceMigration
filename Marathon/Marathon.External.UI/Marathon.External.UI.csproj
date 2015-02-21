@@ -137,7 +137,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionFilters\EntityFrameworkReadContextAttribute.cs" />
+    <Compile Include="ActionFilters\EntityFrameworkReadContextFilter.cs" />
     <Compile Include="ActionFilters\EntityFrameworkWriteContextAttribute.cs" />
+    <Compile Include="ActionFilters\EntityFrameworkWriteContextFilter.cs" />
     <Compile Include="ActionFilters\TransactionScopeAttribute.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\ModelBinderConfig.cs" />

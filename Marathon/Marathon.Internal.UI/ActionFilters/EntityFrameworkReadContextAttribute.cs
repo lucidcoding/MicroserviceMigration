@@ -8,17 +8,5 @@ namespace Marathon.Internal.UI.ActionFilters
 {
     public class EntityFrameworkReadContextAttribute : ActionFilterAttribute
     {
-        [Inject]
-        public IContextProvider ContextProvider { get; set; }
-
-        public EntityFrameworkReadContextAttribute()
-        {
-            Order = 1000;
-        }
-
-        public override void OnActionExecuted(ActionExecutedContext filterContext)
-        {
-            ContextProvider.Dispose();
-        }
     }
 }

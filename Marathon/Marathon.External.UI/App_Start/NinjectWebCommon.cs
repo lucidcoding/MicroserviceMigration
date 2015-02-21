@@ -1,3 +1,5 @@
+using Ninject.Web.Mvc.FilterBindingSyntax;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Marathon.External.UI.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Marathon.External.UI.App_Start.NinjectWebCommon), "Stop")]
 
@@ -15,6 +17,8 @@ namespace Marathon.External.UI.App_Start
     using Marathon.External.UI.ViewModelMappers.Customer;
     using Marathon.External.UI.ViewModelMappers.Booking;
     using Marathon.External.UI.Security;
+    using Marathon.External.UI.ActionFilters;
+    using System.Web.Mvc;
 
     public static class NinjectWebCommon 
     {
@@ -71,6 +75,8 @@ namespace Marathon.External.UI.App_Start
             kernel.Bind<IMakeViewModelMapper>().To<MakeViewModelMapper>();
             kernel.Bind<IGetPendingForVehicleViewModelMapper>().To<GetPendingForVehicleViewModelMapper>();
             kernel.Bind<IUserProvider>().To<UserProvider>();
+            kernel.BindFilter<EntityFrameworkWriteContextFilter>(FilterScope.Action, 1000).WhenActionMethodHas<EntityFrameworkWriteContextAttribute>();
+            kernel.BindFilter<EntityFrameworkReadContextFilter>(FilterScope.Action, 1000).WhenActionMethodHas<EntityFrameworkReadContextAttribute>();
             new DataRegistry().RegisterServices(kernel);
         }        
     }
