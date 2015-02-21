@@ -22,13 +22,13 @@ namespace Marathon.External.UI.ViewModels.Booking
         [DataType(DataType.Date)]
         [DisplayName("Start Date")]
         [Required]
-        [FutureDateOnly]
+        [NotInPast]
         public DateTime? StartDate { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayName("End Date")]
         [Required]
-        [FutureDateOnly]
+        [NotInPast]
         public DateTime? EndDate { get; set; }
     }
 }

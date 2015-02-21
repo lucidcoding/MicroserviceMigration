@@ -20,7 +20,8 @@ namespace Marathon.External.UI
                         "~/Scripts/bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/marathon").Include(
-                        "~/Scripts/marathon.js"));
+                        "~/Scripts/Shared/Layout.js",
+                        "~/Scripts/Shared/Datepicker.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/Booking/Make").Include(
                         "~/Scripts/Booking/Make.js"));

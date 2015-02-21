@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Optimization;
+using Marathon.External.UI.App_Start;
 
 namespace Marathon.External.UI
 {
@@ -16,11 +17,11 @@ namespace Marathon.External.UI
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ModelBinderConfig.RegisterModelBinders(System.Web.Mvc.ModelBinders.Binders);
         }
 
     }

@@ -2,10 +2,6 @@
 @using Marathon.External.UI.Extensions
 @model Marathon.External.UI.ViewModels.Booking.MakeViewModel
 
-@section CSS
-{
-    <link href="@Url.Content("~/Content/datepicker.css")" rel="stylesheet" type="text/css" />
-}
 @{
     ViewBag.Title = "Book a Vehicle";
 }
@@ -39,7 +35,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.EndDate, new { @class = "control-label col-sm-3" })
         <div class="col-sm-6">
-            @Html.BootstrapDatePickerFor(model => model.StartDate)
+            @Html.BootstrapDatePickerFor(model => model.EndDate)
             @*@Html.TextBoxFor(model => model.EndDate, new { @class = "form-control", data_date_format = "dd/mm/yyyy" })*@
             @Html.ValidationMessageFor(model => model.EndDate)
         </div>

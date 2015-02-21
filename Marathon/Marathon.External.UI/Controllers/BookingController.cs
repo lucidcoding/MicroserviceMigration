@@ -46,7 +46,6 @@ namespace Marathon.External.UI.Controllers
         }
 
         [HttpPost]
-        [TransactionScope]
         [EntityFrameworkWriteContext]
         [CustomAuthorize("MakeBooking")]
         public ActionResult Make(MakeViewModel viewModel)

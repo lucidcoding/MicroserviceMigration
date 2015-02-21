@@ -74,9 +74,9 @@ namespace Marathon.External.UI.Extensions
             var dayAttributes = new Dictionary<string, object>();
             var monthAttributes = new Dictionary<string, object>();
             var yearAttributes = new Dictionary<string, object>();
-            dayAttributes["class"] = "form-control ic-datepicker ic-datepicker-day";
-            monthAttributes["class"] = "form-control ic-datepicker ic-datepicker-month";
-            yearAttributes["class"] = "form-control ic-datepicker ic-datepicker-year";
+            dayAttributes["class"] = "form-control date-picker-component date-picker-day";
+            monthAttributes["class"] = "form-control date-picker-component date-picker-month";
+            yearAttributes["class"] = "form-control date-picker-component date-picker-year";
             var dayDropDown = htmlHelper.DropDownList(dayName, dayOptions, null, dayAttributes);
             var monthDropDown = htmlHelper.DropDownList(monthName, monthOptions, null, monthAttributes);
             var yearDropDown = htmlHelper.DropDownList(yearName, yearOptions, null, yearAttributes);
@@ -86,7 +86,8 @@ namespace Marathon.External.UI.Extensions
             var validatorAttributes = new Dictionary<string, object>();
             validatorAttributes.Add("data-val", "true");
             validatorAttributes.Add("data-val-validdate", "The field " + labelText + " must be a valid date.");
-            var validator = htmlHelper.Hidden(fullPropertyName, date.HasValue ? date.GetValueOrDefault().ToString("MM/dd/yyyy") : null, validatorAttributes);
+            validatorAttributes.Add("class", "date-picker-validator");
+            var validator = htmlHelper.Hidden(fullPropertyName, date.HasValue ? date.GetValueOrDefault().ToString("yyyy-MM-dd") : null, validatorAttributes);
             rowDiv.InnerHtml = dayDiv.ToString() + monthDiv.ToString() + yearDiv.ToString() + validator.ToHtmlString();
             var fullHtmlString = MvcHtmlString.Create(rowDiv.ToString());
             return fullHtmlString;
