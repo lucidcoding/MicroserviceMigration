@@ -159,12 +159,16 @@
     <Compile Include="Security\IUserProvider.cs" />
     <Compile Include="Security\UserProvider.cs" />
     <Compile Include="ValidationAttributes\NotInPastAttribute.cs" />
+    <Compile Include="ViewModelMappers\Booking\IIndexViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Booking\IMakeViewModelMapper.cs" />
+    <Compile Include="ViewModelMappers\Booking\IndexViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Booking\MakeViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Customer\IRegisterViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Customer\RegisterViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Booking\GetPendingForVehicleViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Booking\IGetPendingForVehicleViewModelMapper.cs" />
+    <Compile Include="ViewModels\Booking\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Booking\IndexViewModelBooking.cs" />
     <Compile Include="ViewModels\Booking\MakeViewModel.cs" />
     <Compile Include="ViewModels\Customer\RegisterViewModel.cs" />
     <Compile Include="ViewModels\Customer\SignInViewModel.cs" />
@@ -213,7 +217,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -244,6 +247,7 @@
     <Content Include="Views\Customer\RegisterSuccess.cshtml" />
     <Content Include="Views\Booking\MakeSuccess.cshtml" />
     <Content Include="Views\Booking\_PendingForVehicle.cshtml" />
+    <Content Include="Views\Booking\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

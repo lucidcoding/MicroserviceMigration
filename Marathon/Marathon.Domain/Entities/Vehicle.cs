@@ -17,6 +17,31 @@ namespace Marathon.Domain.Entities
         public virtual ICollection<Booking> Bookings { get; set; }
         public virtual ICollection<MaintenanceCheck> MaintenanceChecks { get; set; }
 
+        public decimal? Mileage
+        {
+            get
+            {
+                return Bookings.Any() ? Bookings.Max(booking => booking.EndMileage) : null;
+            }
+        }
+
+        public int? DaysSinceLastMaintenanceCheck
+        {
+            get
+            {
+                return MaintenanceChecks.Any() ? (DateTime.Now - MaintenanceChecks.Max(maintenanceCheck => maintenanceCheck.CheckedOn).Value).Days : (int?)null;
+            }
+        }
+
+        public decimal? MileageSinceLastMaintenanceCheck
+        {
+            get
+            {
+                return MaintenanceChecks.Any() && Bookings.Any() ?
+                    Bookings.Max(booking => booking.EndMileage) - MaintenanceChecks.Max(maintenanceCheck => maintenanceCheck.Mileage) : null;
+            }
+        }
+
         public virtual IList<Booking> GetConflictingBookings(DateTime startDate, DateTime endDate)
         {
             return Bookings.Where(booking =>

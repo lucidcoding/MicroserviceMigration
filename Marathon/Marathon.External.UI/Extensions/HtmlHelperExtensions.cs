@@ -68,8 +68,8 @@ namespace Marathon.External.UI.Extensions
             var monthDiv = new TagBuilder("div");
             var yearDiv = new TagBuilder("div");
             rowDiv.AddCssClass("row date-picker-container");
-            dayDiv.AddCssClass("col-sm-4");
-            monthDiv.AddCssClass("col-sm-4");
+            dayDiv.AddCssClass("col-sm-3");
+            monthDiv.AddCssClass("col-sm-5");
             yearDiv.AddCssClass("col-sm-4");
             var dayAttributes = new Dictionary<string, object>();
             var monthAttributes = new Dictionary<string, object>();

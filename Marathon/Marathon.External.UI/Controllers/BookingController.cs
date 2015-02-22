@@ -15,18 +15,28 @@ namespace Marathon.External.UI.Controllers
     [Authorize]
     public class BookingController : Controller
     {
+        private IIndexViewModelMapper _indexViewModelMapper;
         private IMakeViewModelMapper _makeViewModelMapper;
         private IGetPendingForVehicleViewModelMapper _getPendingForVehicleViewModelMapper;
         private IBookingRepository _bookingRepository;
 
         public BookingController(
+            IIndexViewModelMapper indexViewModelMapper,
             IMakeViewModelMapper makeViewModelMapper,
             IGetPendingForVehicleViewModelMapper getPendingForVehicleViewModelMapper,
             IBookingRepository bookingRepository)
         {
+            _indexViewModelMapper = indexViewModelMapper;
             _makeViewModelMapper = makeViewModelMapper;
             _getPendingForVehicleViewModelMapper = getPendingForVehicleViewModelMapper;
             _bookingRepository = bookingRepository;
+        }
+
+        [EntityFrameworkReadContext]
+        public ActionResult Index()
+        {
+            var viewModel = _indexViewModelMapper.Map();
+            return View(viewModel);
         }
 
         [EntityFrameworkReadContext]

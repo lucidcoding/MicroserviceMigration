@@ -1,0 +1,53 @@
+﻿@model Marathon.External.UI.ViewModels.Booking.IndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Index</h1>
+
+<p>Bookings for @Model.CustomerName</p>
+
+<table class="standard">
+    <thead>
+        <tr>
+            <th>
+                Booking Number
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                End Date
+            </th>
+            <th>
+                Vehicle
+            </th>
+            <th>
+                Total
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var booking in Model.Bookings)
+    {
+        <tr>
+            <td>
+                @booking.BookingNumber
+            </td>
+            <td>
+                @String.Format("{0:dd/MM/yyyy}", booking.StartDate)
+            </td>
+            <td>
+                @String.Format("{0:dd/MM/yyyy}", booking.EndDate)
+            </td>
+            <td>
+                @booking.MakeAndModel
+            </td>
+            <td>
+                @String.Format("£{0:#####0.00}", booking.Total)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

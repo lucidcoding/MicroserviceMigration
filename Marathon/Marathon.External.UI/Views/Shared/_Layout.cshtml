@@ -30,7 +30,7 @@
                         Marathon
                     </a>
                 </div>
-                <div id="navbar" class="navbar-collapse collapse container-fluid" >
+                <div id="navbar" class="navbar-collapse collapse" >
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
                         <li><a href="@Url.Action("Index", "Vehicle")">Our Vehicles</a></li>
@@ -45,6 +45,7 @@
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, User<span class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li>@Html.ActionLink("Sign Out", "SignOut", "Customer", routeValues: null, htmlAttributes: null)</li>
+                                        <li>@Html.ActionLink("My Bookings", "Index", "Booking", routeValues: null, htmlAttributes: null)</li>
                                     </ul>
                                 </li>
                             }

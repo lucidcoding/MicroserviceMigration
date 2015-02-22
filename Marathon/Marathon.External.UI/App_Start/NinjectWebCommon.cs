@@ -75,6 +75,7 @@ namespace Marathon.External.UI.App_Start
             kernel.Bind<IMakeViewModelMapper>().To<MakeViewModelMapper>();
             kernel.Bind<IGetPendingForVehicleViewModelMapper>().To<GetPendingForVehicleViewModelMapper>();
             kernel.Bind<IUserProvider>().To<UserProvider>();
+            kernel.Bind<IIndexViewModelMapper>().To<IndexViewModelMapper>();
             kernel.BindFilter<EntityFrameworkWriteContextFilter>(FilterScope.Action, 1000).WhenActionMethodHas<EntityFrameworkWriteContextAttribute>();
             kernel.BindFilter<EntityFrameworkReadContextFilter>(FilterScope.Action, 1000).WhenActionMethodHas<EntityFrameworkReadContextAttribute>();
             new DataRegistry().RegisterServices(kernel);

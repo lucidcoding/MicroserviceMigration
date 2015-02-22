@@ -161,11 +161,14 @@
     <Compile Include="ViewModelMappers\Booking\ReturnViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Invoice\GenerateViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Invoice\IGenerateViewModelMapper.cs" />
+    <Compile Include="ViewModelMappers\Vehicle\IndexViewModelMapper.cs" />
     <Compile Include="ViewModels\Booking\CollectViewModel.cs" />
     <Compile Include="ViewModels\Booking\GetSummaryViewModel.cs" />
     <Compile Include="ViewModels\Booking\ReturnViewModel.cs" />
     <Compile Include="ViewModels\Invoice\GenerateViewModel.cs" />
     <Compile Include="ViewModels\User\SignInViewModel.cs" />
+    <Compile Include="ViewModels\Vehicle\IndexViewModelVehicle.cs" />
+    <Compile Include="ViewModels\Vehicle\IndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
