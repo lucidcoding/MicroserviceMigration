@@ -8,6 +8,7 @@ using Marathon.Internal.UI.ActionFilters;
 using Marathon.External.UI.ViewModels.Invoice;
 using Marathon.Domain.Entities;
 using Marathon.Domain.RepositoryContracts;
+using Marathon.Domain.InfrastructureContracts;
 
 namespace Marathon.Internal.UI.Controllers
 {
@@ -15,13 +16,16 @@ namespace Marathon.Internal.UI.Controllers
     {
         private IGenerateViewModelMapper _generateViewModelMapper;
         private IInvoiceRepository _invoiceRepository;
+        private IEmailer _emailer;
 
         public InvoiceController(
             IGenerateViewModelMapper generateViewModelMapper,
-            IInvoiceRepository invoiceRepository)
+            IInvoiceRepository invoiceRepository,
+            IEmailer emailer)
         {
             _generateViewModelMapper = generateViewModelMapper;
             _invoiceRepository = invoiceRepository;
+            _emailer = emailer;
         }
 
         [EntityFrameworkReadContext]
@@ -45,17 +49,9 @@ namespace Marathon.Internal.UI.Controllers
                 return View(viewModel);
             }
 
-            var invoice = Invoice.Generate(request);
+            var invoice = Invoice.Generate(request, _emailer);
             _invoiceRepository.Save(invoice);
             return RedirectToAction("GenerateSuccess");
-
-            //if (!ModelState.IsValid)
-            //{
-            //    _generateViewModelMapper.Hydrate(viewModel);
-            //    return View(viewModel);
-            //}
-
-            //return View();
         }
     }
 }

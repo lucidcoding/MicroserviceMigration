@@ -8,6 +8,55 @@
     background-color: black;
 }
 
+/* http://shapebootstrap.net/demo/html/corlate/ */
+
+.navbar-inverse
+{
+    background-color: Black;
+    background-image: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border: none;
+}
+
+.navbar-inverse > .container .navbar-brand, 
+.navbar-inverse > .container-fluid .navbar-brand
+{
+    height: 84px;
+}
+
+@media (min-width: 780px) {
+    .navbar-inverse .navbar-nav
+    {
+        margin-top: 25px;
+    }
+}
+
+.navbar-inverse .navbar-nav > .open > a, 
+.navbar-inverse .navbar-nav > .active > a
+{
+    background-color: #FF6314;
+    background-image: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+@media (min-width: 780px) {
+    .navbar-inverse .navbar-nav > li
+    {
+        padding-bottom: 25px;
+    }
+}
+
+.navbar-inverse .navbar-nav > li > a
+{
+    padding: 5px 12px;
+    text-shadow: none;
+}
+
+/*---*/
+
+
 .date-picker-container 
 {
     margin-bottom: -15px;

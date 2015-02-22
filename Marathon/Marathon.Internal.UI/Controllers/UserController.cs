@@ -23,8 +23,9 @@ namespace Marathon.Internal.UI.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult SignIn()
+        public ActionResult SignIn(string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 

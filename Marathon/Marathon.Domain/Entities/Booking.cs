@@ -112,23 +112,5 @@ namespace Marathon.Domain.Entities
             LastModifiedOn = now;
             LastModifiedBy = request.LoggedBy;
         }
-
-        public virtual void Invoice(IEmailer emailer)
-        {
-            var subject = "Invoice for Booking " + BookingNumber;
-            var body = new StringBuilder();
-            body.AppendLine(string.Format("Dear {0},", Customer.GivenName));
-            body.AppendLine();
-            body.AppendLine(string.Format("Please pay the outstanding amount of £{0:#.00}", Total));
-            body.AppendLine();
-            body.AppendLine("Regards,");
-            body.AppendLine("The Marathon Team");
-
-            emailer.Send(
-                Customer.User.Username,
-                "marathon@luciditysoftware.co.uk",
-                subject,
-                body.ToString());
-        }
     }
 }

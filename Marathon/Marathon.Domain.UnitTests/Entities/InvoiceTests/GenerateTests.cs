@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Marathon.Domain.Requests;
+using Marathon.Domain.Entities;
 using Marathon.Domain.InfrastructureContracts;
 using Moq;
-using Marathon.Domain.Entities;
 
-namespace Marathon.Domain.UnitTests.Entities.BookingTests
+namespace Marathon.Domain.UnitTests.Entities.InvoiceTests
 {
     [TestClass]
-    public class InvoiceTests
+    public class GenerateTests
     {
         [TestMethod]
-        public void CanSendInvoice()
+        public void EmailIsGenerated()
         {
             var emailer = new Mock<IEmailer>();
             string to = null;
@@ -31,38 +32,45 @@ namespace Marathon.Domain.UnitTests.Entities.BookingTests
                         body = delegateBody;
                     });
 
-            var booking = new Booking()
+            var request = new GenerateInvoiceRequest();
+            request.InvoiceNumber = "ABC123";
+            request.PeriodFrom = new DateTime(2010, 10, 1);
+            request.PeriodTo = new DateTime(2010, 10, 10);
+
+            request.Customer = new Customer()
             {
                 Id = Guid.NewGuid(),
-                Total = 75m,
-                BookingNumber = "Booking001",
-                Vehicle = new Vehicle()
+                GivenName = "Tom",
+                Bookings = new List<Booking>()
                 {
-                    Id = Guid.NewGuid(),
-                    PricePerDay = 75m
-                },
-                Customer = new Customer() 
-                {
-                    Id = Guid.NewGuid(),
-                    GivenName = "Tom",
-                    User = new User()
+                    new Booking()
                     {
-                        Id = Guid.NewGuid(),
-                        Username = "tom.turquoise@luciditysoftware.co.uk"
+                        EndDate = new DateTime(2010, 10, 2),
+                        Total = 200m
+                    },
+                    new Booking()
+                    {
+                        EndDate = new DateTime(2010, 10, 9),
+                        Total = 150m
                     }
+                },
+                User = new User()
+                {
+                    Id = Guid.NewGuid(),
+                    Username = "tom.turquoise@luciditysoftware.co.uk"
                 }
             };
 
-            booking.Invoice(emailer.Object);
+            var invoice = Invoice.Generate(request, emailer.Object);
 
             Assert.AreEqual("tom.turquoise@luciditysoftware.co.uk", to);
             Assert.AreEqual("marathon@luciditysoftware.co.uk", from);
-            Assert.AreEqual("Invoice for Booking Booking001", subject);
+            Assert.AreEqual("Invoice for period 1 Oct 2010 to 10 Oct 2010", subject);
 
             var expectedBody = new StringBuilder();
             expectedBody.AppendLine("Dear Tom,");
             expectedBody.AppendLine();
-            expectedBody.AppendLine("Please pay the outstanding amount of £75.00");
+            expectedBody.AppendLine("Please pay the outstanding amount of £350.00");
             expectedBody.AppendLine();
             expectedBody.AppendLine("Regards,");
             expectedBody.AppendLine("The Marathon Team");

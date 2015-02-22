@@ -48,12 +48,12 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\BookingTests\InvoiceTests.cs" />
     <Compile Include="Entities\BookingTests\MakeTests.cs" />
     <Compile Include="Entities\BookingTests\ValidateMakeTests.cs" />
     <Compile Include="Entities\CustomerTests\RegisterCustomerRequestFactory.cs" />
     <Compile Include="Entities\CustomerTests\RegisterTests.cs" />
     <Compile Include="Entities\CustomerTests\ValidateRegisterTests.cs" />
+    <Compile Include="Entities\InvoiceTests\GenerateTests.cs" />
     <Compile Include="Entities\VehicleTests\RequiresMaintenanceTests.cs" />
     <Compile Include="Entities\VehicleTests\VehicleFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

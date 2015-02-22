@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Marathon.Domain.Common;
 using Marathon.Domain.Requests;
+using Marathon.Domain.InfrastructureContracts;
 
 namespace Marathon.Domain.Entities
 {
@@ -22,7 +23,7 @@ namespace Marathon.Domain.Entities
             return validationMessages;
         }
 
-        public static Invoice Generate(GenerateInvoiceRequest request)
+        public static Invoice Generate(GenerateInvoiceRequest request, IEmailer emailer)
         {
             var invoice = new Invoice();
             var now = DateTime.Now;
@@ -44,7 +45,26 @@ namespace Marathon.Domain.Entities
                 .ToList();
 
             invoice.Total = relevantBookings.Sum(booking => booking.Total);
+            invoice.SendEmail(emailer);
             return invoice;
+        }
+
+        public virtual void SendEmail(IEmailer emailer)
+        {
+            var subject = string.Format("Invoice for period {0:d MMM yyyy} to {1:d MMM yyyy}", PeriodFrom, PeriodTo);
+            var body = new StringBuilder();
+            body.AppendLine(string.Format("Dear {0},", Customer.GivenName));
+            body.AppendLine();
+            body.AppendLine(string.Format("Please pay the outstanding amount of £{0:#.00}", Total));
+            body.AppendLine();
+            body.AppendLine("Regards,");
+            body.AppendLine("The Marathon Team");
+
+            emailer.Send(
+                Customer.User.Username,
+                "marathon@luciditysoftware.co.uk",
+                subject,
+                body.ToString());
         }
     }
 }

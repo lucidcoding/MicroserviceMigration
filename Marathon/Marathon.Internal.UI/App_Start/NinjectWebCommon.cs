@@ -19,6 +19,7 @@ namespace Marathon.Internal.UI.App_Start
     using Marathon.Internal.UI.ViewModelMappers.Invoice;
     using Marathon.Internal.UI.ActionFilters;
     using System.Web.Mvc;
+    using Marathon.Domain.InfrastructureContracts;
 
     public static class NinjectWebCommon 
     {
@@ -78,6 +79,7 @@ namespace Marathon.Internal.UI.App_Start
             kernel.Bind<IUserProvider>().To<UserProvider>();
             kernel.BindFilter<EntityFrameworkWriteContextFilter>(FilterScope.Action, 1000).WhenActionMethodHas<EntityFrameworkWriteContextAttribute>();
             kernel.BindFilter<EntityFrameworkReadContextFilter>(FilterScope.Action, 1000).WhenActionMethodHas<EntityFrameworkReadContextAttribute>();
+            kernel.Bind<IEmailer>().To<StubEmailer>();
             new DataRegistry().RegisterServices(kernel);
         }        
     }

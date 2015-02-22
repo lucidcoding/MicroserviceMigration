@@ -7,7 +7,7 @@
 
 <h1>Sign In</h1>
 
-@using (Html.BeginForm("SignIn", "User", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form", @class = "form-horizontal" })) 
+@using (Html.BeginForm("SignIn", "User", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form", @class = "form-horizontal" })) 
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
