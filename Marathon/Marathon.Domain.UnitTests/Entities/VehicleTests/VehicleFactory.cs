@@ -31,19 +31,19 @@ namespace Marathon.Domain.UnitTests.Entities.VehicleTests
                 }
             };
 
-            vehicle.MaintenanceChecks = new List<MaintenanceCheck>()
+            vehicle.MaintenanceChecks = new List<Servicing>()
             {
-                new MaintenanceCheck()
+                new Servicing()
                 {
                     Id = Guid.NewGuid(),
                     Mileage = 10000,
-                    CheckedOn = now - new TimeSpan(729, 0, 0, 0)
+                    CheckedIn = now - new TimeSpan(729, 0, 0, 0)
                 },
-                new MaintenanceCheck()
+                new Servicing()
                 {
                     Id = Guid.NewGuid(),
                     Mileage = 20000,
-                    CheckedOn = now - new TimeSpan(364, 0, 0, 0)
+                    CheckedIn = now - new TimeSpan(364, 0, 0, 0)
                 }
             };
 

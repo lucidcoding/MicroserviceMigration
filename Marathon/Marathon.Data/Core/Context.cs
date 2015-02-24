@@ -19,7 +19,7 @@ namespace Marathon.Data.Core
         public DbSet<PermissionRole> PermissionRoles { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<MaintenanceCheck> MaintenanceChecks { get; set; }
+        public DbSet<Servicing> MaintenanceChecks { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -150,7 +150,7 @@ namespace Marathon.Data.Core
                 .Map(booking => booking.MapKey("VehicleId"));
 
             modelBuilder.Entity<Vehicle>()
-                .HasMany<MaintenanceCheck>(vehicle => vehicle.MaintenanceChecks)
+                .HasMany<Servicing>(vehicle => vehicle.MaintenanceChecks)
                 .WithRequired(maintenanceCheck => maintenanceCheck.Vehicle)
                 .Map(maintenanceCheck => maintenanceCheck.MapKey("VehicleId"));
 

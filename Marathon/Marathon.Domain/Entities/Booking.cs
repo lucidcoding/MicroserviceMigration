@@ -5,6 +5,7 @@ using System.Text;
 using Marathon.Domain.Common;
 using Marathon.Domain.Requests;
 using Marathon.Domain.InfrastructureContracts;
+using Marathon.Domain.Enumerations;
 
 namespace Marathon.Domain.Entities
 {
@@ -82,14 +83,16 @@ namespace Marathon.Domain.Entities
             var validationMessages = new ValidationMessageCollection();
 
 #warning Check it's on the same day?
-
+#warning check status of vehicle is indepot
             return validationMessages;
         }
 
+#warning needs testin
         public virtual void Collect(CollectBookingRequest request)
         {
             var now = DateTime.Now;
             CollectedOn = now;
+            Vehicle.Status = VehicleStatus.OutOnBooking;
             StartMileage = request.Mileage.Value;
             LastModifiedOn = now;
             LastModifiedBy = request.LoggedBy;
@@ -109,6 +112,7 @@ namespace Marathon.Domain.Entities
             var now = DateTime.Now;
             ReturnedOn  = now;
             EndMileage = request.Mileage.Value;
+            Vehicle.Status = VehicleStatus.InDepot;
             LastModifiedOn = now;
             LastModifiedBy = request.LoggedBy;
         }

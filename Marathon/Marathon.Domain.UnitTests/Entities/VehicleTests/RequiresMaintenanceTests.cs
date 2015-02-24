@@ -28,7 +28,7 @@ namespace Marathon.Domain.UnitTests.Entities.VehicleTests
         public void VehicleThatHasExceededMileageReturnsTrue()
         {
             var vehicle = new VehicleFactory().GetVehicle();
-            vehicle.MaintenanceChecks.ToList()[1].CheckedOn = DateTime.Now - new TimeSpan(366, 0, 0, 0);
+            vehicle.MaintenanceChecks.ToList()[1].CheckedIn = DateTime.Now - new TimeSpan(366, 0, 0, 0);
             Assert.IsTrue(vehicle.RequiresMaintenance);
         }
     }

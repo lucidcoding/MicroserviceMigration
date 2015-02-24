@@ -91,9 +91,9 @@ END
 GO
 
 IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES
-	WHERE TABLE_NAME = 'MaintenanceCheck')
+	WHERE TABLE_NAME = 'Servicing')
 BEGIN
-	DROP TABLE [dbo].[MaintenanceCheck]
+	DROP TABLE [dbo].[Servicing]
 END
 GO
 
@@ -270,11 +270,12 @@ IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES
 BEGIN
 CREATE TABLE [dbo].[Vehicle](
 		[Id] [uniqueidentifier] NOT NULL,
-		[RegistrationNumber] [nvarchar](20) NULL,
-		[Make] [nvarchar](50) NULL,
-		[Model] [nvarchar](50) NULL,
+		[RegistrationNumber] [nvarchar](20) NOT NULL,
+		[Make] [nvarchar](50) NOT NULL,
+		[Model] [nvarchar](50) NOT NULL,
 		[PricePerDay] [money] NOT NULL,
 		[HomeDepotId] [uniqueidentifier] NULL,
+		[Status] [int] NOT NULL,
 		[CreatedById] [uniqueidentifier] NULL,
 		[CreatedOn] [datetime] NULL,
 		[LastModifiedById] [uniqueidentifier] NULL,
@@ -291,12 +292,12 @@ CREATE TABLE [dbo].[Vehicle](
 	DECLARE @now AS DATETIME
 	SET @now = GETDATE()
 
-	INSERT INTO [Vehicle] ([Id], [RegistrationNumber], [Make], [Model], [PricePerDay], [HomeDepotId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) 
-	VALUES ('911762e0-31ba-4c6c-83f8-3f2288904975', 'SF59 QRT', 'Ford', 'Transit', 90, '6a9857a6-d0b0-4e1a-84cb-ee9ade159560', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
-	INSERT INTO [Vehicle] ([Id], [RegistrationNumber], [Make], [Model], [PricePerDay], [HomeDepotId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) 
-	VALUES ('a50c62cd-b24a-4d0a-aada-9744fce7022c', 'RJ08 FAE', 'Volkswagen', 'Transporter', 100, '6a9857a6-d0b0-4e1a-84cb-ee9ade159560', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
-	INSERT INTO [Vehicle] ([Id], [RegistrationNumber], [Make], [Model], [PricePerDay], [HomeDepotId], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) 
-	VALUES ('6850BF08-14D2-49A0-BC28-9285A69094BC', 'DG59 USG', 'Volkswagen', 'Transporter', 100, 'ba325fad-9a65-4732-872c-da2069bb37e8', '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
+	INSERT INTO [Vehicle] ([Id], [RegistrationNumber], [Make], [Model], [PricePerDay], [HomeDepotId], [Status], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) 
+	VALUES ('911762e0-31ba-4c6c-83f8-3f2288904975', 'SF59 QRT', 'Ford', 'Transit', 90, '6a9857a6-d0b0-4e1a-84cb-ee9ade159560', 1, '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
+	INSERT INTO [Vehicle] ([Id], [RegistrationNumber], [Make], [Model], [PricePerDay], [HomeDepotId], [Status], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) 
+	VALUES ('a50c62cd-b24a-4d0a-aada-9744fce7022c', 'RJ08 FAE', 'Volkswagen', 'Transporter', 100, '6a9857a6-d0b0-4e1a-84cb-ee9ade159560', 1, '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
+	INSERT INTO [Vehicle] ([Id], [RegistrationNumber], [Make], [Model], [PricePerDay], [HomeDepotId], [Status], [CreatedById], [CreatedOn], [LastModifiedById], [LastModifiedOn], [Deleted]) 
+	VALUES ('6850BF08-14D2-49A0-BC28-9285A69094BC', 'DG59 USG', 'Volkswagen', 'Transporter', 100, 'ba325fad-9a65-4732-872c-da2069bb37e8', 1, '188403fb-3c5e-45a3-aa39-5908e86ea372', @now, null, null, 0)
 END 
 GO
 
@@ -363,25 +364,26 @@ END
 GO
 
 IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES
-	WHERE TABLE_NAME = 'MaintenanceCheck')
+	WHERE TABLE_NAME = 'Servicing')
 BEGIN
-CREATE TABLE [dbo].[MaintenanceCheck](
+CREATE TABLE [dbo].[Servicing](
 		[Id] [uniqueidentifier] NOT NULL,
-		[VehicleId] [uniqueidentifier] NULL,
-		[CheckedOn] [datetime] NULL,
-		[Mileage] [decimal](8,2) NULL,
+		[VehicleId] [uniqueidentifier] NOT NULL,
+		[CheckedIn] [datetime] NOT NULL,
+		[CheckedOut] [datetime] NULL,
+		[Mileage] [decimal](8,2) NOT NULL,
 		[CreatedById] [uniqueidentifier] NULL,
 		[CreatedOn] [datetime] NULL,
 		[LastModifiedById] [uniqueidentifier] NULL,
 		[LastModifiedOn] [datetime] NULL,
 		[Deleted] [bit]	NOT NULL,
-		CONSTRAINT [PK_MaintenanceCheck] PRIMARY KEY CLUSTERED 
+		CONSTRAINT [PK_Servicing] PRIMARY KEY CLUSTERED 
 		(
 			[Id] ASC
 		)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 	) ON [PRIMARY]
 
-	GRANT SELECT, INSERT, UPDATE ON [MaintenanceCheck] TO [AllowSelectInsertUpdate]
+	GRANT SELECT, INSERT, UPDATE ON [Servicing] TO [AllowSelectInsertUpdate]
 END 
 GO
 

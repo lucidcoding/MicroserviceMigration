@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Marathon.Domain.Common;
 using Marathon.Domain.Constants;
+using Marathon.Domain.Enumerations;
 
 namespace Marathon.Domain.Entities
 {
@@ -15,7 +16,8 @@ namespace Marathon.Domain.Entities
         public virtual decimal PricePerDay { get; set; }
         public virtual Depot HomeDepot { get; set; }
         public virtual ICollection<Booking> Bookings { get; set; }
-        public virtual ICollection<MaintenanceCheck> MaintenanceChecks { get; set; }
+        public virtual ICollection<Servicing> MaintenanceChecks { get; set; }
+        public virtual VehicleStatus Status { get; set; }
 
         public decimal? Mileage
         {
@@ -29,7 +31,7 @@ namespace Marathon.Domain.Entities
         {
             get
             {
-                return MaintenanceChecks.Any() ? (DateTime.Now - MaintenanceChecks.Max(maintenanceCheck => maintenanceCheck.CheckedOn).Value).Days : (int?)null;
+                return MaintenanceChecks.Any() ? (DateTime.Now - MaintenanceChecks.Max(maintenanceCheck => maintenanceCheck.CheckedOut).Value).Days : (int?)null;
             }
         }
 
@@ -66,7 +68,7 @@ namespace Marathon.Domain.Entities
                 }
 
                 var lastMaintenanceCheck = MaintenanceChecks
-                    .OrderByDescending(x => x.CheckedOn.Value)
+                    .OrderByDescending(x => x.CheckedIn)
                     .FirstOrDefault();
 
                 var now = DateTime.Now;
@@ -86,7 +88,7 @@ namespace Marathon.Domain.Entities
                 else
                 {
                     if (lastBooking.EndMileage > lastMaintenanceCheck.Mileage + MaintenanceConstants.MileageBetweenChecks
-                        || now > lastMaintenanceCheck.CheckedOn + MaintenanceConstants.DurationBetweenChecks)
+                        || now > lastMaintenanceCheck.CheckedIn + MaintenanceConstants.DurationBetweenChecks)
                     {
                         return true;
                     }

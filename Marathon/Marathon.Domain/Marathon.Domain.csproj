@@ -49,12 +49,13 @@
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Depot.cs" />
     <Compile Include="Entities\Invoice.cs" />
-    <Compile Include="Entities\MaintenanceCheck.cs" />
+    <Compile Include="Entities\Servicing.cs" />
     <Compile Include="Entities\Permission.cs" />
     <Compile Include="Entities\PermissionRole.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Vehicle.cs" />
+    <Compile Include="Enumerations\VehicleStatus.cs" />
     <Compile Include="InfrastructureContracts\IEmailer.cs" />
     <Compile Include="InfrastructureContracts\StubEmailer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,6 +66,8 @@
     <Compile Include="RepositoryContracts\IBookingRepository.cs" />
     <Compile Include="RepositoryContracts\IRoleRepository.cs" />
     <Compile Include="RepositoryContracts\IUserRepository.cs" />
+    <Compile Include="Requests\CheckInForServicingRequest.cs" />
+    <Compile Include="Requests\CheckOutForServicingRequest.cs" />
     <Compile Include="Requests\CollectBookingRequest.cs" />
     <Compile Include="Requests\GenerateInvoiceRequest.cs" />
     <Compile Include="Requests\MakeBookingRequest.cs" />
