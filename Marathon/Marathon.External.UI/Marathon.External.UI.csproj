@@ -153,12 +153,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\PropertyMapper.cs" />
     <Compile Include="ModelBinders\DateModelBinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\CustomAuthorizeAttribute.cs" />
     <Compile Include="Security\IUserProvider.cs" />
     <Compile Include="Security\UserProvider.cs" />
+    <Compile Include="ValidationAttributes\EmailAttribute.cs" />
     <Compile Include="ValidationAttributes\NotInPastAttribute.cs" />
+    <Compile Include="ValidationAttributes\PostcodeAttribute.cs" />
     <Compile Include="ViewModelMappers\Booking\IIndexViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Booking\IMakeViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Booking\IndexViewModelMapper.cs" />
@@ -173,6 +176,7 @@
     <Compile Include="ViewModels\Customer\RegisterViewModel.cs" />
     <Compile Include="ViewModels\Customer\SignInViewModel.cs" />
     <Compile Include="ViewModels\Booking\GetPendingForVehicleViewModel.cs" />
+    <None Include="Views\Shared\_ValidationSummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -204,6 +208,7 @@
     <Content Include="Scripts\Shared\Layout.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\Shared\Datepicker.js" />
+    <Content Include="Scripts\Shared\Validation.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

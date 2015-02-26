@@ -21,7 +21,8 @@ namespace Marathon.External.UI
 
             bundles.Add(new ScriptBundle("~/bundles/marathon").Include(
                         "~/Scripts/Shared/Layout.js",
-                        "~/Scripts/Shared/Datepicker.js"));
+                        "~/Scripts/Shared/Datepicker.js",
+                        "~/Scripts/Shared/Validation.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/Booking/Make").Include(
                         "~/Scripts/Booking/Make.js"));

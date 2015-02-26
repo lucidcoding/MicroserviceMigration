@@ -5,6 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using System.ComponentModel;
+using Marathon.External.UI.ValidationAttributes;
 
 namespace Marathon.External.UI.ViewModels.Customer
 {
@@ -13,6 +14,7 @@ namespace Marathon.External.UI.ViewModels.Customer
         [Required]
         [DataType(DataType.EmailAddress)]
         [DisplayName("Email address")]
+        [Email]
         public string EmailAddress { get; set; }
 
         [Required]
@@ -46,7 +48,9 @@ namespace Marathon.External.UI.ViewModels.Customer
         [DisplayName("Address Line 4")]
         public string Address4 { get; set; }
 
+        [Required]
         [DisplayName("Postcode")]
+        [Postcode]
         public string PostCode { get; set; }
     }
 }

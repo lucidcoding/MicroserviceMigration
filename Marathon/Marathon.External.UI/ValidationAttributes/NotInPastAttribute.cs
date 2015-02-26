@@ -9,6 +9,11 @@ namespace Marathon.External.UI.ValidationAttributes
 {
     public class NotInPastAttribute : ValidationAttribute, IClientValidatable
     {
+        public NotInPastAttribute()
+        {
+            ErrorMessage = "The field must not be in the past.";
+        }
+
         public override bool IsValid(object value)
         {
             var date = value as DateTime?;

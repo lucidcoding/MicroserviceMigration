@@ -9,7 +9,7 @@
 
 @using (Html.BeginForm("Register", "Customer", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
 {
-    @Html.ValidationSummary(false, "There were some problems with the information you entered, please correct and resubmit.")
+    @Html.Partial("_ValidationSummary", Html.ViewData.ModelState)
     <div class="form-group">
         @Html.LabelFor(model => model.EmailAddress, new { @class = "control-label col-sm-3" })
         <div class="col-sm-6">
