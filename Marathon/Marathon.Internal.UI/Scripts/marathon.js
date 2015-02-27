@@ -4,17 +4,41 @@ Marathon.Invoice = {};
 
 Marathon.Layout = function () {
 
-    var initialize = function () {
+    var documentReadyInitialize = function () {
 
-        $('.input-group.date').datepicker({
-            format: 'dd/mm/yyyy'
+    };
+
+    var configureDateValidationForGb = function () {
+        $.validator.addMethod('date', function (value, element) {
+            if (this.optional(element)) {
+                return true;
+            }
+
+            var ok = true;
+            try {
+                $.datepicker.parseDate('dd/mm/yyyy', value);
+            }
+            catch (err) {
+                ok = false;
+            }
+            return ok;
         });
     };
 
-    return { initialize: initialize };
+    var executeImmediatelyInitialize = function () {
+        configureDateValidationForGb();
+    };
+
+    return {
+        documentReadyInitialize: documentReadyInitialize,
+        executeImmediatelyInitialize: executeImmediatelyInitialize
+    };
 } ();
 
+(function ($) {
+    Marathon.Layout.executeImmediatelyInitialize();
+} (jQuery));
 
 $(document).ready(function () {
-    Marathon.Layout.initialize();
+    Marathon.Layout.documentReadyInitialize();
 });

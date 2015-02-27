@@ -114,11 +114,9 @@
     };
 } ();
 
-
 (function ($) {
     Marathon.Shared.Datepicker.setupValidators();
 } (jQuery));
-
 
 $(document).ready(function () {
     Marathon.Shared.Datepicker.initialize();
