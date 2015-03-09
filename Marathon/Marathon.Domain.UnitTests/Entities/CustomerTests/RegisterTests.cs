@@ -18,8 +18,7 @@ namespace Marathon.Domain.UnitTests.Entities.CustomerTests
             Assert.IsNotNull(customer.Id);
             Assert.AreNotEqual(default(Guid), customer.Id.Value);
             Assert.IsNotNull(customer.User);
-            Assert.IsNotNull(customer.User.Id);
-            Assert.AreNotEqual(default(Guid), customer.User.Id);
+            Assert.AreEqual(request.UserId, customer.User.Id);
             Assert.AreEqual(request.EmailAddress, customer.User.Username);
             Assert.AreSame(request.CustomerRole, customer.User.Role);
             Assert.AreSame(request.ApplicationUser, customer.User.CreatedBy);

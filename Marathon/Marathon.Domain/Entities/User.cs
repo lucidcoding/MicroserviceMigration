@@ -11,10 +11,10 @@ namespace Marathon.Domain.Entities
         public virtual Guid RoleId { get; set; }
         public virtual Role Role { get; set; }
 
-        public static User Create(string username, Role role, User currentUser)
+        public static User Create(Guid id, string username, Role role, User currentUser)
         {
             var user = new User();
-            user._id = Guid.NewGuid();
+            user._id = id;
             user.Username = username;
             user.Role = role;
             user.CreatedOn = DateTime.Now;

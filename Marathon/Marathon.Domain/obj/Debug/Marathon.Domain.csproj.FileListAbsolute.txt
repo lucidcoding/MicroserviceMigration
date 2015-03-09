@@ -6,3 +6,5 @@ C:\Code\MicroserviceMigration\Marathon\Marathon.Domain\bin\Debug\Marathon.Domain
 C:\Code\MicroserviceMigration\Marathon\Marathon.Domain\bin\Debug\Marathon.Domain.pdb
 C:\Code\MicroserviceMigration\Marathon\Marathon.Domain\obj\Debug\Marathon.Domain.dll
 C:\Code\MicroserviceMigration\Marathon\Marathon.Domain\obj\Debug\Marathon.Domain.pdb
+C:\Code\MicroserviceMigration\Marathon\Marathon.Domain\bin\Debug\Marathon.Domain.dll.config
+C:\Code\MicroserviceMigration\Marathon\Marathon.Domain\obj\Debug\Marathon.Domain.csprojResolveAssemblyReference.cache

@@ -12,6 +12,7 @@ namespace Marathon.Domain.UnitTests.Entities.CustomerTests
         public RegisterCustomerRequest GetRequest()
         {
             var request = new RegisterCustomerRequest();
+            request.UserId = Guid.NewGuid();
             request.ApplicationUser = new User() { Id = Guid.NewGuid() };
             request.CustomerRole = new Role() { Id = Guid.NewGuid() };
             request.EmailAddress = "silvia.silver@silver.com";

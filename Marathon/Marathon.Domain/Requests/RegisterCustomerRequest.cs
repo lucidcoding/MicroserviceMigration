@@ -8,6 +8,7 @@ namespace Marathon.Domain.Requests
 {
     public class RegisterCustomerRequest
     {
+        public virtual Guid UserId { get; set; }
         public virtual User ApplicationUser { get; set; }
         public virtual string EmailAddress { get; set; }
         public virtual string Password { get; set; }

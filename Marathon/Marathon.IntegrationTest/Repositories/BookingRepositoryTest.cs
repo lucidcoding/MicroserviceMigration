@@ -46,18 +46,21 @@ namespace Marathon.IntegrationTest.Repositories
 
             using (_contextProvider)
             {
-                var user = _userRepository.GetById(UserIds.Test);
+                var applicationUser = _userRepository.GetById(UserIds.Application);
                 makeBookingRequest.Vehicle = _vehicleRepository.GetById(VehicleIds.SF59QRT);
 
                 makeBookingRequest.Customer = Customer.Register(new RegisterCustomerRequest()
                 {
+                    UserId = Guid.NewGuid(),
+                    EmailAddress = "gary@green.com",
+                    //CustomerRole = 
                     FamilyName = "Green",
                     GivenName = "Gary",
                     Address1 = "3 Green Road",
                     Address2 = "Greenton",
                     Address3 = "Greenshire",
                     PostCode = "GN1 1AA",
-                    ApplicationUser = user
+                    ApplicationUser = applicationUser
                 });
 
                 var booking = Booking.Make(makeBookingRequest);

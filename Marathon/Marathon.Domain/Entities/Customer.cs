@@ -71,7 +71,7 @@ namespace Marathon.Domain.Entities
             var customer = new Customer();
             customer.Id = Guid.NewGuid();
             customer.User = new User();
-            customer.User.Id = Guid.NewGuid();
+            customer.User.Id = request.UserId;
             customer.User.Username = request.EmailAddress;
             customer.User.Password = request.Password;
             customer.User.Role = request.CustomerRole;

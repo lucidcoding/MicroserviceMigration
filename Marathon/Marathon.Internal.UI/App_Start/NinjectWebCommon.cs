@@ -1,5 +1,3 @@
-using Ninject.Web.Mvc.FilterBindingSyntax;
-
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Marathon.Internal.UI.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Marathon.Internal.UI.App_Start.NinjectWebCommon), "Stop")]
 
@@ -20,6 +18,7 @@ namespace Marathon.Internal.UI.App_Start
     using Marathon.Internal.UI.ActionFilters;
     using System.Web.Mvc;
     using Marathon.Domain.InfrastructureContracts;
+    using Ninject.Web.Mvc.FilterBindingSyntax;
 
     public static class NinjectWebCommon 
     {

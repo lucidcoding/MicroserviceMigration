@@ -24,7 +24,7 @@ namespace Marathon.External.UI.ViewModels.Customer
 
         [Required]
         [DataType(DataType.Password)]
-        [Compare("Password")]
+        [System.Web.Mvc.Compare("Password")]
         [DisplayName("Confirm Password")]
         public string ConfirmPassword { get; set; }
 

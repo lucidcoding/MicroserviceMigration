@@ -24,7 +24,7 @@ namespace Marathon.Internal.UI.Extensions
             if (attributes != null && attributes.Length > 0)
                 return attributes[0].Description;
 
-            return enumeration.ToString(CultureInfo.InvariantCulture);
+            return enumeration.ToString();
         }
 
 
