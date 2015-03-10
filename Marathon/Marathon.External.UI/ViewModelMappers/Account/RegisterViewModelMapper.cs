@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Marathon.Domain.RepositoryContracts;
-using Marathon.External.UI.ViewModels.Customer;
+using Marathon.External.UI.ViewModels.Account;
 using Marathon.Domain.Requests;
 using Marathon.Domain.Constants;
 
-namespace Marathon.External.UI.ViewModelMappers.Customer
+namespace Marathon.External.UI.ViewModelMappers.Account
 {
-    public class RegisterViewModelMapper : Marathon.External.UI.ViewModelMappers.Customer.IRegisterViewModelMapper
+    public class RegisterViewModelMapper : Marathon.External.UI.ViewModelMappers.Account.IRegisterViewModelMapper
     {
         private IUserRepository _userRepository;
         private IRoleRepository _roleRepository;

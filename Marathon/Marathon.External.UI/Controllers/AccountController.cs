@@ -11,8 +11,9 @@ using Microsoft.Owin.Security;
 using Marathon.External.UI.Models;
 using Marathon.Domain.RepositoryContracts;
 using Marathon.External.UI.ActionFilters;
-using Marathon.External.UI.ViewModelMappers.Customer;
 using Marathon.Domain.Entities;
+using Marathon.External.UI.ViewModels.Account;
+using Marathon.External.UI.ViewModelMappers.Account;
 
 namespace Marathon.External.UI.Controllers
 {
@@ -22,16 +23,7 @@ namespace Marathon.External.UI.Controllers
         private IRegisterViewModelMapper _registerViewModelMapper;
         private ICustomerRepository _customerRepository;
         private IUserRepository _userRepository;
-
-        //public AccountController()
-        //    : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
-        //{
-        //}
-
-        //public AccountController(UserManager<ApplicationUser> userManager)
-        //{
-        //    UserManager = userManager;
-        //}
+        public UserManager<ApplicationUser> UserManager { get; private set; }
 
         public AccountController(
             IRegisterViewModelMapper registerViewModelMapper,
@@ -44,10 +36,6 @@ namespace Marathon.External.UI.Controllers
             UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
         }
 
-        public UserManager<ApplicationUser> UserManager { get; private set; }
-
-        //
-        // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -95,7 +83,7 @@ namespace Marathon.External.UI.Controllers
 #warning put back
         //[ValidateAntiForgeryToken]
         [EntityFrameworkWriteContext]
-        public async Task<ActionResult> Register(Marathon.External.UI.ViewModels.Customer.RegisterViewModel viewModel)
+        public async Task<ActionResult> Register(RegisterViewModel viewModel)
         {
             var request = _registerViewModelMapper.Map(viewModel);
             var validationMessages = Customer.ValidateRegister(request);
@@ -315,8 +303,9 @@ namespace Marathon.External.UI.Controllers
 
         //
         // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+#warning put back
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();

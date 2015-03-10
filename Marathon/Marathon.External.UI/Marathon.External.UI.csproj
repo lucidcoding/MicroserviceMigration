@@ -212,15 +212,15 @@
     <Compile Include="ViewModelMappers\Booking\IMakeViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Booking\IndexViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Booking\MakeViewModelMapper.cs" />
-    <Compile Include="ViewModelMappers\Customer\IRegisterViewModelMapper.cs" />
-    <Compile Include="ViewModelMappers\Customer\RegisterViewModelMapper.cs" />
+    <Compile Include="ViewModelMappers\Account\IRegisterViewModelMapper.cs" />
+    <Compile Include="ViewModelMappers\Account\RegisterViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Booking\GetPendingForVehicleViewModelMapper.cs" />
     <Compile Include="ViewModelMappers\Booking\IGetPendingForVehicleViewModelMapper.cs" />
     <Compile Include="ViewModels\Booking\IndexViewModel.cs" />
     <Compile Include="ViewModels\Booking\IndexViewModelBooking.cs" />
     <Compile Include="ViewModels\Booking\MakeViewModel.cs" />
-    <Compile Include="ViewModels\Customer\RegisterViewModel.cs" />
-    <Compile Include="ViewModels\Customer\SignInViewModel.cs" />
+    <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\Account\SignInViewModel.cs" />
     <Compile Include="ViewModels\Booking\GetPendingForVehicleViewModel.cs" />
     <None Include="Views\Shared\_ValidationSummary.cshtml" />
   </ItemGroup>
@@ -293,9 +293,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Booking\Make.cshtml" />
-    <Content Include="Views\Customer\Register.cshtml" />
-    <Content Include="Views\Customer\SignIn.cshtml" />
-    <Content Include="Views\Customer\RegisterSuccess.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\RegisterSuccess.cshtml" />
     <Content Include="Views\Booking\MakeSuccess.cshtml" />
     <Content Include="Views\Booking\_PendingForVehicle.cshtml" />
     <Content Include="Views\Booking\Index.cshtml" />

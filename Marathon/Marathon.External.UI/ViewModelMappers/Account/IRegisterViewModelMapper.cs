@@ -1,8 +1,8 @@
 ﻿using System;
 using Marathon.Domain.Requests;
-using Marathon.External.UI.ViewModels.Customer;
+using Marathon.External.UI.ViewModels.Account;
 
-namespace Marathon.External.UI.ViewModelMappers.Customer
+namespace Marathon.External.UI.ViewModelMappers.Account
 {
     public interface IRegisterViewModelMapper
     {

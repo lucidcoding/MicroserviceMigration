@@ -12,7 +12,7 @@ namespace Marathon.External.UI.App_Start
     using Ninject.Web.Common;
     using Marathon.Data.Common;
     using Marathon.Data.Core;
-    using Marathon.External.UI.ViewModelMappers.Customer;
+    using Marathon.External.UI.ViewModelMappers.Account;
     using Marathon.External.UI.ViewModelMappers.Booking;
     using Marathon.External.UI.Security;
     using Marathon.External.UI.ActionFilters;

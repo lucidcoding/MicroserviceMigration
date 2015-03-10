@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using System.ComponentModel;
 using Marathon.External.UI.ValidationAttributes;
 
-namespace Marathon.External.UI.ViewModels.Customer
+namespace Marathon.External.UI.ViewModels.Account
 {
     public class RegisterViewModel
     {

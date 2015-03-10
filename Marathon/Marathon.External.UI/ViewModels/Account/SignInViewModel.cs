@@ -5,7 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
-namespace Marathon.External.UI.ViewModels.Customer
+namespace Marathon.External.UI.ViewModels.Account
 {
     public class SignInViewModel
     {
